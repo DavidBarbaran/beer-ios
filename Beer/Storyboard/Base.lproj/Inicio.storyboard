@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0hj-9w-LMy">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="bira.ttf">
+            <string>Bira-PERSONALUSEONLY</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="Blp-eW-z0m">
+            <objects>
+                <viewController id="0hj-9w-LMy" customClass="SplashViewController" customModule="Beer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="59x-xa-5zz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2J-V7-6ta">
+                                <rect key="frame" x="-13" y="133" width="400" height="400"/>
+                                <color key="backgroundColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="Scg-bz-bv9"/>
+                                    <constraint firstAttribute="width" constant="400" id="Xai-GZ-ALr"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8T-eb-AzT">
+                                <rect key="frame" x="117.5" y="80" width="141.5" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5NZ-sE-YSo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Bira-PERSONALUSEONLY" family="Bira PERSONAL USE ONLY" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="f8T-eb-AzT" firstAttribute="top" secondItem="4Kv-wc-rbI" secondAttribute="top" constant="60" id="bdn-rS-E1H"/>
+                            <constraint firstItem="P2J-V7-6ta" firstAttribute="centerY" secondItem="59x-xa-5zz" secondAttribute="centerY" id="cV6-ft-Iyh"/>
+                            <constraint firstItem="P2J-V7-6ta" firstAttribute="centerX" secondItem="59x-xa-5zz" secondAttribute="centerX" id="j4a-r2-moe"/>
+                            <constraint firstItem="f8T-eb-AzT" firstAttribute="centerX" secondItem="59x-xa-5zz" secondAttribute="centerX" id="tn2-Vi-3Fd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Kv-wc-rbI"/>
+                    </view>
+                    <connections>
+                        <outlet property="animatedView" destination="P2J-V7-6ta" id="Ndr-tn-uiZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="It9-ob-07q" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34" y="66"/>
+        </scene>
+    </scenes>
+</document>

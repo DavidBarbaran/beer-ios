@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let mainvc = UIStoryboard(name: "Inicio", bundle: nil).instantiateInitialViewController()
+        window?.rootViewController = mainvc
+        window?.makeKeyAndVisible()
         return true
     }
 
