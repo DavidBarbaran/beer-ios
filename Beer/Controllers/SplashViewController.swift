@@ -9,7 +9,7 @@
 import UIKit
 import Lottie
 
-class SplashViewController: UIViewController {
+class SplashViewController: UIViewController{
     
     @IBOutlet weak var animatedView: UIView!
     private var boatAnimation: LOTAnimationView?
