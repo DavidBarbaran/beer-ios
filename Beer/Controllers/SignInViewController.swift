@@ -30,7 +30,7 @@ class SignInViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-        
+        scrollView.isScrollEnabled = false
         registerKeyboardNotifications()
     }
     
@@ -65,9 +65,11 @@ class SignInViewController: UIViewController {
         let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
+        scrollView.isScrollEnabled = true
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
+        scrollView.isScrollEnabled = false
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
     }

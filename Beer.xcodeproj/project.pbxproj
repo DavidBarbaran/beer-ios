@@ -18,6 +18,10 @@
 		9149E1CA216D5C8C009186DC /* beer.json in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C9216D5C8C009186DC /* beer.json */; };
 		9149E1CB216D5C95009186DC /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C7216D5C04009186DC /* bira.ttf */; };
 		91DB17582174FC1D00E8FCD6 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */; };
+		91DB175C217508C800E8FCD6 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB175A217508C800E8FCD6 /* ProductCollectionViewCell.swift */; };
+		91DB175D217508C800E8FCD6 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DB175B217508C800E8FCD6 /* ProductCollectionViewCell.xib */; };
+		91DB175F217518A200E8FCD6 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 91DB175E217518A100E8FCD6 /* Images */; };
+		91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB176021751C5C00E8FCD6 /* FileManager.swift */; };
 		B30192B8CE40C22D97C252C5 /* Pods_Beer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72981D302F3CCECA69305643 /* Pods_Beer.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +42,10 @@
 		9149E1C7216D5C04009186DC /* bira.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bira.ttf; sourceTree = "<group>"; };
 		9149E1C9216D5C8C009186DC /* beer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beer.json; sourceTree = "<group>"; };
 		91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
+		91DB175A217508C800E8FCD6 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		91DB175B217508C800E8FCD6 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		91DB175E217518A100E8FCD6 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		91DB176021751C5C00E8FCD6 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +91,13 @@
 			isa = PBXGroup;
 			children = (
 				9149E1AA216D5792009186DC /* AppDelegate.swift */,
+				91DB175E217518A100E8FCD6 /* Images */,
+				91DB1759217508AB00E8FCD6 /* Views */,
 				9149E1BF216D5AB4009186DC /* Storyboard */,
 				9149E1BC216D5A8A009186DC /* Controllers */,
 				9149E1C6216D5BF3009186DC /* Fonts */,
 				9149E1C8216D5C7D009186DC /* Resources */,
+				91DB176021751C5C00E8FCD6 /* FileManager.swift */,
 				9149E1B1216D5796009186DC /* Assets.xcassets */,
 				9149E1B6216D5796009186DC /* Info.plist */,
 			);
@@ -128,6 +139,15 @@
 				9149E1C9216D5C8C009186DC /* beer.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		91DB1759217508AB00E8FCD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91DB175A217508C800E8FCD6 /* ProductCollectionViewCell.swift */,
+				91DB175B217508C800E8FCD6 /* ProductCollectionViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FF46AD7F658EB6877B0E0BA2 /* Frameworks */ = {
@@ -203,6 +223,8 @@
 				9149E1CB216D5C95009186DC /* bira.ttf in Resources */,
 				9149E1B5216D5796009186DC /* LaunchScreen.storyboard in Resources */,
 				9149E1B2216D5796009186DC /* Assets.xcassets in Resources */,
+				91DB175D217508C800E8FCD6 /* ProductCollectionViewCell.xib in Resources */,
+				91DB175F217518A200E8FCD6 /* Images in Resources */,
 				9149E1B0216D5792009186DC /* Inicio.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,12 +257,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Beer/Pods-Beer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GlidingCollection/GlidingCollection.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GlidingCollection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -259,6 +283,8 @@
 			files = (
 				91DB17582174FC1D00E8FCD6 /* BeerViewController.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,
+				91DB175C217508C800E8FCD6 /* ProductCollectionViewCell.swift in Sources */,
+				91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */,
 				9149E1BE216D5A99009186DC /* SplashViewController.swift in Sources */,
 				9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */,
 			);

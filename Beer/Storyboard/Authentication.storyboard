@@ -151,14 +151,19 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqy-pV-B1d" customClass="TransitionButton" customModule="TransitionButton">
                                                 <rect key="frame" x="85.5" y="454" width="204" height="42"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="CxY-rn-uXo"/>
                                                     <constraint firstAttribute="width" constant="204" id="dve-Hg-juY"/>
                                                 </constraints>
                                                 <state key="normal" title="INGRESAR">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                                        <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="signInAction:" destination="zIq-Pt-JR0" eventType="touchUpInside" id="3BO-4Q-eay"/>
                                                 </connections>
@@ -208,7 +213,7 @@
                     <connections>
                         <outlet property="forgotPasswordButton" destination="SHi-IS-F7w" id="Kdi-bV-Lon"/>
                         <outlet property="password" destination="yv8-sO-9S9" id="bY3-c5-IQm"/>
-                        <outlet property="scrollView" destination="4Ia-ID-Smf" id="jrZ-9s-7Zt"/>
+                        <outlet property="scrollView" destination="4Ia-ID-Smf" id="iEE-nw-geF"/>
                         <outlet property="signInButton" destination="pqy-pV-B1d" id="R96-wR-CZf"/>
                         <outlet property="username" destination="iU4-N0-S2i" id="pHc-B7-F8o"/>
                     </connections>
