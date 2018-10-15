@@ -17,6 +17,7 @@
 		9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149E1C4216D5B6F009186DC /* SignInViewController.swift */; };
 		9149E1CA216D5C8C009186DC /* beer.json in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C9216D5C8C009186DC /* beer.json */; };
 		9149E1CB216D5C95009186DC /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C7216D5C04009186DC /* bira.ttf */; };
+		91DB17582174FC1D00E8FCD6 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */; };
 		B30192B8CE40C22D97C252C5 /* Pods_Beer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72981D302F3CCECA69305643 /* Pods_Beer.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		9149E1C4216D5B6F009186DC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9149E1C7216D5C04009186DC /* bira.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bira.ttf; sourceTree = "<group>"; };
 		9149E1C9216D5C8C009186DC /* beer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beer.json; sourceTree = "<group>"; };
+		91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				9149E1BD216D5A99009186DC /* SplashViewController.swift */,
 				9149E1C4216D5B6F009186DC /* SignInViewController.swift */,
+				91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,11 +236,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Beer/Pods-Beer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91DB17582174FC1D00E8FCD6 /* BeerViewController.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,
 				9149E1BE216D5A99009186DC /* SplashViewController.swift in Sources */,
 				9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */,

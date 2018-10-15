@@ -7,6 +7,7 @@
 
 import UIKit
 import TextFieldEffects
+import TransitionButton
 
 class SignInViewController: UIViewController {
 
@@ -26,7 +27,16 @@ class SignInViewController: UIViewController {
         attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1.2, range: NSMakeRange(0, attributedString.length))
         forgotPasswordButton.setAttributedTitle(attributedString, for: .normal)
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        //tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         registerKeyboardNotifications()
+    }
+    
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -61,7 +71,26 @@ class SignInViewController: UIViewController {
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
     }
+    
+    @IBAction func signInAction(_ sender: TransitionButton) {
+        sender.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+3.0) {
+            sender.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.1) {
+                let secondVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeTabBar")
+                self.present(secondVC, animated: true, completion: nil)
+            }
+//            sender.cornerRadius = 10
+//            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.1, completion: {
+//                self.password.text = ""
+//                self.password.becomeFirstResponder()
+//
+//            })
+        }
+    }
+    
 }
+
 
 extension UITextField {
     func putLayer(textField: UITextField) {

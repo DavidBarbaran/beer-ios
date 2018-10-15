@@ -7,5 +7,7 @@ target 'Beer' do
 
   pod 'lottie-ios'
   pod 'TextFieldEffects'
+  pod 'TransitionButton'
+
 
 end

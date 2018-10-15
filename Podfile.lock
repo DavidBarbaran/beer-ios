@@ -1,20 +1,24 @@
 PODS:
   - lottie-ios (2.5.0)
   - TextFieldEffects (1.5.0)
+  - TransitionButton (0.5.1)
 
 DEPENDENCIES:
   - lottie-ios
   - TextFieldEffects
+  - TransitionButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - lottie-ios
     - TextFieldEffects
+    - TransitionButton
 
 SPEC CHECKSUMS:
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   TextFieldEffects: bf9e9cac7cb1a97d632fbcd0724bb6347dd86633
+  TransitionButton: 20f92b3cc726b047e4df200fdab5307f33395a81
 
-PODFILE CHECKSUM: de22b096f7c8ed338e004ae1a6278739b365a242
+PODFILE CHECKSUM: 51d6402374aea80a9d8aa643fd8100f9ae548bd9
 
 COCOAPODS: 1.5.2

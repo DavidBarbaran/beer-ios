@@ -133,7 +133,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,7 +149,7 @@
                                                 </subviews>
                                                 <viewLayoutGuide key="safeArea" id="2PA-ab-8DZ"/>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqy-pV-B1d">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqy-pV-B1d" customClass="TransitionButton" customModule="TransitionButton">
                                                 <rect key="frame" x="85.5" y="454" width="204" height="42"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -160,7 +160,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="0Hr-MF-Xn7" kind="show" id="XNB-DM-7bj"/>
+                                                    <action selector="signInAction:" destination="zIq-Pt-JR0" eventType="touchUpInside" id="3BO-4Q-eay"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -230,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeK-e6-R1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="892"/>
+            <point key="canvasLocation" x="30" y="937"/>
         </scene>
         <!--Home-->
         <scene sceneID="YHO-u6-qQp">
@@ -238,7 +238,7 @@
                 <viewControllerPlaceholder storyboardName="Home" id="0Hr-MF-Xn7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqE-uh-nhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="580"/>
+            <point key="canvasLocation" x="-320" y="509"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GtF-ca-NCu">
@@ -253,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg0-nw-t6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="722" y="124"/>
+            <point key="canvasLocation" x="799" y="124"/>
         </scene>
     </scenes>
     <resources>
