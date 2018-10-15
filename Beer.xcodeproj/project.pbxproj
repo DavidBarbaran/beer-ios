@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910DD96A2170F83F0037B770 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 910DD9692170F83F0037B770 /* Home.storyboard */; };
 		9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149E1AA216D5792009186DC /* AppDelegate.swift */; };
 		9149E1B0216D5792009186DC /* Inicio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1AE216D5792009186DC /* Inicio.storyboard */; };
 		9149E1B2216D5796009186DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1B1216D5796009186DC /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		32BCB63ACB4CF5004209F7E0 /* Pods-Beer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beer/Pods-Beer.release.xcconfig"; sourceTree = "<group>"; };
 		4E6798C329ADD05FEA8B8F4A /* Pods-Beer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beer/Pods-Beer.debug.xcconfig"; sourceTree = "<group>"; };
 		72981D302F3CCECA69305643 /* Pods_Beer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		910DD9692170F83F0037B770 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9149E1A7216D5792009186DC /* Beer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9149E1AA216D5792009186DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9149E1AF216D5792009186DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Inicio.storyboard; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				9149E1AE216D5792009186DC /* Inicio.storyboard */,
 				9149E1B3216D5796009186DC /* LaunchScreen.storyboard */,
 				9149E1C2216D5B50009186DC /* Authentication.storyboard */,
+				910DD9692170F83F0037B770 /* Home.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910DD96A2170F83F0037B770 /* Home.storyboard in Resources */,
 				9149E1CA216D5C8C009186DC /* beer.json in Resources */,
 				9149E1C3216D5B50009186DC /* Authentication.storyboard in Resources */,
 				9149E1CB216D5C95009186DC /* bira.ttf in Resources */,
@@ -228,10 +232,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Beer/Pods-Beer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

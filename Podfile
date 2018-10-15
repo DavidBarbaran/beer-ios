@@ -6,5 +6,6 @@ target 'Beer' do
   use_frameworks!
 
   pod 'lottie-ios'
+  pod 'TextFieldEffects'
 
 end

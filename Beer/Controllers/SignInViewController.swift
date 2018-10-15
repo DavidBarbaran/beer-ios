@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import TextFieldEffects
 
 class SignInViewController: UIViewController {
 
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var username: HoshiTextField!
+    @IBOutlet weak var password: HoshiTextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     
@@ -20,10 +21,6 @@ class SignInViewController: UIViewController {
         signInButton.layer.cornerRadius = 10
         signInButton.layer.borderWidth = 2.0
         signInButton.layer.borderColor = UIColor.white.cgColor
-        usernameTextField.putLayer(textField: usernameTextField)
-        passwordTextField.putLayer(textField: passwordTextField)
-        usernameTextField.customTextField(textField: usernameTextField, placeholderText: "Username")
-        passwordTextField.customTextField(textField: passwordTextField, placeholderText: "Contraseña")
         
         let attributedString = NSMutableAttributedString(string:"¿Olvidaste tu contraseña?")
         attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1.2, range: NSMakeRange(0, attributedString.length))
