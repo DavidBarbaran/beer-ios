@@ -7,6 +7,7 @@
 
 import UIKit
 import GlidingCollection
+import Hero
 
 class BeerViewController: UIViewController {
     
@@ -74,7 +75,7 @@ extension BeerViewController: UICollectionViewDataSource, UICollectionViewDelega
         let image = images[section][indexPath.row]
         cell.productImageView.image = image
         cell.contentView.clipsToBounds = true
-        
+        cell.hero.id = String(indexPath.row)
         let layer = cell.layer
         let config = GlidingConfig.shared
         layer.shadowOffset = config.cardShadowOffset
@@ -92,6 +93,24 @@ extension BeerViewController: UICollectionViewDataSource, UICollectionViewDelega
         let section = glidingView.expandedItemIndex
         let item = indexPath.item
         print("Selected item #\(item) in section #\(section)")
+        
+        let detailVC = storyboard?.instantiateViewController(withIdentifier: "productDetail") as! ProductDetailViewController
+        detailVC.hero.isEnabled = true
+        let image = images[section][indexPath.row]
+        detailVC.contentView.frame = CGRect(x: 30, y: 100, width: 200, height: 300)
+        detailVC.contentView.hero.id = String(indexPath.row)
+        detailVC.contentView.image = image
+        let layer = detailVC.contentView.layer
+        let config = GlidingConfig.shared
+        layer.shadowOffset = config.cardShadowOffset
+        layer.shadowColor = config.cardShadowColor.cgColor
+        layer.shadowOpacity = config.cardShadowOpacity
+        layer.shadowRadius = config.cardShadowRadius
+        
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+         self.navigationController?.pushViewController(detailVC, animated: true)
+        
     }
     
 }

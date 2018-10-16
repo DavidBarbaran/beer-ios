@@ -9,5 +9,6 @@ target 'Beer' do
   pod 'TextFieldEffects'
   pod 'TransitionButton'
   pod 'GlidingCollection'
+  pod 'Hero'
 
 end

@@ -1,11 +1,13 @@
 PODS:
   - GlidingCollection (1.1.0)
+  - Hero (1.3.1)
   - lottie-ios (2.5.0)
   - TextFieldEffects (1.5.0)
   - TransitionButton (0.5.1)
 
 DEPENDENCIES:
   - GlidingCollection
+  - Hero
   - lottie-ios
   - TextFieldEffects
   - TransitionButton
@@ -13,16 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GlidingCollection
+    - Hero
     - lottie-ios
     - TextFieldEffects
     - TransitionButton
 
 SPEC CHECKSUMS:
   GlidingCollection: 2194165075fa7230027049238c9ed724453557e6
+  Hero: 1c3c625ba05856f305d29f5c270f8766c5ff2df7
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   TextFieldEffects: bf9e9cac7cb1a97d632fbcd0724bb6347dd86633
   TransitionButton: 20f92b3cc726b047e4df200fdab5307f33395a81
 
-PODFILE CHECKSUM: 10fd935a745d50f434d7e43cb51c96881bd77384
+PODFILE CHECKSUM: f2f27b0a63414a55d5996eefc709e7a6aa174dae
 
 COCOAPODS: 1.5.2

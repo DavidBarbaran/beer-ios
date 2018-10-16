@@ -17,6 +17,7 @@
 		9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149E1C4216D5B6F009186DC /* SignInViewController.swift */; };
 		9149E1CA216D5C8C009186DC /* beer.json in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C9216D5C8C009186DC /* beer.json */; };
 		9149E1CB216D5C95009186DC /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C7216D5C04009186DC /* bira.ttf */; };
+		918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918797B22176500200A96CE3 /* ProductDetailViewController.swift */; };
 		91DB17582174FC1D00E8FCD6 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */; };
 		91DB175C217508C800E8FCD6 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB175A217508C800E8FCD6 /* ProductCollectionViewCell.swift */; };
 		91DB175D217508C800E8FCD6 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DB175B217508C800E8FCD6 /* ProductCollectionViewCell.xib */; };
@@ -41,6 +42,7 @@
 		9149E1C4216D5B6F009186DC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9149E1C7216D5C04009186DC /* bira.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bira.ttf; sourceTree = "<group>"; };
 		9149E1C9216D5C8C009186DC /* beer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beer.json; sourceTree = "<group>"; };
+		918797B22176500200A96CE3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 		91DB175A217508C800E8FCD6 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		91DB175B217508C800E8FCD6 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				9149E1BD216D5A99009186DC /* SplashViewController.swift */,
 				9149E1C4216D5B6F009186DC /* SignInViewController.swift */,
 				91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */,
+				918797B22176500200A96CE3 /* ProductDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Beer/Pods-Beer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GlidingCollection/GlidingCollection.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
@@ -265,6 +269,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GlidingCollection.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -283,6 +288,7 @@
 			files = (
 				91DB17582174FC1D00E8FCD6 /* BeerViewController.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,
+				918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */,
 				91DB175C217508C800E8FCD6 /* ProductCollectionViewCell.swift in Sources */,
 				91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */,
 				9149E1BE216D5A99009186DC /* SplashViewController.swift in Sources */,

@@ -71,11 +71,37 @@
                     <navigationItem key="navigationItem" id="XZS-kf-lPY"/>
                     <connections>
                         <outlet property="glidingView" destination="2R4-0V-Zig" id="mQD-1t-WYz"/>
+                        <segue destination="Mk5-6h-hbp" kind="show" identifier="showProductDetail" id="ybe-bK-ypt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIF-Vn-22V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244" y="1719.4902548725638"/>
+        </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="Gwa-0G-HyC">
+            <objects>
+                <viewController storyboardIdentifier="productDetail" id="Mk5-6h-hbp" customClass="ProductDetailViewController" customModule="Beer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ydv-wD-Uzf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ens-kX-XLL">
+                                <rect key="frame" x="25" y="37" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backAction:" destination="Mk5-6h-hbp" eventType="touchUpInside" id="jEp-PH-598"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="N2i-bR-cTr"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qo-T3-Shz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1158" y="1719"/>
         </scene>
         <!--Item-->
         <scene sceneID="z2f-hJ-So4">
@@ -103,6 +129,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="wRB-Ey-Pjo" kind="relationship" relationship="rootViewController" id="og3-aZ-N5p"/>
                     </connections>
