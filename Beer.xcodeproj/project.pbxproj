@@ -23,6 +23,9 @@
 		91DB175D217508C800E8FCD6 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DB175B217508C800E8FCD6 /* ProductCollectionViewCell.xib */; };
 		91DB175F217518A200E8FCD6 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 91DB175E217518A100E8FCD6 /* Images */; };
 		91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB176021751C5C00E8FCD6 /* FileManager.swift */; };
+		91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBD1CB2176868000DC1CAB /* BeerAPI.swift */; };
+		91E6525521779B5800BE7DBE /* BeerEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6525421779B5800BE7DBE /* BeerEndPoint.swift */; };
+		91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */; };
 		B30192B8CE40C22D97C252C5 /* Pods_Beer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72981D302F3CCECA69305643 /* Pods_Beer.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,9 @@
 		91DB175B217508C800E8FCD6 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		91DB175E217518A100E8FCD6 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		91DB176021751C5C00E8FCD6 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		91DBD1CB2176868000DC1CAB /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
+		91E6525421779B5800BE7DBE /* BeerEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerEndPoint.swift; sourceTree = "<group>"; };
+		91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				9149E1A9216D5792009186DC /* Beer */,
-				9149E1A8216D5792009186DC /* Products */,
 				25A68E2DA297593BCE690B4E /* Pods */,
 				FF46AD7F658EB6877B0E0BA2 /* Frameworks */,
 			);
@@ -87,13 +92,14 @@
 				9149E1A7216D5792009186DC /* Beer.app */,
 			);
 			name = Products;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		9149E1A9216D5792009186DC /* Beer */ = {
 			isa = PBXGroup;
 			children = (
 				9149E1AA216D5792009186DC /* AppDelegate.swift */,
-				91DB175E217518A100E8FCD6 /* Images */,
+				91DBD1CA2176866C00DC1CAB /* Network */,
 				91DB1759217508AB00E8FCD6 /* Views */,
 				9149E1BF216D5AB4009186DC /* Storyboard */,
 				9149E1BC216D5A8A009186DC /* Controllers */,
@@ -110,9 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				9149E1BD216D5A99009186DC /* SplashViewController.swift */,
-				9149E1C4216D5B6F009186DC /* SignInViewController.swift */,
-				91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */,
-				918797B22176500200A96CE3 /* ProductDetailViewController.swift */,
+				91E7D7E821769A7D00950709 /* Authentication */,
+				91E7D7EB21769A9B00950709 /* Home */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			children = (
 				9149E1AE216D5792009186DC /* Inicio.storyboard */,
 				9149E1B3216D5796009186DC /* LaunchScreen.storyboard */,
+				9149E1A8216D5792009186DC /* Products */,
 				9149E1C2216D5B50009186DC /* Authentication.storyboard */,
 				910DD9692170F83F0037B770 /* Home.storyboard */,
 			);
@@ -139,6 +145,7 @@
 		9149E1C8216D5C7D009186DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				91DB175E217518A100E8FCD6 /* Images */,
 				9149E1C9216D5C8C009186DC /* beer.json */,
 			);
 			path = Resources;
@@ -151,6 +158,33 @@
 				91DB175B217508C800E8FCD6 /* ProductCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		91DBD1CA2176866C00DC1CAB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				91DBD1CB2176868000DC1CAB /* BeerAPI.swift */,
+				91E6525421779B5800BE7DBE /* BeerEndPoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		91E7D7E821769A7D00950709 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				9149E1C4216D5B6F009186DC /* SignInViewController.swift */,
+				91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		91E7D7EB21769A9B00950709 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				91DB17572174FC1D00E8FCD6 /* BeerViewController.swift */,
+				918797B22176500200A96CE3 /* ProductDetailViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		FF46AD7F658EB6877B0E0BA2 /* Frameworks */ = {
@@ -260,16 +294,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Beer/Pods-Beer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GlidingCollection/GlidingCollection.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GlidingCollection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -286,10 +324,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */,
 				91DB17582174FC1D00E8FCD6 /* BeerViewController.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,
 				918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */,
+				91E6525521779B5800BE7DBE /* BeerEndPoint.swift in Sources */,
 				91DB175C217508C800E8FCD6 /* ProductCollectionViewCell.swift in Sources */,
+				91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */,
 				91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */,
 				9149E1BE216D5A99009186DC /* SplashViewController.swift in Sources */,
 				9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */,

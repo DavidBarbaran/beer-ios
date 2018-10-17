@@ -23,8 +23,8 @@ class SplashViewController: UIViewController{
         self.animatedView.addSubview(boatAnimation!)
         boatAnimation?.play(completion: { (finish) in
             if finish {
-                let vc2 = UIStoryboard(name: "Authentication", bundle: nil).instantiateInitialViewController() as! SignInViewController
-                self.present(vc2, animated: true)
+                let vc2 = UIStoryboard(name: "Authentication", bundle: nil).instantiateInitialViewController()
+                self.present(vc2!, animated: true)
             }
         })
         
