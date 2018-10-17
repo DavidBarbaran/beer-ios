@@ -25,6 +25,8 @@
 		91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB176021751C5C00E8FCD6 /* FileManager.swift */; };
 		91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBD1CB2176868000DC1CAB /* BeerAPI.swift */; };
 		91E6525521779B5800BE7DBE /* BeerEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6525421779B5800BE7DBE /* BeerEndPoint.swift */; };
+		91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */; };
+		91E6525A2177DA5B00BE7DBE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E652592177DA5B00BE7DBE /* User.swift */; };
 		91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */; };
 		B30192B8CE40C22D97C252C5 /* Pods_Beer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72981D302F3CCECA69305643 /* Pods_Beer.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,9 @@
 		91DB176021751C5C00E8FCD6 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		91DBD1CB2176868000DC1CAB /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
 		91E6525421779B5800BE7DBE /* BeerEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerEndPoint.swift; sourceTree = "<group>"; };
+		91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		91E652592177DA5B00BE7DBE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		91E6525B2177F6EA00BE7DBE /* Hedwig */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hedwig; sourceTree = "<group>"; };
 		91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +105,7 @@
 			children = (
 				9149E1AA216D5792009186DC /* AppDelegate.swift */,
 				91DBD1CA2176866C00DC1CAB /* Network */,
+				91E652582177DA4800BE7DBE /* Models */,
 				91DB1759217508AB00E8FCD6 /* Views */,
 				9149E1BF216D5AB4009186DC /* Storyboard */,
 				9149E1BC216D5A8A009186DC /* Controllers */,
@@ -169,11 +175,20 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		91E652582177DA4800BE7DBE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				91E652592177DA5B00BE7DBE /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		91E7D7E821769A7D00950709 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				9149E1C4216D5B6F009186DC /* SignInViewController.swift */,
 				91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */,
+				91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -190,6 +205,7 @@
 		FF46AD7F658EB6877B0E0BA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91E6525B2177F6EA00BE7DBE /* Hedwig */,
 				72981D302F3CCECA69305643 /* Pods_Beer.framework */,
 			);
 			name = Frameworks;
@@ -325,12 +341,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */,
+				91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */,
 				91DB17582174FC1D00E8FCD6 /* BeerViewController.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,
 				918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */,
 				91E6525521779B5800BE7DBE /* BeerEndPoint.swift in Sources */,
 				91DB175C217508C800E8FCD6 /* ProductCollectionViewCell.swift in Sources */,
 				91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */,
+				91E6525A2177DA5B00BE7DBE /* User.swift in Sources */,
 				91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */,
 				9149E1BE216D5A99009186DC /* SplashViewController.swift in Sources */,
 				9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */,

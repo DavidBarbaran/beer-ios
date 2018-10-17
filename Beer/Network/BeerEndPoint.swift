@@ -25,8 +25,32 @@ class BeerEndPoint {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
+        }
+    }
+    
+    
+    static func createUser(email: String, birthdate: String, lastname: String, name:String, password: String, completionHandler: @escaping(_ newIdUser: String?, _ error: String?) -> Void){
+        let url = String(format: "\(BeerAPI.baseURL)\(BeerAPI.userURL)")
+        let parameters: [String: Any] = [
+            "email" : email,
+            "birthdate": birthdate,
+            "id" : 0,
+            "lastname" : lastname,
+            "name": name,
+            "password" : password]
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                let data = JSON(response.data!)
+                completionHandler(data.stringValue, nil)
+                print(data)
+            case .failure(let error):
+                print(error.localizedDescription)
+                completionHandler(nil,"No se pudo registrar")
+            }
+
         }
         
     }
+    
 }
