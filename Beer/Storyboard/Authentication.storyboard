@@ -244,7 +244,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DpE-t4-2B6">
-                                                <rect key="frame" x="31" y="90" width="313" height="310"/>
+                                                <rect key="frame" x="31" y="40" width="313" height="440"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KH9-Bu-w9o" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                         <rect key="frame" x="0.0" y="0.0" width="313" height="50"/>
@@ -361,10 +361,57 @@
                                                             <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingChanged" id="i1E-lg-9Oe"/>
                                                         </connections>
                                                     </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Elige tu pregunta de seguridad.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wq6-Pr-7ye" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                        <rect key="frame" x="0.0" y="325" width="313" height="50"/>
+                                                        <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingChanged" id="P9C-00-7OT"/>
+                                                            <action selector="changeQuestionBorder:" destination="ht2-NV-qfZ" eventType="editingChanged" id="nxh-3Q-tP9"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="respuesta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-R2-Iit" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                        <rect key="frame" x="0.0" y="390" width="313" height="50"/>
+                                                        <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingChanged" id="HI2-ee-hdK"/>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WER-0m-RCB" customClass="TransitionButton" customModule="TransitionButton">
-                                                <rect key="frame" x="97.5" y="425" width="180" height="40"/>
+                                                <rect key="frame" x="97.5" y="505" width="180" height="40"/>
                                                 <color key="backgroundColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="4Lj-tM-QBa"/>
@@ -380,7 +427,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="DpE-t4-2B6" firstAttribute="top" secondItem="YsZ-2x-dDt" secondAttribute="top" constant="90" id="4Dh-Ma-JW2"/>
+                                            <constraint firstItem="DpE-t4-2B6" firstAttribute="top" secondItem="YsZ-2x-dDt" secondAttribute="top" constant="40" id="4Dh-Ma-JW2"/>
                                             <constraint firstItem="WER-0m-RCB" firstAttribute="top" secondItem="DpE-t4-2B6" secondAttribute="bottom" constant="25" id="E2j-ui-j8Y"/>
                                             <constraint firstItem="YsZ-2x-dDt" firstAttribute="trailing" secondItem="DpE-t4-2B6" secondAttribute="trailing" constant="31" id="U1R-v7-2Ic"/>
                                             <constraint firstItem="DpE-t4-2B6" firstAttribute="leading" secondItem="YsZ-2x-dDt" secondAttribute="leading" constant="31" id="j9U-nd-wmE"/>
@@ -409,11 +456,13 @@
                         <viewLayoutGuide key="safeArea" id="ZK2-QQ-akY"/>
                     </view>
                     <connections>
+                        <outlet property="answerTextField" destination="jCg-R2-Iit" id="tf4-XZ-oZV"/>
                         <outlet property="dateTextField" destination="cMS-U5-LwS" id="P7m-YV-wr0"/>
                         <outlet property="emailTextField" destination="2kn-YH-ozM" id="yG1-eu-Pkb"/>
                         <outlet property="lastnameTextField" destination="XJs-Ms-3IM" id="Fer-hH-nkB"/>
                         <outlet property="nameTextField" destination="KH9-Bu-w9o" id="Nk4-fc-JN5"/>
                         <outlet property="passwordTextField" destination="Qf1-dC-BeK" id="ef9-cE-8Jb"/>
+                        <outlet property="questionTextField" destination="wq6-Pr-7ye" id="Jkg-xA-hUZ"/>
                         <outlet property="scrollView" destination="BSL-Wa-E8T" id="27f-7y-rym"/>
                         <outlet property="signUpButton" destination="WER-0m-RCB" id="DwX-Ki-qEr"/>
                     </connections>

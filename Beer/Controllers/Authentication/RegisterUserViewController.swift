@@ -20,9 +20,13 @@ class RegisterUserViewController: UIViewController {
     @IBOutlet weak var passwordTextField: HoshiTextField!
     @IBOutlet weak var signUpButton: TransitionButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var questionTextField: HoshiTextField!
+    @IBOutlet weak var answerTextField: HoshiTextField!
     
     
     private var datePicker: UIDatePicker?
+    private var questionPicker: UIPickerView?
+    var allQuestions: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,8 @@ class RegisterUserViewController: UIViewController {
         let tapCloseKeyboard = UITapGestureRecognizer(target: self, action: #selector(closeKeyBoard(_:)))
         view.addGestureRecognizer(tapCloseKeyboard)
         scrollView.isScrollEnabled = false
+        addPicker()
+        getQuestions()
         registerKeyboardNotifications()
     }
     
@@ -72,12 +78,44 @@ class RegisterUserViewController: UIViewController {
         scrollView.scrollIndicatorInsets = .zero
     }
     
+    func getQuestions() {
+        BeerEndPoint.getSecurityQuestions { (secQuestions, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let questions = secQuestions {
+                for questions in questions {
+                    self.allQuestions.append(questions.stringValue)
+                }
+                print(self.allQuestions)
+            }
+        }
+    }
+    
+    func addPicker() {
+        questionPicker = UIPickerView()
+        questionPicker?.showsSelectionIndicator = true
+        questionTextField.inputView = questionPicker
+        questionPicker?.backgroundColor = .white
+        questionPicker!.dataSource = self
+        questionPicker!.delegate = self
+        questionTextField.delegate = self
+        
+        answerTextField.borderActiveColor = .gray
+        answerTextField.borderInactiveColor = .gray
+        answerTextField.placeholderColor = .gray
+        answerTextField.isEnabled = false
+    }
+    
     func addDatePicker() {
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action:#selector(self.changeDatePicker(datepicker:)), for: .valueChanged)
         dateTextField.inputView = datePicker
         datePicker?.backgroundColor = .white
+        
     }
     
     @objc func closeKeyBoard(_ sender: UITapGestureRecognizer) {
@@ -91,6 +129,9 @@ class RegisterUserViewController: UIViewController {
         dateTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         dateTextField.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         dateTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        UIView.animate(withDuration: 0.8) {
+            self.view.endEditing(true)
+        }
         
     }
     
@@ -118,11 +159,16 @@ class RegisterUserViewController: UIViewController {
         sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
     }
     
+    @IBAction func changeQuestionBorder(_ sender: HoshiTextField) {
+        sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+    }
     
     @IBAction func signUpAction(_ sender: TransitionButton) {
         sender.startAnimation()
         
-        if emailTextField.text!.isEmpty && dateTextField.text!.isEmpty && lastnameTextField.text!.isEmpty && nameTextField.text!.isEmpty && passwordTextField.text!.isEmpty {
+        if emailTextField.text!.isEmpty && dateTextField.text!.isEmpty && lastnameTextField.text!.isEmpty && nameTextField.text!.isEmpty && passwordTextField.text!.isEmpty && questionTextField.text!.isEmpty && answerTextField.text!.isEmpty{
             self.configOnErrorStyle(sender: sender, value: 0)
             sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
                 return
@@ -156,18 +202,28 @@ class RegisterUserViewController: UIViewController {
             sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
                 return
             }
+        }else if questionTextField.text!.isEmpty {
+            self.configOnErrorStyle(sender: sender, value: 6)
+            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
+                return
+            }
+        }else if answerTextField.text!.isEmpty {
+            self.configOnErrorStyle(sender: sender, value: 7)
+            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
+                return
+            }
         }else {
-            signUp(email: emailTextField.text!, birthdate: dateTextField.text!, lastname: lastnameTextField.text!, name: nameTextField.text!, password: passwordTextField.text!, button: sender)
+            let user = User.init(name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!)
+            signUp(user: user, button: sender)
         }
     }
     
-    func signUp(email: String, birthdate: String, lastname: String, name: String, password: String, button: TransitionButton) {
-        BeerEndPoint.createUser(email: emailTextField.text!, birthdate: dateTextField.text!, lastname: lastnameTextField.text!, name: nameTextField.text!, password: passwordTextField.text!) { (newKey, error) in
+    func signUp(user: User, button: TransitionButton) {
+        BeerEndPoint.createUser(user: user) { (newKey, error) in
             if let error = error {
                 print(error)
                 return
             }
-            
             if let newKey = newKey {
                 button.stopAnimation()
                 DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
@@ -176,8 +232,11 @@ class RegisterUserViewController: UIViewController {
                     self.lastnameTextField.text! = ""
                     self.nameTextField.text! = ""
                     self.passwordTextField.text! = ""
+                    self.questionTextField.text! = ""
+                    self.answerTextField.text! = ""
                     self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
                     self.signUpButton.clipsToBounds = true
+                    self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
                 })
                 print(newKey)
             }
@@ -224,10 +283,18 @@ class RegisterUserViewController: UIViewController {
             self.nameTextField.borderInactiveColor = .red
             self.nameTextField.borderActiveColor = .red
             self.nameTextField.placeholderColor = .red
-        default:
+        case 5:
             self.passwordTextField.borderInactiveColor = .red
             self.passwordTextField.borderActiveColor = .red
             self.passwordTextField.placeholderColor = .red
+        case 6:
+            self.questionTextField.borderInactiveColor = .red
+            self.questionTextField.borderActiveColor = .red
+            self.questionTextField.placeholderColor = .red
+        default:
+            self.answerTextField.borderInactiveColor = .red
+            self.answerTextField.borderActiveColor = .red
+            self.answerTextField.placeholderColor = .red
         }
         sender.cornerRadius = sender.frame.height/2
         sender.clipsToBounds = true
@@ -247,4 +314,34 @@ extension RegisterUserViewController: UITextFieldDelegate {
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
+}
+
+extension RegisterUserViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return allQuestions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return allQuestions[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        questionTextField.text = allQuestions[row]
+        answerTextField.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        answerTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        answerTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        questionTextField.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        questionTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        questionTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        answerTextField.isEnabled = true
+        UIView.animate(withDuration: 0.8) {
+            self.view.endEditing(true)
+        }
+    }
+    
+    
 }

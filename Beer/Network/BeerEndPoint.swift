@@ -28,16 +28,17 @@ class BeerEndPoint {
         }
     }
     
-    
-    static func createUser(email: String, birthdate: String, lastname: String, name:String, password: String, completionHandler: @escaping(_ newIdUser: String?, _ error: String?) -> Void){
+    static func createUser(user: User, completionHandler: @escaping(_ newIdUser: String?, _ error: String?) -> Void){
         let url = String(format: "\(BeerAPI.baseURL)\(BeerAPI.userURL)")
         let parameters: [String: Any] = [
-            "email" : email,
-            "birthdate": birthdate,
+            "email" : user.email,
+            "birthdate": user.birthdate,
             "id" : 0,
-            "lastname" : lastname,
-            "name": name,
-            "password" : password]
+            "lastname" : user.lastname,
+            "name": user.name,
+            "password" : user.password,
+            "question" : user.question,
+            "answer" : user.answer]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
             switch response.result {
             case .success:
@@ -50,7 +51,20 @@ class BeerEndPoint {
             }
 
         }
-        
     }
+    
+    static func getSecurityQuestions(completionHandler: @escaping(_ questions: [JSON]?, _ error: String?)->Void) {
+        Alamofire.request("\(BeerAPI.baseURL)\(BeerAPI.questionsURL)").responseJSON { (response) in
+            switch response.result {
+            case .success:
+                let data = JSON(response.data!)
+                let questionsArray = data.arrayValue.map({$0["question"]})
+                completionHandler(questionsArray, nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
     
 }

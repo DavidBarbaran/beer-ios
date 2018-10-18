@@ -86,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				9149E1A9216D5792009186DC /* Beer */,
+				9149E1A8216D5792009186DC /* Products */,
 				25A68E2DA297593BCE690B4E /* Pods */,
 				FF46AD7F658EB6877B0E0BA2 /* Frameworks */,
 			);
@@ -97,7 +98,6 @@
 				9149E1A7216D5792009186DC /* Beer.app */,
 			);
 			name = Products;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		9149E1A9216D5792009186DC /* Beer */ = {
@@ -133,7 +133,6 @@
 			children = (
 				9149E1AE216D5792009186DC /* Inicio.storyboard */,
 				9149E1B3216D5796009186DC /* LaunchScreen.storyboard */,
-				9149E1A8216D5792009186DC /* Products */,
 				9149E1C2216D5B50009186DC /* Authentication.storyboard */,
 				910DD9692170F83F0037B770 /* Home.storyboard */,
 			);
