@@ -23,8 +23,16 @@ class SplashViewController: UIViewController{
         self.animatedView.addSubview(boatAnimation!)
         boatAnimation?.play(completion: { (finish) in
             if finish {
-                let vc2 = UIStoryboard(name: "Authentication", bundle: nil).instantiateInitialViewController()
-                self.present(vc2!, animated: true)
+                let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+                if let log = UserDefaults.standard.object(forKey: "login") as? Bool {
+                    if log == false {
+                        let signvc: SignInViewController = storyboard.instantiateInitialViewController() as! SignInViewController
+                        self.present(signvc, animated: true)
+                    }else {
+                        let homevc = UIStoryboard(name: "Home", bundle: nil ).instantiateViewController(withIdentifier: "homeTabBar")
+                        self.present(homevc, animated: true)
+                    }
+                }
             }
         })
         

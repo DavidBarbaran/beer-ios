@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class User {
     var name: String
@@ -24,5 +25,9 @@ class User {
         self.password = password
         self.question = question
         self.answer = answer
+    }
+    
+    static func from(json: JSON) -> User {
+        return User.init(name: json["name"].stringValue, lastname: json["lastname"].stringValue, birthdate: json["birthdate"].stringValue, email: json["email"].stringValue, password: json["password"].stringValue, question: json["question"].stringValue, answer: json["answer"].stringValue)
     }
 }

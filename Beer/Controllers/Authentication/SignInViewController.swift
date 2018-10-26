@@ -19,6 +19,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     
+    var isLogged = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -127,7 +129,7 @@ class SignInViewController: UIViewController {
     
     func signIn(userEmail: String, pass: String, sender: TransitionButton) {
         let email = "%22\(userEmail)%22"
-        BeerEndPoint.loginUser(email: email) { (userKey,pwd, idUser, error) in
+        BeerEndPoint.loginUser(email: email) { (user, error) in
             if let error = error {
                 print(error)
                 sender.cornerRadius = sender.frame.height/2
@@ -137,12 +139,16 @@ class SignInViewController: UIViewController {
                 })
                 return
             }
-            if let _ = userKey, let pwd = pwd, let _ = idUser {
-                if self.password.text! == pwd {
+            
+            if let user = user {
+                if self.password.text! == user.password {
                     DispatchQueue.main.async {
                         sender.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.0) {
                             let secondVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeTabBar")
                             self.present(secondVC, animated: false, completion: nil)
+                            self.isLogged = true
+                            UserDefaults.standard.set(self.isLogged, forKey: "login")
+//                            UserDefaults.standard.set(user, forKey: "user")
                         }
                     }
                 }else {

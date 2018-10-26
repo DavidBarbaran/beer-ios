@@ -14,10 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         let mainvc = UIStoryboard(name: "Inicio", bundle: nil).instantiateInitialViewController()
         window?.rootViewController = mainvc
         window?.makeKeyAndVisible()
+        
         return true
     }
 

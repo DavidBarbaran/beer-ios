@@ -21,6 +21,7 @@
 		9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149E1C4216D5B6F009186DC /* SignInViewController.swift */; };
 		9149E1CA216D5C8C009186DC /* beer.json in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C9216D5C8C009186DC /* beer.json */; };
 		9149E1CB216D5C95009186DC /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C7216D5C04009186DC /* bira.ttf */; };
+		9162C1BE2183C037007C8290 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162C1BD2183C037007C8290 /* ProfileViewController.swift */; };
 		918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918797B22176500200A96CE3 /* ProductDetailViewController.swift */; };
 		91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB176021751C5C00E8FCD6 /* FileManager.swift */; };
 		91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBD1CB2176868000DC1CAB /* BeerAPI.swift */; };
@@ -51,6 +52,7 @@
 		9149E1C4216D5B6F009186DC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9149E1C7216D5C04009186DC /* bira.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bira.ttf; sourceTree = "<group>"; };
 		9149E1C9216D5C8C009186DC /* beer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beer.json; sourceTree = "<group>"; };
+		9162C1BD2183C037007C8290 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		918797B22176500200A96CE3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		91DB176021751C5C00E8FCD6 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		91DBD1CB2176868000DC1CAB /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				9135871621837A85002BB974 /* BeerViewController.swift */,
 				918797B22176500200A96CE3 /* ProductDetailViewController.swift */,
+				9162C1BD2183C037007C8290 /* ProfileViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				91E6525A2177DA5B00BE7DBE /* User.swift in Sources */,
 				91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */,
 				9149E1BE216D5A99009186DC /* SplashViewController.swift in Sources */,
+				9162C1BE2183C037007C8290 /* ProfileViewController.swift in Sources */,
 				9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */,
 				9135871921838138002BB974 /* Product.swift in Sources */,
 			);
