@@ -22,8 +22,8 @@ class Product {
     init(id: Int, name: String, category: String, description: String, image: String, isOffer: Bool, price: Double, offer: Int) {
         self.id = id
         self.name = name
-        self.category = name
-        self.description = name
+        self.category = category
+        self.description = description
         self.image = image
         self.isOffer = isOffer
         self.offer = offer

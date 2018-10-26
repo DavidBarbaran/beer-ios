@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import Hero
 
 class BeerViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -61,6 +62,7 @@ extension BeerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ProductCollectionViewCell
         cell.imagen.sd_setImage(with: URL(string: products[indexPath.row].image), placeholderImage: UIImage(named: "imagen"), options: [.continueInBackground, .progressiveDownload], completed: nil)
+        cell.hero.id = String(indexPath.row)
         cell.layer.cornerRadius = 5
         cell.descuentoView.layer.cornerRadius = 4
         cell.layer.shadowColor = UIColor.lightGray.cgColor
@@ -75,7 +77,24 @@ extension BeerViewController: UICollectionViewDataSource {
         }else {
             cell.descuentoView.isHidden = true
         }
+
+        
         return cell
+    }
+}
+
+extension BeerViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "productDetail") as! ProductDetailViewController
+        let cell = collectionView.cellForItem(at: indexPath) as! ProductCollectionViewCell
+        let image = cell.imagen.image!
+        vc.contentView.hero.id = String(indexPath.row)
+        vc.contentView.image = image
+        vc.contentView.contentMode = .scaleAspectFill
+        vc.contentView.clipsToBounds = true
+        vc.contentView.layer.cornerRadius = 10
+        vc.prodcut = products[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
