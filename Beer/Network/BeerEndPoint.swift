@@ -65,6 +65,23 @@ class BeerEndPoint {
             }
         }
     }
-
     
+    static func getDrinks(completionHandler: @escaping(_ products: [Product]?, _ error: String?) -> Void) {
+        Alamofire.request("\(BeerAPI.baseURL)\(BeerAPI.drinksURL)").responseJSON { (response) in
+            switch response.result {
+            case .success:
+                let data = JSON(response.data!)
+                let keys = data.dictionaryValue.keys
+                var products: [Product] = []
+                for value in keys {
+                    let prod = Product.from(json: data[value])
+                    products.append(prod)
+                }
+                completionHandler(products,nil)
+            case .failure(let error):
+                completionHandler(nil,"No se puede obtener las bebidas\(error.localizedDescription)")
+//                print(error.localizedDescription)
+            }
+        }
+    }
 }

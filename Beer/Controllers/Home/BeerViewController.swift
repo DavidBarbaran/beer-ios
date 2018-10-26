@@ -2,128 +2,85 @@
 //  BeerViewController.swift
 //  Beer
 //
-//  Created by Melanie on 10/15/18.
+//  Created by Melanie on 10/26/18.
 //
 
 import UIKit
-import GlidingCollection
-import Hero
+import SDWebImage
 
 class BeerViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var glidingView: GlidingCollection!
-    fileprivate var collectionView: UICollectionView!
-    fileprivate var items = ["cerveza", "boots"]
-    fileprivate var images: [[UIImage?]] = []
+    private var heights: [CGFloat] = []
+    private var products: [Product]  = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-}
-
-// MARK: - Setup
-extension BeerViewController {
-    
-    func setup() {
-        setupGlidingCollectionView()
-        loadImages()
-    }
-    
-    private func setupGlidingCollectionView() {
-        glidingView.dataSource = self
+        //        for url in urls {
+        //            let url = URL(string: url)
+        //            let data = try? Data(contentsOf: url!)
+        //            images.append(UIImage(data: data!)!)
+        //        }
         
-        let nib = UINib(nibName: "ProductCollectionViewCell", bundle: nil)
-        collectionView = glidingView.collectionView
-        collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = glidingView.backgroundColor
+        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
+            layout.delegate = self
+        }
+        getData()
+        //        collectionView.scrollToItem(at: IndexPath(row: 8, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
     }
     
-    private func loadImages() {
-        for item in items {
-            let imageURLs = FileManager.default.fileUrls(for: "jpeg", fileName: item)
-            var images: [UIImage?] = []
-            for url in imageURLs {
-                guard let data = try? Data(contentsOf: url) else { continue }
-                let image = UIImage(data: data)
-                images.append(image)
+    private func getData() {
+        BeerEndPoint.getDrinks { (receivedProducts, error) in
+            if let error = error {
+                print(error)
+                return
             }
-            self.images.append(images)
+            
+            if let newProducts = receivedProducts {
+                self.products = newProducts
+                self.collectionView.reloadData()
+                for _ in 0..<self.products.count {
+                    self.heights.append(CGFloat.random(in: 130.5...300.0))
+                }                
+            }
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //        collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
+    }
+    
 }
 
-// MARK: - CollectionView 🎛
-extension BeerViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
+extension BeerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let section = glidingView.expandedItemIndex
-        return images[section].count
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ProductCollectionViewCell else { return UICollectionViewCell() }
-        let section = glidingView.expandedItemIndex
-        let image = images[section][indexPath.row]
-        cell.productImageView.image = image
-        cell.contentView.clipsToBounds = true
-        cell.hero.id = String(indexPath.row)
-        let layer = cell.layer
-        let config = GlidingConfig.shared
-        layer.shadowOffset = config.cardShadowOffset
-        layer.shadowColor = config.cardShadowColor.cgColor
-        layer.shadowOpacity = config.cardShadowOpacity
-        layer.shadowRadius = config.cardShadowRadius
-        
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ProductCollectionViewCell
+        cell.imagen.sd_setImage(with: URL(string: products[indexPath.row].image), placeholderImage: UIImage(named: "imagen"), options: [.continueInBackground, .progressiveDownload], completed: nil)
+        cell.layer.cornerRadius = 5
+        cell.descuentoView.layer.cornerRadius = 4
+        cell.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 1)
+        cell.layer.shadowOpacity = 1
+        cell.layer.shadowRadius = 1.0
+        cell.clipsToBounds = false
+        cell.layer.masksToBounds = false
+        cell.nameProductLabel.text = products[indexPath.row].name
+        if products[indexPath.row].isOffer == true && products[indexPath.row].offer > 0{
+            cell.discountLabel.text = "\(products[indexPath.row].offer)%"
+        }else {
+            cell.descuentoView.isHidden = true
+        }
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let section = glidingView.expandedItemIndex
-        let item = indexPath.item
-        print("Selected item #\(item) in section #\(section)")
-        
-        let detailVC = storyboard?.instantiateViewController(withIdentifier: "productDetail") as! ProductDetailViewController
-        detailVC.hero.isEnabled = true
-        let image = images[section][indexPath.row]
-        detailVC.contentView.frame = CGRect(x: 30, y: 100, width: 200, height: 300)
-        detailVC.contentView.hero.id = String(indexPath.row)
-        detailVC.contentView.image = image
-        let layer = detailVC.contentView.layer
-        let config = GlidingConfig.shared
-        layer.shadowOffset = config.cardShadowOffset
-        layer.shadowColor = config.cardShadowColor.cgColor
-        layer.shadowOpacity = config.cardShadowOpacity
-        layer.shadowRadius = config.cardShadowRadius
-        
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
-         self.navigationController?.pushViewController(detailVC, animated: true)
-        
-    }
-    
 }
 
-// MARK: - Gliding Collection 🎢
-extension BeerViewController: GlidingCollectionDatasource {
-    
-    func numberOfItems(in collection: GlidingCollection) -> Int {
-        return items.count
+extension BeerViewController: PinterestLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+        return heights[indexPath.row]
     }
-    
-    func glidingCollection(_ collection: GlidingCollection, itemAtIndex index: Int) -> String {
-        return "☛  " + items[index]
-    }
-    
 }
