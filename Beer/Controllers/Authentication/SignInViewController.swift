@@ -44,11 +44,14 @@ class SignInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = .default
     }
+    
     
     func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(self,

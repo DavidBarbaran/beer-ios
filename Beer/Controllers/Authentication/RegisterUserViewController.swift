@@ -120,19 +120,21 @@ class RegisterUserViewController: UIViewController {
     }
     
     @objc func closeKeyBoard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
+        UIView.animate(withDuration: 0.5) {
+            self.view.endEditing(true)
+        }
     }
     
     @objc func changeDatePicker(datepicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         dateTextField.text = dateFormatter.string(from: datepicker.date)
         dateTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         dateTextField.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         dateTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        UIView.animate(withDuration: 0.8) {
-            self.view.endEditing(true)
-        }
+//        UIView.animate(withDuration: 0.8) {
+//            self.view.endEditing(true)
+//        }
         
     }
     
@@ -369,9 +371,6 @@ extension RegisterUserViewController: UIPickerViewDataSource, UIPickerViewDelega
         questionTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         questionTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         answerTextField.isEnabled = true
-        UIView.animate(withDuration: 0.8) {
-            self.view.endEditing(true)
-        }
     }
 }
 
