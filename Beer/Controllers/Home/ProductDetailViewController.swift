@@ -14,6 +14,7 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productView: UIView!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var discountLabel: UILabel!
     
     let contentView = UIImageView()
     var prodcut: Product?
@@ -32,6 +33,13 @@ class ProductDetailViewController: UIViewController {
             productDescriptionTextView.text = product.description
             amountLabel.text = "S/.\(product.price)"
             categoryLabel.text = product.category
+            
+            if product.isOffer {
+                discountLabel.isHidden = false
+                let totalPrice = product.price - (product.price*Double(product.offer)/100)
+                discountLabel.text = "S/.\(totalPrice)"
+            }
+
         }
         
     }

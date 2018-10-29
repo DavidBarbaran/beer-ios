@@ -10,6 +10,7 @@ import TextFieldEffects
 import Alamofire
 import SwiftyJSON
 import TransitionButton
+import Cloudinary
 
 class RegisterUserViewController: UIViewController {
 
@@ -22,10 +23,12 @@ class RegisterUserViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var questionTextField: HoshiTextField!
     @IBOutlet weak var answerTextField: HoshiTextField!
-    
+    @IBOutlet weak var profileImageVIew: UIImageView!
+    @IBOutlet weak var selectImageButton: UIButton!
     
     private var datePicker: UIDatePicker?
     private var questionPicker: UIPickerView?
+    private var urlProfileImage: String?
     var allQuestions: [String] = []
     
     override func viewDidLoad() {
@@ -36,7 +39,7 @@ class RegisterUserViewController: UIViewController {
         addDatePicker()
         let tapCloseKeyboard = UITapGestureRecognizer(target: self, action: #selector(closeKeyBoard(_:)))
         view.addGestureRecognizer(tapCloseKeyboard)
-        scrollView.isScrollEnabled = false
+        
         addPicker()
         getQuestions()
         registerKeyboardNotifications()
@@ -73,7 +76,6 @@ class RegisterUserViewController: UIViewController {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        scrollView.isScrollEnabled = false
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
     }
@@ -89,7 +91,6 @@ class RegisterUserViewController: UIViewController {
                 for questions in questions {
                     self.allQuestions.append(questions.stringValue)
                 }
-                print(self.allQuestions)
             }
         }
     }
@@ -167,6 +168,14 @@ class RegisterUserViewController: UIViewController {
     
     @IBAction func signUpAction(_ sender: TransitionButton) {
         sender.startAnimation()
+        guard let userUrlImage = urlProfileImage else {
+            self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
+            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
+                self.selectImageButton.setTitleColor(.red, for: .normal)
+            }
+            return
+        }
+        
         
         if emailTextField.text!.isEmpty && dateTextField.text!.isEmpty && lastnameTextField.text!.isEmpty && nameTextField.text!.isEmpty && passwordTextField.text!.isEmpty && questionTextField.text!.isEmpty && answerTextField.text!.isEmpty{
             self.configOnErrorStyle(sender: sender, value: 0)
@@ -213,9 +222,16 @@ class RegisterUserViewController: UIViewController {
                 return
             }
         }else {
-            let user = User.init(name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!)
+            let user = User.init(name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
             signUp(user: user, button: sender)
         }
+    }
+    
+    @IBAction func selectImage(_ sender: Any) {
+        let imageVC = UIImagePickerController()
+        imageVC.delegate = self
+        imageVC.sourceType = UIImagePickerController.SourceType.photoLibrary
+        self.present(imageVC, animated: true)
     }
     
     func signUp(user: User, button: TransitionButton) {
@@ -234,6 +250,8 @@ class RegisterUserViewController: UIViewController {
                     self.passwordTextField.text! = ""
                     self.questionTextField.text! = ""
                     self.answerTextField.text! = ""
+                    self.selectImageButton.setTitleColor(self.selectImageButton.tintColor, for: .normal)
+                    self.profileImageVIew.image = UIImage()
                     self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
                     self.signUpButton.clipsToBounds = true
                     self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
@@ -302,6 +320,19 @@ class RegisterUserViewController: UIViewController {
         sender.setTitle("REGISTRAR", for: .selected)
         sender.setTitle("REGISTRAR", for: .normal)
     }
+    
+    func uploadImage(profileImage: UIImage) {
+        let config = CLDConfiguration(cloudName: "dh47myzjn", apiKey: "122312343553885", apiSecret: "2lLvTKbJOU4cm7eOgd-LvOP5Cbk")
+        let cloudinary = CLDCloudinary(configuration: config)
+        
+        let data = UIImagePNGRepresentation(profileImage)
+        
+        cloudinary.createUploader().upload(data: data!, uploadPreset: "nqo50tbr").response { (result, error) in
+            if let result = result {
+                self.urlProfileImage = result.url!
+            }
+        }
+    }
 
 
 }
@@ -342,6 +373,17 @@ extension RegisterUserViewController: UIPickerViewDataSource, UIPickerViewDelega
             self.view.endEditing(true)
         }
     }
-    
-    
+}
+
+extension RegisterUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            return
+        }
+        profileImageVIew.image = image
+        self.dismiss(animated: true, completion: {
+            self.uploadImage(profileImage: image)
+            self.selectImageButton.setTitleColor(self.selectImageButton.tintColor, for: .normal)
+        })
+    }
 }

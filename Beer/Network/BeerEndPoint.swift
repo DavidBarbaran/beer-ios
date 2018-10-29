@@ -39,7 +39,8 @@ class BeerEndPoint {
             "name": user.name,
             "password" : user.password,
             "question" : user.question,
-            "answer" : user.answer]
+            "answer" : user.answer,
+            "urlImage": user.urlImage]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
             switch response.result {
             case .success:

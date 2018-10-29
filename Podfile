@@ -11,6 +11,7 @@ target 'Beer' do
   pod 'SDWebImage', '~> 4.0'
   pod 'Hero'
   pod 'Alamofire', '~> 4.7'
-  pod 'SwiftyJSON', '~> 4.0' 
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Cloudinary', '~> 2.0' 
 
 end

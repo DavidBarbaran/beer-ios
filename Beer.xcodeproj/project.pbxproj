@@ -23,8 +23,6 @@
 		9149E1CB216D5C95009186DC /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C7216D5C04009186DC /* bira.ttf */; };
 		9162C1BE2183C037007C8290 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162C1BD2183C037007C8290 /* ProfileViewController.swift */; };
 		918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918797B22176500200A96CE3 /* ProductDetailViewController.swift */; };
-		91C4DD5C21875F2300E82691 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C4DD5B21875F2300E82691 /* Preference.swift */; };
-		91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DB176021751C5C00E8FCD6 /* FileManager.swift */; };
 		91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBD1CB2176868000DC1CAB /* BeerAPI.swift */; };
 		91E6525521779B5800BE7DBE /* BeerEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6525421779B5800BE7DBE /* BeerEndPoint.swift */; };
 		91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */; };
@@ -55,8 +53,6 @@
 		9149E1C9216D5C8C009186DC /* beer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beer.json; sourceTree = "<group>"; };
 		9162C1BD2183C037007C8290 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		918797B22176500200A96CE3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
-		91C4DD5B21875F2300E82691 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
-		91DB176021751C5C00E8FCD6 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		91DBD1CB2176868000DC1CAB /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
 		91E6525421779B5800BE7DBE /* BeerEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerEndPoint.swift; sourceTree = "<group>"; };
 		91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				9149E1AA216D5792009186DC /* AppDelegate.swift */,
-				91C4DD5921875EFB00E82691 /* Storage */,
 				91DBD1CA2176866C00DC1CAB /* Network */,
 				91E652582177DA4800BE7DBE /* Models */,
 				91DB1759217508AB00E8FCD6 /* Views */,
@@ -132,7 +127,6 @@
 				9149E1BC216D5A8A009186DC /* Controllers */,
 				9149E1C6216D5BF3009186DC /* Fonts */,
 				9149E1C8216D5C7D009186DC /* Resources */,
-				91DB176021751C5C00E8FCD6 /* FileManager.swift */,
 				9149E1B1216D5796009186DC /* Assets.xcassets */,
 				9149E1B6216D5796009186DC /* Info.plist */,
 			);
@@ -174,14 +168,6 @@
 				9149E1C9216D5C8C009186DC /* beer.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		91C4DD5921875EFB00E82691 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				91C4DD5B21875F2300E82691 /* Preference.swift */,
-			);
-			path = Storage;
 			sourceTree = "<group>";
 		};
 		91DB1759217508AB00E8FCD6 /* Views */ = {
@@ -338,6 +324,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Beer/Pods-Beer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -348,6 +335,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -377,8 +365,6 @@
 				9135871521837A03002BB974 /* ProductCollectionViewCell.swift in Sources */,
 				91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */,
 				91E6525A2177DA5B00BE7DBE /* User.swift in Sources */,
-				91C4DD5C21875F2300E82691 /* Preference.swift in Sources */,
-				91DB176121751C5C00E8FCD6 /* FileManager.swift in Sources */,
 				9149E1BE216D5A99009186DC /* SplashViewController.swift in Sources */,
 				9162C1BE2183C037007C8290 /* ProfileViewController.swift in Sources */,
 				9149E1C5216D5B6F009186DC /* SignInViewController.swift in Sources */,

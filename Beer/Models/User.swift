@@ -16,8 +16,9 @@ class User {
     var password: String
     var question: String
     var answer: String
+    var urlImage: String
     
-    init(name: String, lastname:String, birthdate:String, email:String, password:String, question: String, answer: String) {
+    init(name: String, lastname:String, birthdate:String, email:String, password:String, question: String, answer: String, urlImage: String) {
         self.name = name
         self.lastname = lastname
         self.birthdate = birthdate
@@ -25,9 +26,10 @@ class User {
         self.password = password
         self.question = question
         self.answer = answer
+        self.urlImage = urlImage
     }
     
     static func from(json: JSON) -> User {
-        return User.init(name: json["name"].stringValue, lastname: json["lastname"].stringValue, birthdate: json["birthdate"].stringValue, email: json["email"].stringValue, password: json["password"].stringValue, question: json["question"].stringValue, answer: json["answer"].stringValue)
+        return User.init(name: json["name"].stringValue, lastname: json["lastname"].stringValue, birthdate: json["birthdate"].stringValue, email: json["email"].stringValue, password: json["password"].stringValue, question: json["question"].stringValue, answer: json["answer"].stringValue, urlImage: json["urlImage"].stringValue)
     }
 }
