@@ -26,8 +26,8 @@ class SplashViewController: UIViewController{
                 let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
                 if let log = UserDefaults.standard.object(forKey: "login") as? Bool {
                     if log == false {
-                        let signvc: SignInViewController = storyboard.instantiateInitialViewController() as! SignInViewController
-                        self.present(signvc, animated: true)
+                        let signvc = storyboard.instantiateInitialViewController()
+                        self.present(signvc!, animated: true)
                     }else {
                         let homevc = UIStoryboard(name: "Home", bundle: nil ).instantiateViewController(withIdentifier: "homeTabBar")
                         self.present(homevc, animated: true)

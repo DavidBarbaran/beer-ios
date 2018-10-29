@@ -148,6 +148,9 @@ class SignInViewController: UIViewController {
                             self.present(secondVC, animated: false, completion: nil)
                             self.isLogged = true
                             UserDefaults.standard.set(self.isLogged, forKey: "login")
+                            userPreference.sharedInstance.userName = user.name
+                            userPreference.sharedInstance.userLastname = user.lastname
+                            userPreference.sharedInstance.userDate = user.birthdate
 //                            UserDefaults.standard.set(user, forKey: "user")
                         }
                     }

@@ -9,9 +9,18 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var lastnameLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        if let username = userPreference.sharedInstance.userName , let birthday = userPreference.sharedInstance.userDate, let lastname = userPreference.sharedInstance.userName {
+            usernameLabel.text = username
+            birthdayLabel.text = birthday
+            lastnameLabel.text = lastname
+        }
     }
     
     @IBAction func closeSessionAction(_ sender: Any) {
@@ -21,7 +30,4 @@ class ProfileViewController: UIViewController {
         self.present(signInvc!, animated: true)
         
     }
-    
-    
-
 }
