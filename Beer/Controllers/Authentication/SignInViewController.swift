@@ -155,7 +155,7 @@ class SignInViewController: UIViewController {
     }
     
     func signIn(userEmail: String, pass: String, sender: TransitionButton) {
-        let email = "%22\(userEmail)%22"
+        let email = "%22\(userEmail)"
         BeerEndPoint.loginUser(email: email) { (user, error) in
             if let error = error {
                 print(error)

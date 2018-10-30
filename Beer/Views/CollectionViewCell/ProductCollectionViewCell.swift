@@ -19,4 +19,5 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.containerView.layer.masksToBounds  = true
     }
     
+    
 }

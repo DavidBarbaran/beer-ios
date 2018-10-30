@@ -54,10 +54,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="foy-F4-OlW">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="foy-F4-OlW">
                                 <rect key="frame" x="0.0" y="70" width="375" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="GOk-00-xD1" customClass="PinterestLayout" customModule="Beer" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="8W7-pj-8jq" customClass="PinterestLayout" customModule="Beer" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="DJK-RR-esc" customClass="ProductCollectionViewCell" customModule="Beer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="166" height="156"/>
@@ -178,7 +178,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="P0D-0r-CBq">
                                         <rect key="frame" x="30" y="60.5" width="315" height="96"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svo-ic-UEo">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svo-ic-UEo">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
                                                 <state key="normal" title="Todos">
                                                     <color key="titleColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -188,7 +188,7 @@
                                                     <action selector="selectCategoryAction:" destination="wRB-Ey-Pjo" eventType="touchUpInside" id="y8P-kn-0Kl"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqC-oS-so5">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqC-oS-so5">
                                                 <rect key="frame" x="0.0" y="33" width="315" height="30"/>
                                                 <state key="normal" title="Cerveza">
                                                     <color key="titleColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -197,7 +197,7 @@
                                                     <action selector="selectCategoryAction:" destination="wRB-Ey-Pjo" eventType="touchUpInside" id="bYP-LB-rdk"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUn-6s-UXC">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUn-6s-UXC">
                                                 <rect key="frame" x="0.0" y="66" width="315" height="30"/>
                                                 <state key="normal" title="Licor">
                                                     <color key="titleColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -21,6 +21,7 @@ class BeerViewController: UIViewController {
     private var products: [Product]  = []
     private let newProductButton = SSBadgeButton()
     var productsOnCar = 5
+    private var categoryFilter = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +55,7 @@ class BeerViewController: UIViewController {
         }
         
         productsOnCartButton.addSubview(newProductButton)
-        
-        
         //        collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
-        
     }
     
     private func getData() {
@@ -99,10 +97,40 @@ class BeerViewController: UIViewController {
         }, completion: { finish in
             if finish {
              self.selectCategoryButton.setTitle(sender.titleLabel?.text, for: .normal)
-//             self.collectionView.reloadData()
+                switch sender.tag {
+                case 1 :
+                    self.getData()
+                case 2 :
+                    self.getDrinksByFilter(filter: "%22beer%22")
+                default:
+                    self.getDrinksByFilter(filter: "%22liqueur%22")
+                }
+
             }
         })
     }
+    
+    private func getDrinksByFilter(filter: String) {
+        BeerEndPoint.getDrinks(withFilter: filter, completionHandler: { (productsByFilter, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            if let newProducts = productsByFilter {
+                DispatchQueue.main.async {
+                    self.products.removeAll()
+                    self.heights.removeAll()
+                    self.products = newProducts
+                    for _ in 0..<self.products.count {
+                        self.heights.append(CGFloat.random(in: 130.5...300.0))
+                    }
+                    self.collectionView.reloadData()
+                }
+            }
+        })
+        
+    }
+
     
     @IBAction func showProductsOnCartAction(_ sender: Any) {
         
@@ -130,6 +158,7 @@ extension BeerViewController: UICollectionViewDataSource {
         cell.nameProductLabel.text = products[indexPath.row].name
         if products[indexPath.row].isOffer == true && products[indexPath.row].offer > 0{
             cell.discountLabel.text = "\(products[indexPath.row].offer)%"
+            cell.descuentoView.isHidden = false
         }else {
             cell.descuentoView.isHidden = true
         }
