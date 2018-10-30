@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
             lastnameLabel.text = user["lastname"]
             birthdayLabel.text = user["birthdate"]
             emailLabel.text = user["email"]
-            
+
             let url = URL(string: user["urlImage"]!)
             let data = try? Data(contentsOf: url!)
             userImageView.image = UIImage(data: data!)

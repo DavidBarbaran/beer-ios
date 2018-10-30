@@ -23,6 +23,7 @@
 		9149E1CB216D5C95009186DC /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C7216D5C04009186DC /* bira.ttf */; };
 		9162C1BE2183C037007C8290 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162C1BD2183C037007C8290 /* ProfileViewController.swift */; };
 		918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918797B22176500200A96CE3 /* ProductDetailViewController.swift */; };
+		91D48EB02188B3E9007D91F5 /* SSBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48EAF2188B3E8007D91F5 /* SSBadgeButton.swift */; };
 		91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBD1CB2176868000DC1CAB /* BeerAPI.swift */; };
 		91E6525521779B5800BE7DBE /* BeerEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6525421779B5800BE7DBE /* BeerEndPoint.swift */; };
 		91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */; };
@@ -53,6 +54,7 @@
 		9149E1C9216D5C8C009186DC /* beer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beer.json; sourceTree = "<group>"; };
 		9162C1BD2183C037007C8290 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		918797B22176500200A96CE3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		91D48EAF2188B3E8007D91F5 /* SSBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSBadgeButton.swift; sourceTree = "<group>"; };
 		91DBD1CB2176868000DC1CAB /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
 		91E6525421779B5800BE7DBE /* BeerEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerEndPoint.swift; sourceTree = "<group>"; };
 		91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
@@ -170,9 +172,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		91D48EAE2188B3DD007D91F5 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				91D48EAF2188B3E8007D91F5 /* SSBadgeButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		91DB1759217508AB00E8FCD6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91D48EAE2188B3DD007D91F5 /* Buttons */,
 				9135871321837980002BB974 /* CollectionViewCell */,
 				9135870F218372E1002BB974 /* Views */,
 			);
@@ -357,6 +368,7 @@
 			files = (
 				9135871721837A85002BB974 /* BeerViewController.swift in Sources */,
 				91358712218377A4002BB974 /* PinterestLayout.swift in Sources */,
+				91D48EB02188B3E9007D91F5 /* SSBadgeButton.swift in Sources */,
 				91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */,
 				91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,

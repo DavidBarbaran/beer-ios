@@ -15,19 +15,34 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var discountLabel: UILabel!
+    @IBOutlet weak var addProductButton: UIButton!
+    @IBOutlet weak var newProductButton: UIButton!
+    @IBOutlet weak var decreaseProductButton: UIButton!
+    @IBOutlet weak var cantProductLabel: UILabel!
     
     let contentView = UIImageView()
+    private var productCount = Int()
+//    let newProductButton = SSBadgeButton()
     var prodcut: Product?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        contentView.layer.cornerRadius = 10
-//        contentView.layer.masksToBounds = false
+
         contentView.frame = CGRect(x: 0, y: 0, width: productView.bounds.width, height: productView.bounds.height)
         view.addSubview(contentView)
         productView.addSubview(contentView)
         productView.layer.cornerRadius = 10
+        
+//        addProductButton.layer.cornerRadius = addProductButton.bounds.width/2.0
+//        addProductButton.layer.shadowColor = UIColor.lightGray.cgColor
+//        addProductButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+//        addProductButton.layer.shadowOpacity = 1
+//        addProductButton.layer.shadowRadius = 1.0
+//        addProductButton.clipsToBounds = false
+//        addProductButton.layer.masksToBounds = false
+        
+        configBadgeButton()
         
         if let product = prodcut {
             productDescriptionTextView.text = product.description
@@ -49,7 +64,38 @@ class ProductDetailViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    private func configBadgeButton() {
+//        newProductButton.frame.size.height = 20
+//        newProductButton.frame.size.width = 20
+//        newProductButton.badgeEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -60, right: -45)
+    }
+    
+    
+    @IBAction func addNewProductAction(_ sender: UIButton) {
+        productCount+=1
+        cantProductLabel.text = "\(productCount)"
+        
+//        if productCount == 0 {
+//            newProductButton.badgeLabel.isHidden = true
+//        }else {
+//            newProductButton.badge = "\(productCount)"
+//        }
+//
+//        addProductButton.addSubview(newProductButton)
+    }
+    
+    @IBAction func decreaseProductAction(_ sender: UIButton) {
+        if productCount == 0 {
+            return
+        }
+        productCount-=1
+        cantProductLabel.text = "\(productCount)"
+    }
+    
+    
     @IBAction func backAction(_ sender: Any) {
        self.navigationController?.popViewController(animated: true)
     }
+    
+    
 }

@@ -20,7 +20,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var forgotPasswordButton: UIButton!
     
     var isLogged = false
-    
+    var button = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +39,15 @@ class SignInViewController: UIViewController {
         scrollView.isScrollEnabled = false
         registerKeyboardNotifications()
         
+        button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "ic_view"), for: .normal)
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, -16, 0, 0)
+        button.frame = CGRect(x: CGFloat(password.frame.size.width - 25), y: CGFloat(5), width: CGFloat(20), height: CGFloat(12))
+        button.addTarget(self, action: #selector(self.showPassword), for: .touchUpInside)
+        password.rightView = button
+        password.rightViewMode = .always
+        password.bringSubview(toFront: button)
+        view.bringSubview(toFront: button)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +59,21 @@ class SignInViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.shared.statusBarStyle = .default
+    }
+    
+    @objc func showPassword() {
+        if !(password.text?.isEmpty)! {
+            password.isSecureTextEntry = !password.isSecureTextEntry
+//            if password.isSecureTextEntry {
+//            button.setImage(UIImage(named: "ic_hide"), for: .normal)
+//            }else {
+//                button.setImage(UIImage(named: "ic_view"), for: .normal)
+//            }
+        }
+        if password.isSecureTextEntry, let text = password.text {
+            password.text?.removeAll()
+            password.insertText(text)
+        }
     }
     
     

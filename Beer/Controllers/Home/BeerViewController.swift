@@ -11,9 +11,16 @@ import Hero
 
 class BeerViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var productsOnCartButton: UIButton!
+    @IBOutlet weak var categoriesView: UIView!
+    @IBOutlet weak var customViewBottonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var blurView: UIView!
+    @IBOutlet weak var selectCategoryButton: UIButton!
     
     private var heights: [CGFloat] = []
     private var products: [Product]  = []
+    private let newProductButton = SSBadgeButton()
+    var productsOnCar = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +30,34 @@ class BeerViewController: UIViewController {
         //            images.append(UIImage(data: data!)!)
         //        }
         
+        productsOnCartButton.layer.cornerRadius = productsOnCartButton.bounds.width/2.0
+        productsOnCartButton.layer.shadowColor = UIColor.lightGray.cgColor
+        productsOnCartButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        productsOnCartButton.layer.shadowOpacity = 1
+        productsOnCartButton.layer.shadowRadius = 1.0
+        self.view.bringSubview(toFront: categoriesView)
+        configBadgeButton()
+        
         if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
         getData()
         //        collectionView.scrollToItem(at: IndexPath(row: 8, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if productsOnCar == 0 {
+            newProductButton.badgeLabel.isHidden = true
+        }else {
+            newProductButton.badge = "\(productsOnCar)"
+        }
+        
+        productsOnCartButton.addSubview(newProductButton)
+        
+        
+        //        collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
+        
     }
     
     private func getData() {
@@ -47,9 +77,35 @@ class BeerViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //        collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
+    private func configBadgeButton() {
+        newProductButton.frame.size.height = 20
+        newProductButton.frame.size.width = 20
+        newProductButton.badgeEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -60, right: -45)
+    }
+    
+    @IBAction func showCategoriesViewAction(_ sender: UIButton) {
+        self.blurView.isHidden = false
+        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseIn, animations: {
+            self.customViewBottonConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    @IBAction func selectCategoryAction(_ sender: UIButton) {
+        self.blurView.isHidden = true
+        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseIn, animations: {
+            self.customViewBottonConstraint.constant = -(self.categoriesView.frame.size.height+50)
+            self.view.layoutIfNeeded()
+        }, completion: { finish in
+            if finish {
+             self.selectCategoryButton.setTitle(sender.titleLabel?.text, for: .normal)
+//             self.collectionView.reloadData()
+            }
+        })
+    }
+    
+    @IBAction func showProductsOnCartAction(_ sender: Any) {
+        
     }
     
 }
@@ -77,10 +133,9 @@ extension BeerViewController: UICollectionViewDataSource {
         }else {
             cell.descuentoView.isHidden = true
         }
-
-        
         return cell
     }
+    
 }
 
 extension BeerViewController: UICollectionViewDelegate {

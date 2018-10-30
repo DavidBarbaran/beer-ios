@@ -15,6 +15,7 @@ class BeerAPI {
     static let loginURL = "user.json?print=pretty&orderBy=%22email%22&equalTo="
     static let questionsURL = "security_questions.json"
     static let drinksURL = "drink.json"
+
 //    https://beer-a2751.firebaseio.com/security_questions.json
 }
 
