@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		910DD96A2170F83F0037B770 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 910DD9692170F83F0037B770 /* Home.storyboard */; };
+		912523BC218A096B0043EB38 /* CartProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912523BA218A096B0043EB38 /* CartProductsCollectionViewCell.swift */; };
+		912523BD218A096B0043EB38 /* CartProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 912523BB218A096B0043EB38 /* CartProductsCollectionViewCell.xib */; };
+		912523BF218A0AF00043EB38 /* CartProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912523BE218A0AF00043EB38 /* CartProductsViewController.swift */; };
+		912523C4218A119D0043EB38 /* quicksand_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 912523C1218A119A0043EB38 /* quicksand_bold.ttf */; };
+		912523C5218A119F0043EB38 /* quicksand_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 912523C3218A119A0043EB38 /* quicksand_medium.ttf */; };
+		912523C6218A11A10043EB38 /* quicksand_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 912523C0218A11990043EB38 /* quicksand_light.ttf */; };
+		912523C7218A11A30043EB38 /* quicksand_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 912523C2218A119A0043EB38 /* quicksand_regular.ttf */; };
 		91358712218377A4002BB974 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91358711218377A3002BB974 /* PinterestLayout.swift */; };
 		9135871521837A03002BB974 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135871421837A03002BB974 /* ProductCollectionViewCell.swift */; };
 		9135871721837A85002BB974 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135871621837A85002BB974 /* BeerViewController.swift */; };
@@ -37,6 +44,13 @@
 		4E6798C329ADD05FEA8B8F4A /* Pods-Beer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beer/Pods-Beer.debug.xcconfig"; sourceTree = "<group>"; };
 		72981D302F3CCECA69305643 /* Pods_Beer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		910DD9692170F83F0037B770 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		912523BA218A096B0043EB38 /* CartProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		912523BB218A096B0043EB38 /* CartProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartProductsCollectionViewCell.xib; sourceTree = "<group>"; };
+		912523BE218A0AF00043EB38 /* CartProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductsViewController.swift; sourceTree = "<group>"; };
+		912523C0218A11990043EB38 /* quicksand_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quicksand_light.ttf; sourceTree = "<group>"; };
+		912523C1218A119A0043EB38 /* quicksand_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quicksand_bold.ttf; sourceTree = "<group>"; };
+		912523C2218A119A0043EB38 /* quicksand_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quicksand_regular.ttf; sourceTree = "<group>"; };
+		912523C3218A119A0043EB38 /* quicksand_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quicksand_medium.ttf; sourceTree = "<group>"; };
 		91358711218377A3002BB974 /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		9135871421837A03002BB974 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		9135871621837A85002BB974 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				9135871421837A03002BB974 /* ProductCollectionViewCell.swift */,
+				912523BA218A096B0043EB38 /* CartProductsCollectionViewCell.swift */,
+				912523BB218A096B0043EB38 /* CartProductsCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -159,6 +175,10 @@
 		9149E1C6216D5BF3009186DC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				912523C1218A119A0043EB38 /* quicksand_bold.ttf */,
+				912523C0218A11990043EB38 /* quicksand_light.ttf */,
+				912523C3218A119A0043EB38 /* quicksand_medium.ttf */,
+				912523C2218A119A0043EB38 /* quicksand_regular.ttf */,
 				9149E1C7216D5C04009186DC /* bira.ttf */,
 			);
 			path = Fonts;
@@ -224,6 +244,7 @@
 				9135871621837A85002BB974 /* BeerViewController.swift */,
 				918797B22176500200A96CE3 /* ProductDetailViewController.swift */,
 				9162C1BD2183C037007C8290 /* ProfileViewController.swift */,
+				912523BE218A0AF00043EB38 /* CartProductsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -296,6 +317,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				912523BD218A096B0043EB38 /* CartProductsCollectionViewCell.xib in Resources */,
+				912523C7218A11A30043EB38 /* quicksand_regular.ttf in Resources */,
+				912523C5218A119F0043EB38 /* quicksand_medium.ttf in Resources */,
+				912523C6218A11A10043EB38 /* quicksand_light.ttf in Resources */,
+				912523C4218A119D0043EB38 /* quicksand_bold.ttf in Resources */,
 				910DD96A2170F83F0037B770 /* Home.storyboard in Resources */,
 				9149E1CA216D5C8C009186DC /* beer.json in Resources */,
 				9149E1C3216D5B50009186DC /* Authentication.storyboard in Resources */,
@@ -367,9 +393,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9135871721837A85002BB974 /* BeerViewController.swift in Sources */,
+				912523BF218A0AF00043EB38 /* CartProductsViewController.swift in Sources */,
 				91358712218377A4002BB974 /* PinterestLayout.swift in Sources */,
 				91D48EB02188B3E9007D91F5 /* SSBadgeButton.swift in Sources */,
 				91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */,
+				912523BC218A096B0043EB38 /* CartProductsCollectionViewCell.swift in Sources */,
 				91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,
 				918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */,

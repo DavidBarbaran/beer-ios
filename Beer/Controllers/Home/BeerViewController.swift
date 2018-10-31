@@ -125,6 +125,7 @@ class BeerViewController: UIViewController {
                         self.heights.append(CGFloat.random(in: 130.5...300.0))
                     }
                     self.collectionView.reloadData()
+                    self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
                 }
             }
         })
