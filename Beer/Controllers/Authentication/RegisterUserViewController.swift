@@ -178,7 +178,6 @@ class RegisterUserViewController: UIViewController {
             return
         }
         
-        
         if emailTextField.text!.isEmpty && dateTextField.text!.isEmpty && lastnameTextField.text!.isEmpty && nameTextField.text!.isEmpty && passwordTextField.text!.isEmpty && questionTextField.text!.isEmpty && answerTextField.text!.isEmpty{
             self.configOnErrorStyle(sender: sender, value: 0)
             sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
@@ -257,6 +256,9 @@ class RegisterUserViewController: UIViewController {
                     self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
                     self.signUpButton.clipsToBounds = true
                     self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                        self.navigationController?.popViewController(animated: true)
+                    } 
                 })
                 print(newKey)
             }

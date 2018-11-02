@@ -48,6 +48,9 @@ class SignInViewController: UIViewController {
         password.rightViewMode = .always
         password.bringSubview(toFront: button)
         view.bringSubview(toFront: button)
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,7 +158,7 @@ class SignInViewController: UIViewController {
     }
     
     func signIn(userEmail: String, pass: String, sender: TransitionButton) {
-        let email = "%22\(userEmail)"
+        let email = "%22\(userEmail)%22"
         BeerEndPoint.loginUser(email: email) { (user, error) in
             if let error = error {
                 print(error)
@@ -218,5 +221,11 @@ class SignInViewController: UIViewController {
         sender.titleLabel!.text = "INGRESAR"
         sender.setTitle("INGRESAR", for: .selected)
         sender.setTitle("INGRESAR", for: .normal)
+    }
+}
+
+extension SignInViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

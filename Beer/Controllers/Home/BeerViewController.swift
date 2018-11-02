@@ -37,6 +37,8 @@ class BeerViewController: UIViewController {
         productsOnCartButton.layer.shadowOpacity = 1
         productsOnCartButton.layer.shadowRadius = 1.0
         self.view.bringSubview(toFront: categoriesView)
+//        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         configBadgeButton()
         
         if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
@@ -188,3 +190,9 @@ extension BeerViewController: PinterestLayoutDelegate {
         return heights[indexPath.row]
     }
 }
+
+//extension BeerViewController: UIGestureRecognizerDelegate {
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return true
+//    }
+//}

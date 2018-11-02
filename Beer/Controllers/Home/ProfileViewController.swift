@@ -35,8 +35,9 @@ class ProfileViewController: UIViewController {
         UserDefaults.standard.set(false, forKey: "login")
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
         let signInvc = storyboard.instantiateInitialViewController()
-        self.present(signInvc!, animated: true)
-        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.present(signInvc!, animated: true)
+        }
     }
 }
 

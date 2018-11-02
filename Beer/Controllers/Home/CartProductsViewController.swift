@@ -16,6 +16,14 @@ class CartProductsViewController: UIViewController {
         super.viewDidLoad()
 
         cartProductsCollectionView.register(UINib(nibName: "CartProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        let rightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.backOnSwipe(_:)))
+        self.view.addGestureRecognizer(rightGesture)
+    }
+    
+    @objc func backOnSwipe(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .right {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 }

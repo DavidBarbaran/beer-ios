@@ -36,6 +36,7 @@
 		91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */; };
 		91E6525A2177DA5B00BE7DBE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E652592177DA5B00BE7DBE /* User.swift */; };
 		91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */; };
+		91FD9697218C9CB300ED7694 /* PurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD9696218C9CB300ED7694 /* PurchasesViewController.swift */; };
 		B30192B8CE40C22D97C252C5 /* Pods_Beer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72981D302F3CCECA69305643 /* Pods_Beer.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		91E652592177DA5B00BE7DBE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		91E6525B2177F6EA00BE7DBE /* Hedwig */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hedwig; sourceTree = "<group>"; };
 		91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		91FD9696218C9CB300ED7694 /* PurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				918797B22176500200A96CE3 /* ProductDetailViewController.swift */,
 				9162C1BD2183C037007C8290 /* ProfileViewController.swift */,
 				912523BE218A0AF00043EB38 /* CartProductsViewController.swift */,
+				91FD9696218C9CB300ED7694 /* PurchasesViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,
 				918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */,
+				91FD9697218C9CB300ED7694 /* PurchasesViewController.swift in Sources */,
 				91E6525521779B5800BE7DBE /* BeerEndPoint.swift in Sources */,
 				9135871521837A03002BB974 /* ProductCollectionViewCell.swift in Sources */,
 				91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */,
