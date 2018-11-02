@@ -195,7 +195,7 @@ class SignInViewController: UIViewController {
         
     }
     
-    func configOnErrorStyle(sender: TransitionButton, value: Int) {
+    private func configOnErrorStyle(sender: TransitionButton, value: Int) {
         switch value {
         case 0:
             self.username.text = ""

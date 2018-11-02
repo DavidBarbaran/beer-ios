@@ -41,9 +41,7 @@ class ProductDetailViewController: UIViewController {
 //        addProductButton.layer.shadowRadius = 1.0
 //        addProductButton.clipsToBounds = false
 //        addProductButton.layer.masksToBounds = false
-        
-        configBadgeButton()
-        
+                
         if let product = prodcut {
             productDescriptionTextView.text = product.description
             amountLabel.text = "S/.\(product.price)"
@@ -63,13 +61,6 @@ class ProductDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
-    
-    private func configBadgeButton() {
-//        newProductButton.frame.size.height = 20
-//        newProductButton.frame.size.width = 20
-//        newProductButton.badgeEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -60, right: -45)
-    }
-    
     
     @IBAction func addNewProductAction(_ sender: UIButton) {
         productCount+=1

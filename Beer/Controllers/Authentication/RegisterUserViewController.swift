@@ -80,7 +80,7 @@ class RegisterUserViewController: UIViewController {
         scrollView.scrollIndicatorInsets = .zero
     }
     
-    func getQuestions() {
+    private func getQuestions() {
         BeerEndPoint.getSecurityQuestions { (secQuestions, error) in
             if let error = error {
                 print(error)
@@ -95,7 +95,7 @@ class RegisterUserViewController: UIViewController {
         }
     }
     
-    func addPicker() {
+    private func addPicker() {
         questionPicker = UIPickerView()
         questionPicker?.showsSelectionIndicator = true
         questionTextField.inputView = questionPicker
@@ -110,7 +110,7 @@ class RegisterUserViewController: UIViewController {
         answerTextField.isEnabled = false
     }
     
-    func addDatePicker() {
+    private func addDatePicker() {
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action:#selector(self.changeDatePicker(datepicker:)), for: .valueChanged)
@@ -168,6 +168,55 @@ class RegisterUserViewController: UIViewController {
         sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
     }
     
+    private func validateTextFields() -> Bool {
+        var isValid = true
+        
+        if emailTextField.text!.isEmpty{
+            self.emailTextField.borderInactiveColor = .red
+            self.emailTextField.borderActiveColor = .red
+            self.emailTextField.placeholderColor = .red
+            isValid = false
+        }
+        if dateTextField.text!.isEmpty{
+            self.dateTextField.borderInactiveColor = .red
+            self.dateTextField.borderActiveColor = .red
+            self.dateTextField.placeholderColor = .red
+            isValid = false
+        }
+        if lastnameTextField.text!.isEmpty {
+            self.lastnameTextField.borderInactiveColor = .red
+            self.lastnameTextField.borderActiveColor = .red
+            self.lastnameTextField.placeholderColor = .red
+            isValid = false
+        }
+        if nameTextField.text!.isEmpty {
+            self.nameTextField.borderInactiveColor = .red
+            self.nameTextField.borderActiveColor = .red
+            self.nameTextField.placeholderColor = .red
+            isValid = false
+        }
+        if passwordTextField.text!.isEmpty {
+            self.passwordTextField.borderInactiveColor = .red
+            self.passwordTextField.borderActiveColor = .red
+            self.passwordTextField.placeholderColor = .red
+            isValid = false
+        }
+        if questionTextField.text!.isEmpty {
+            self.questionTextField.borderInactiveColor = .red
+            self.questionTextField.borderActiveColor = .red
+            self.questionTextField.placeholderColor = .red
+            isValid = false
+        }
+        if answerTextField.text!.isEmpty {
+            self.answerTextField.borderInactiveColor = .red
+            self.answerTextField.borderActiveColor = .red
+            self.answerTextField.placeholderColor = .red
+            isValid = false
+        }
+        return isValid
+    }
+
+    
     @IBAction func signUpAction(_ sender: TransitionButton) {
         sender.startAnimation()
         guard let userUrlImage = urlProfileImage else {
@@ -178,53 +227,16 @@ class RegisterUserViewController: UIViewController {
             return
         }
         
-        if emailTextField.text!.isEmpty && dateTextField.text!.isEmpty && lastnameTextField.text!.isEmpty && nameTextField.text!.isEmpty && passwordTextField.text!.isEmpty && questionTextField.text!.isEmpty && answerTextField.text!.isEmpty{
-            self.configOnErrorStyle(sender: sender, value: 0)
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                return
-            }
-        }else if emailTextField.text!.isEmpty {
-            self.configOnErrorStyle(sender: sender, value: 1)
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                return
-            }
-            
-        }else if dateTextField.text!.isEmpty{
-            self.configOnErrorStyle(sender: sender, value: 2)
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                return
-            }
-            
-        }else if lastnameTextField.text!.isEmpty {
-            self.configOnErrorStyle(sender: sender, value: 3)
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                return
-            }
-            
-        }else if nameTextField.text!.isEmpty {
-            self.configOnErrorStyle(sender: sender, value: 4)
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                return
-            }
-            
-        }else if passwordTextField.text!.isEmpty {
-            self.configOnErrorStyle(sender: sender, value: 5)
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                return
-            }
-        }else if questionTextField.text!.isEmpty {
-            self.configOnErrorStyle(sender: sender, value: 6)
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                return
-            }
-        }else if answerTextField.text!.isEmpty {
-            self.configOnErrorStyle(sender: sender, value: 7)
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                return
-            }
-        }else {
+        if validateTextFields() {
             let user = User.init(name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
             signUp(user: user, button: sender)
+        }else {
+            sender.cornerRadius = sender.frame.height/2
+            sender.clipsToBounds = true
+            sender.titleLabel!.text = "REGISTRAR"
+            sender.setTitle("REGISTRAR", for: .selected)
+            sender.setTitle("REGISTRAR", for: .normal)
+         sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: nil)
         }
     }
     
@@ -235,7 +247,7 @@ class RegisterUserViewController: UIViewController {
         self.present(imageVC, animated: true)
     }
     
-    func signUp(user: User, button: TransitionButton) {
+    private func signUp(user: User, button: TransitionButton) {
         BeerEndPoint.createUser(user: user) { (newKey, error) in
             if let error = error {
                 print(error)
@@ -266,66 +278,7 @@ class RegisterUserViewController: UIViewController {
         
     }
     
-    func configOnErrorStyle(sender: TransitionButton, value: Int) {
-        switch value {
-        case 0:
-            self.emailTextField.borderInactiveColor = .red
-            self.emailTextField.borderActiveColor = .red
-            self.emailTextField.placeholderColor = .red
-            
-            self.dateTextField.borderInactiveColor = .red
-            self.dateTextField.borderActiveColor = .red
-            self.dateTextField.placeholderColor = .red
-            
-            self.lastnameTextField.borderInactiveColor = .red
-            self.lastnameTextField.borderActiveColor = .red
-            self.lastnameTextField.placeholderColor = .red
-            
-            self.nameTextField.borderInactiveColor = .red
-            self.nameTextField.borderActiveColor = .red
-            self.nameTextField.placeholderColor = .red
-            
-            self.passwordTextField.borderInactiveColor = .red
-            self.passwordTextField.borderActiveColor = .red
-            self.passwordTextField.placeholderColor = .red
-        case 1:
-            self.emailTextField.borderInactiveColor = .red
-            self.emailTextField.borderActiveColor = .red
-            self.emailTextField.placeholderColor = .red
-        case 2:
-            self.dateTextField.borderInactiveColor = .red
-            self.dateTextField.borderActiveColor = .red
-            self.dateTextField.placeholderColor = .red
-        case 3:
-            self.lastnameTextField.borderInactiveColor = .red
-            self.lastnameTextField.borderActiveColor = .red
-            self.lastnameTextField.placeholderColor = .red
-            
-        case 4:
-            self.nameTextField.borderInactiveColor = .red
-            self.nameTextField.borderActiveColor = .red
-            self.nameTextField.placeholderColor = .red
-        case 5:
-            self.passwordTextField.borderInactiveColor = .red
-            self.passwordTextField.borderActiveColor = .red
-            self.passwordTextField.placeholderColor = .red
-        case 6:
-            self.questionTextField.borderInactiveColor = .red
-            self.questionTextField.borderActiveColor = .red
-            self.questionTextField.placeholderColor = .red
-        default:
-            self.answerTextField.borderInactiveColor = .red
-            self.answerTextField.borderActiveColor = .red
-            self.answerTextField.placeholderColor = .red
-        }
-        sender.cornerRadius = sender.frame.height/2
-        sender.clipsToBounds = true
-        sender.titleLabel!.text = "REGISTRAR"
-        sender.setTitle("REGISTRAR", for: .selected)
-        sender.setTitle("REGISTRAR", for: .normal)
-    }
-    
-    func uploadImage(profileImage: UIImage) {
+    private func uploadImage(profileImage: UIImage) {
         let config = CLDConfiguration(cloudName: "dh47myzjn", apiKey: "122312343553885", apiSecret: "2lLvTKbJOU4cm7eOgd-LvOP5Cbk")
         let cloudinary = CLDCloudinary(configuration: config)
         
@@ -337,7 +290,6 @@ class RegisterUserViewController: UIViewController {
             }
         }
     }
-
 
 }
 
@@ -383,7 +335,9 @@ extension RegisterUserViewController: UIImagePickerControllerDelegate, UINavigat
         }
         profileImageVIew.image = image
         self.dismiss(animated: true, completion: {
-            self.uploadImage(profileImage: image)
+            DispatchQueue.main.async {
+                self.uploadImage(profileImage: image)
+            }
             self.selectImageButton.setTitleColor(self.selectImageButton.tintColor, for: .normal)
         })
     }
