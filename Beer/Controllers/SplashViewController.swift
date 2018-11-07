@@ -22,6 +22,7 @@ class SplashViewController: UIViewController{
         boatAnimation?.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
         self.animatedView.addSubview(boatAnimation!)
         boatAnimation?.play(completion: { (finish) in
+            print(finish)
             if finish {
                 let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
                 if let log = UserDefaults.standard.object(forKey: "login") as? Bool {

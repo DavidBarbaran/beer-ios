@@ -6,14 +6,11 @@
 //
 
 import UIKit
-import TextFieldEffects
-import Alamofire
-import SwiftyJSON
 import TransitionButton
 import Cloudinary
 
 class RegisterUserViewController: UIViewController {
-
+    
     @IBOutlet weak var dateTextField: HoshiTextField!
     @IBOutlet weak var nameTextField: HoshiTextField!
     @IBOutlet weak var lastnameTextField: HoshiTextField!
@@ -132,9 +129,9 @@ class RegisterUserViewController: UIViewController {
         dateTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         dateTextField.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         dateTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-//        UIView.animate(withDuration: 0.8) {
-//            self.view.endEditing(true)
-//        }
+        //        UIView.animate(withDuration: 0.8) {
+        //            self.view.endEditing(true)
+        //        }
         
     }
     
@@ -215,7 +212,13 @@ class RegisterUserViewController: UIViewController {
         }
         return isValid
     }
-
+    
+    private func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
     
     @IBAction func signUpAction(_ sender: TransitionButton) {
         sender.startAnimation()
@@ -227,16 +230,19 @@ class RegisterUserViewController: UIViewController {
             return
         }
         
+        
         if validateTextFields() {
-            let user = User.init(name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
-            signUp(user: user, button: sender)
+            if isValidEmail(testStr: emailTextField.text!){
+                let user = User.init(name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
+                signUp(user: user, button: sender)
+            }    else {
+                let alert = showAlertControler(title: "Error", message: "Ingrese un email Correcto", isShowingOnError: true, sender: sender)
+                self.present(alert,animated: true)
+            }
+            
         }else {
-            sender.cornerRadius = sender.frame.height/2
-            sender.clipsToBounds = true
-            sender.titleLabel!.text = "REGISTRAR"
-            sender.setTitle("REGISTRAR", for: .selected)
-            sender.setTitle("REGISTRAR", for: .normal)
-         sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: nil)
+            stopAnimationButton(sender: sender)
+            
         }
     }
     
@@ -268,14 +274,43 @@ class RegisterUserViewController: UIViewController {
                     self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
                     self.signUpButton.clipsToBounds = true
                     self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                        self.navigationController?.popViewController(animated: true)
-                    } 
+                    let alert = self.showAlertControler(title: "Aviso", message: "Registro exitoso", isShowingOnError: false, sender: nil)
+                    self.present(alert,animated: true)
                 })
-                print(newKey)
             }
         }
         
+    }
+    
+    private func showAlertControler(title: String, message: String, isShowingOnError: Bool, sender: TransitionButton?) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        var accept = UIAlertAction()
+        if isShowingOnError {
+            accept = UIAlertAction(title: "Aceptar", style: .default) { (action) in
+                self.stopAnimationButton(sender: sender!)
+                self.emailTextField.borderInactiveColor = .red
+                self.emailTextField.borderActiveColor = .red
+                self.emailTextField.placeholderColor = .red
+            }
+            
+        }else {
+            accept = UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
+        alert.addAction(accept)
+        return alert
+    }
+    
+    private func stopAnimationButton(sender: TransitionButton) {
+        sender.cornerRadius = sender.frame.height/2
+        sender.clipsToBounds = true
+        sender.titleLabel!.text = "REGISTRAR"
+        sender.setTitle("REGISTRAR", for: .selected)
+        sender.setTitle("REGISTRAR", for: .normal)
+        sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: nil)
     }
     
     private func uploadImage(profileImage: UIImage) {
@@ -290,7 +325,7 @@ class RegisterUserViewController: UIViewController {
             }
         }
     }
-
+    
 }
 
 extension RegisterUserViewController: UITextFieldDelegate {

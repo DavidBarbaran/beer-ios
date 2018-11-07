@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import TextFieldEffects
 import TransitionButton
 import Alamofire
 import SwiftyJSON
@@ -14,10 +13,10 @@ import SwiftyJSON
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var username: HoshiTextField!
     @IBOutlet weak var password: HoshiTextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var usernameTextField: HoshiTextField!
     
     var isLogged = false
     var button = UIButton()
@@ -132,14 +131,14 @@ class SignInViewController: UIViewController {
         sender.setTitle("", for: .selected)
         sender.setTitle("", for: .normal)
         sender.startAnimation()
-        if username.text!.isEmpty && password.text!.isEmpty {
+        if usernameTextField.text!.isEmpty && password.text!.isEmpty {
             sender.cornerRadius = sender.frame.height/2
             sender.clipsToBounds = true
             sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: {
                 self.configOnErrorStyle(sender: sender, value: 0)
             })
         }
-        else if username.text!.isEmpty {
+        else if usernameTextField.text!.isEmpty {
             sender.cornerRadius = sender.frame.height/2
             sender.clipsToBounds = true
             sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: {
@@ -152,7 +151,7 @@ class SignInViewController: UIViewController {
                 self.configOnErrorStyle(sender: sender, value: 2)
             })
         }else {
-            signIn(userEmail: username.text!, pass: password.text!, sender:  sender)
+            signIn(userEmail: usernameTextField.text!, pass: password.text!, sender:  sender)
         }
         
     }
@@ -178,7 +177,7 @@ class SignInViewController: UIViewController {
                             self.present(secondVC, animated: false, completion: nil)
                             self.isLogged = true
                             UserDefaults.standard.set(self.isLogged, forKey: "login")
-                            let newUser = ["username" : user.name, "lastname" : user.lastname, "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
+                            let newUser = ["usernameTextField" : user.name, "lastname" : user.lastname, "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
                             UserDefaults.standard.setValue(newUser, forKey: "user")
                         }
                     }
@@ -198,19 +197,19 @@ class SignInViewController: UIViewController {
     private func configOnErrorStyle(sender: TransitionButton, value: Int) {
         switch value {
         case 0:
-            self.username.text = ""
-            self.username.borderInactiveColor = .red
-            self.username.borderActiveColor = .red
-            self.username.placeholderColor = .red
+            self.usernameTextField.text = ""
+            self.usernameTextField.borderInactiveColor = .red
+            self.usernameTextField.borderActiveColor = .red
+            self.usernameTextField.placeholderColor = .red
             
             self.password.text = ""
             self.password.borderInactiveColor = .red
             self.password.borderActiveColor = .red
             self.password.placeholderColor = .red
         case 1:
-            self.username.borderInactiveColor = .red
-            self.username.borderActiveColor = .red
-            self.username.placeholderColor = .red
+            self.usernameTextField.borderInactiveColor = .red
+            self.usernameTextField.borderActiveColor = .red
+            self.usernameTextField.placeholderColor = .red
             self.password.text = ""
         default:
             self.password.text = ""

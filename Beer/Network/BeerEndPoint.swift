@@ -60,7 +60,7 @@ class BeerEndPoint {
             switch response.result {
             case .success:
                 let data = JSON(response.data!)
-                let questionsArray = data.arrayValue.map({$0["question"]})
+                let questionsArray = data.arrayValue.map{$0["question"]}
                 completionHandler(questionsArray, nil)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -75,8 +75,8 @@ class BeerEndPoint {
                 let data = JSON(response.data!)
                 let keys = data.dictionaryValue.keys
                 var products: [Product] = []
-                for value in keys {
-                    let prod = Product.from(json: data[value])
+                keys.forEach{
+                    let prod = Product.from(json: data[$0])
                     products.append(prod)
                 }
                 completionHandler(products,nil)
@@ -93,8 +93,8 @@ class BeerEndPoint {
                 let data = JSON(response.data!)
                 let keys = data.dictionaryValue.keys
                 var products: [Product] = []
-                for value in keys {
-                    let prod = Product.from(json: data[value])
+                keys.forEach{
+                    let prod = Product.from(json: data[$0])
                     products.append(prod)
                 }
                 completionHandler(products, nil)

@@ -8,7 +8,6 @@ PODS:
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
   - SwiftyJSON (4.2.0)
-  - TextFieldEffects (1.5.0)
   - TransitionButton (0.5.1)
 
 DEPENDENCIES:
@@ -18,7 +17,6 @@ DEPENDENCIES:
   - lottie-ios
   - SDWebImage (~> 4.0)
   - SwiftyJSON (~> 4.0)
-  - TextFieldEffects
   - TransitionButton
 
 SPEC REPOS:
@@ -29,7 +27,6 @@ SPEC REPOS:
     - lottie-ios
     - SDWebImage
     - SwiftyJSON
-    - TextFieldEffects
     - TransitionButton
 
 SPEC CHECKSUMS:
@@ -39,9 +36,8 @@ SPEC CHECKSUMS:
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  TextFieldEffects: bf9e9cac7cb1a97d632fbcd0724bb6347dd86633
   TransitionButton: 20f92b3cc726b047e4df200fdab5307f33395a81
 
-PODFILE CHECKSUM: 391ef17ab02b0a7268bd946c2c58181b07096651
+PODFILE CHECKSUM: d7697b8a03912883c8297cb3907b5609f9f9a74a
 
 COCOAPODS: 1.5.2

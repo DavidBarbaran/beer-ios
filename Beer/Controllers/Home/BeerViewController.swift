@@ -71,7 +71,7 @@ class BeerViewController: UIViewController {
                 self.products = newProducts
                 self.collectionView.reloadData()
                 for _ in 0..<self.products.count {
-                    self.heights.append(CGFloat.random(in: 130.5...300.0))
+                    self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))
                 }                
             }
         }
@@ -150,14 +150,6 @@ extension BeerViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ProductCollectionViewCell
         cell.imagen.sd_setImage(with: URL(string: products[indexPath.row].image), placeholderImage: UIImage(named: "imagen"), options: [.continueInBackground, .progressiveDownload], completed: nil)
         cell.hero.id = String(indexPath.row)
-        cell.layer.cornerRadius = 5
-        cell.descuentoView.layer.cornerRadius = 4
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 1)
-        cell.layer.shadowOpacity = 1
-        cell.layer.shadowRadius = 1.0
-        cell.clipsToBounds = false
-        cell.layer.masksToBounds = false
         cell.nameProductLabel.text = products[indexPath.row].name
         if products[indexPath.row].isOffer == true && products[indexPath.row].offer > 0{
             cell.discountLabel.text = "\(products[indexPath.row].offer)%"

@@ -89,7 +89,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iU4-N0-S2i" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iU4-N0-S2i" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="0.0" width="273" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="8Ap-ld-Y0w"/>
@@ -109,7 +109,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderUser:" destination="zIq-Pt-JR0" eventType="editingChanged" id="CvU-JT-eQc"/>
+                                                            <action selector="changeBorderUser:" destination="zIq-Pt-JR0" eventType="editingDidEnd" id="aZJ-kO-RO3"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -129,7 +129,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yv8-sO-9S9" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yv8-sO-9S9" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="0.0" width="273" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="QWH-qU-ae0"/>
@@ -222,7 +222,7 @@
                         <outlet property="password" destination="yv8-sO-9S9" id="bY3-c5-IQm"/>
                         <outlet property="scrollView" destination="4Ia-ID-Smf" id="iEE-nw-geF"/>
                         <outlet property="signInButton" destination="pqy-pV-B1d" id="R96-wR-CZf"/>
-                        <outlet property="username" destination="iU4-N0-S2i" id="pHc-B7-F8o"/>
+                        <outlet property="usernameTextField" destination="iU4-N0-S2i" id="a0B-ar-zEf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJt-ZX-fD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,12 +241,12 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="716"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCc-i8-G2T">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DpE-t4-2B6">
                                                 <rect key="frame" x="31" y="200" width="313" height="440"/>
                                                 <subviews>
-                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KH9-Bu-w9o" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KH9-Bu-w9o" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="313" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="om8-1u-ebg"/>
@@ -272,7 +272,7 @@
                                                             <action selector="changeBorderColor:" destination="ht2-NV-qfZ" eventType="editingChanged" id="LxS-3K-rUF"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Ms-3IM" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Ms-3IM" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="65" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -295,7 +295,7 @@
                                                             <action selector="changeBorderLastname:" destination="ht2-NV-qfZ" eventType="editingChanged" id="zIE-W3-MNS"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Fecha Nacimiento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-U5-LwS" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Fecha Nacimiento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-U5-LwS" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="130" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -315,7 +315,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kn-YH-ozM" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kn-YH-ozM" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="195" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -338,11 +338,11 @@
                                                             <action selector="changeBorderEmail:" destination="ht2-NV-qfZ" eventType="editingChanged" id="yA6-7E-Cbe"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qf1-dC-BeK" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qf1-dC-BeK" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="260" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                                                 <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -361,7 +361,7 @@
                                                             <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingChanged" id="i1E-lg-9Oe"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Elige tu pregunta de seguridad.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wq6-Pr-7ye" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Elige tu pregunta de seguridad.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wq6-Pr-7ye" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="325" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -385,11 +385,11 @@
                                                             <action selector="changeQuestionBorder:" destination="ht2-NV-qfZ" eventType="editingChanged" id="nxh-3Q-tP9"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="respuesta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-R2-Iit" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="respuesta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-R2-Iit" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="390" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" textContentType="password"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                                                 <color key="value" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -445,7 +445,7 @@
                                             <constraint firstItem="DpE-t4-2B6" firstAttribute="top" secondItem="YsZ-2x-dDt" secondAttribute="top" constant="200" id="4Dh-Ma-JW2"/>
                                             <constraint firstItem="WER-0m-RCB" firstAttribute="top" secondItem="DpE-t4-2B6" secondAttribute="bottom" constant="25" id="E2j-ui-j8Y"/>
                                             <constraint firstItem="GHu-Y1-XIt" firstAttribute="centerX" secondItem="fCc-i8-G2T" secondAttribute="centerX" id="HRv-fY-5Sa"/>
-                                            <constraint firstAttribute="height" constant="780" id="RV6-8B-skO"/>
+                                            <constraint firstAttribute="height" constant="800" id="RV6-8B-skO"/>
                                             <constraint firstItem="YsZ-2x-dDt" firstAttribute="trailing" secondItem="DpE-t4-2B6" secondAttribute="trailing" constant="31" id="U1R-v7-2Ic"/>
                                             <constraint firstItem="9zS-7P-l53" firstAttribute="centerX" secondItem="fCc-i8-G2T" secondAttribute="centerX" id="VhH-63-bgy"/>
                                             <constraint firstItem="GHu-Y1-XIt" firstAttribute="top" secondItem="9zS-7P-l53" secondAttribute="bottom" constant="8" id="dFk-A5-ogM"/>
