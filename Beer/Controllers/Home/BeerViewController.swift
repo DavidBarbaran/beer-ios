@@ -70,9 +70,7 @@ class BeerViewController: UIViewController {
             if let newProducts = receivedProducts {
                 self.products = newProducts
                 self.collectionView.reloadData()
-                for _ in 0..<self.products.count {
-                    self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))
-                }                
+                self.products.forEach{_ in self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))}
             }
         }
     }
@@ -123,11 +121,9 @@ class BeerViewController: UIViewController {
                     self.products.removeAll()
                     self.heights.removeAll()
                     self.products = newProducts
-                    for _ in 0..<self.products.count {
-                        self.heights.append(CGFloat.random(in: 130.5...300.0))
-                    }
+                    self.products.forEach{_ in self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))}
                     self.collectionView.reloadData()
-                    self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
+                    self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionViewScrollPosition.top, animated: false)
                 }
             }
         })

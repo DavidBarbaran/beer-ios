@@ -249,7 +249,7 @@ class RegisterUserViewController: UIViewController {
     @IBAction func selectImage(_ sender: Any) {
         let imageVC = UIImagePickerController()
         imageVC.delegate = self
-        imageVC.sourceType = UIImagePickerController.SourceType.photoLibrary
+        imageVC.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(imageVC, animated: true)
     }
     

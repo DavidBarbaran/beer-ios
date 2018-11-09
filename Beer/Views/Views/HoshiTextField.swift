@@ -116,7 +116,7 @@ import UIKit
     
     override public func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animate(withDuration:0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+            UIView.animate(withDuration:0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.layoutPlaceholderInTextRect()
                 self.placeholderLabel.alpha = 1
             }), completion: { _ in
