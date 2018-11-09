@@ -20,8 +20,6 @@
 		9135871521837A03002BB974 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135871421837A03002BB974 /* ProductCollectionViewCell.swift */; };
 		9135871721837A85002BB974 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135871621837A85002BB974 /* BeerViewController.swift */; };
 		9135871921838138002BB974 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135871821838138002BB974 /* Product.swift */; };
-		913B981221935D0100ACEAD3 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B981021935D0100ACEAD3 /* HoshiTextField.swift */; };
-		913B981321935D0100ACEAD3 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B981121935D0100ACEAD3 /* TextFieldEffects.swift */; };
 		9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149E1AA216D5792009186DC /* AppDelegate.swift */; };
 		9149E1B0216D5792009186DC /* Inicio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1AE216D5792009186DC /* Inicio.storyboard */; };
 		9149E1B2216D5796009186DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1B1216D5796009186DC /* Assets.xcassets */; };
@@ -39,6 +37,8 @@
 		91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E652562177CAD900BE7DBE /* RegisterUserViewController.swift */; };
 		91E6525A2177DA5B00BE7DBE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E652592177DA5B00BE7DBE /* User.swift */; };
 		91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */; };
+		91F49EE821961E0C005C7FA4 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F49EE621961E0C005C7FA4 /* TextFieldEffects.swift */; };
+		91F49EE921961E0C005C7FA4 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F49EE721961E0C005C7FA4 /* HoshiTextField.swift */; };
 		91FD9697218C9CB300ED7694 /* PurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD9696218C9CB300ED7694 /* PurchasesViewController.swift */; };
 		B30192B8CE40C22D97C252C5 /* Pods_Beer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72981D302F3CCECA69305643 /* Pods_Beer.framework */; };
 /* End PBXBuildFile section */
@@ -60,8 +60,6 @@
 		9135871421837A03002BB974 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		9135871621837A85002BB974 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 		9135871821838138002BB974 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		913B981021935D0100ACEAD3 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = ../../HoshiTextField.swift; sourceTree = "<group>"; };
-		913B981121935D0100ACEAD3 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldEffects.swift; path = ../../TextFieldEffects.swift; sourceTree = "<group>"; };
 		9149E1A7216D5792009186DC /* Beer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9149E1AA216D5792009186DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9149E1AF216D5792009186DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Inicio.storyboard; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		91E652592177DA5B00BE7DBE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		91E6525B2177F6EA00BE7DBE /* Hedwig */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hedwig; sourceTree = "<group>"; };
 		91E7D7E921769A9700950709 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		91F49EE621961E0C005C7FA4 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		91F49EE721961E0C005C7FA4 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		91FD9696218C9CB300ED7694 /* PurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +117,8 @@
 		9135870F218372E1002BB974 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91F49EE721961E0C005C7FA4 /* HoshiTextField.swift */,
+				91F49EE621961E0C005C7FA4 /* TextFieldEffects.swift */,
 				91358711218377A3002BB974 /* PinterestLayout.swift */,
 			);
 			path = Views;
@@ -155,8 +157,6 @@
 			children = (
 				9112BF0A21937626000D8A91 /* Util */,
 				9149E1AA216D5792009186DC /* AppDelegate.swift */,
-				913B981021935D0100ACEAD3 /* HoshiTextField.swift */,
-				913B981121935D0100ACEAD3 /* TextFieldEffects.swift */,
 				91DBD1CA2176866C00DC1CAB /* Network */,
 				91E652582177DA4800BE7DBE /* Models */,
 				91DB1759217508AB00E8FCD6 /* Views */,
@@ -422,10 +422,10 @@
 				91FD9697218C9CB300ED7694 /* PurchasesViewController.swift in Sources */,
 				91E6525521779B5800BE7DBE /* BeerEndPoint.swift in Sources */,
 				9135871521837A03002BB974 /* ProductCollectionViewCell.swift in Sources */,
-				913B981221935D0100ACEAD3 /* HoshiTextField.swift in Sources */,
 				91E7D7EA21769A9700950709 /* ForgotPasswordViewController.swift in Sources */,
-				913B981321935D0100ACEAD3 /* TextFieldEffects.swift in Sources */,
 				91E6525A2177DA5B00BE7DBE /* User.swift in Sources */,
+				91F49EE821961E0C005C7FA4 /* TextFieldEffects.swift in Sources */,
+				91F49EE921961E0C005C7FA4 /* HoshiTextField.swift in Sources */,
 				9149E1BE216D5A99009186DC /* SplashViewController.swift in Sources */,
 				9112BF0C21937635000D8A91 /* Utils.swift in Sources */,
 				9162C1BE2183C037007C8290 /* ProfileViewController.swift in Sources */,
