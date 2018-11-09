@@ -259,7 +259,7 @@ class RegisterUserViewController: UIViewController {
                 print(error)
                 return
             }
-            if let newKey = newKey {
+            if let _ = newKey {
                 button.stopAnimation()
                 DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
                     self.emailTextField.text! = ""
