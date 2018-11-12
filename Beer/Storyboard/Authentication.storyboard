@@ -108,6 +108,9 @@
                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="changeBorderUser:" destination="zIq-Pt-JR0" eventType="editingDidEnd" id="Gyj-7K-QSm"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -145,6 +148,9 @@
                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="changeBorderPassword:" destination="zIq-Pt-JR0" eventType="editingDidEnd" id="05X-ch-pcg"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <viewLayoutGuide key="safeArea" id="2PA-ab-8DZ"/>
@@ -240,7 +246,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DpE-t4-2B6">
                                                 <rect key="frame" x="31" y="200" width="313" height="440"/>
                                                 <subviews>
-                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KH9-Bu-w9o" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KH9-Bu-w9o" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="313" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="om8-1u-ebg"/>
@@ -263,10 +269,10 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderColor:" destination="ht2-NV-qfZ" eventType="editingChanged" id="LxS-3K-rUF"/>
+                                                            <action selector="changeBorderColor:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="Tct-HA-O4Q"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Ms-3IM" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Ms-3IM" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="65" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -286,10 +292,10 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderLastname:" destination="ht2-NV-qfZ" eventType="editingChanged" id="zIE-W3-MNS"/>
+                                                            <action selector="changeBorderLastname:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="qYb-Hd-nbb"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Fecha Nacimiento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-U5-LwS" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Fecha Nacimiento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-U5-LwS" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="130" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -309,7 +315,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kn-YH-ozM" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kn-YH-ozM" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="195" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -329,10 +335,10 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderEmail:" destination="ht2-NV-qfZ" eventType="editingChanged" id="yA6-7E-Cbe"/>
+                                                            <action selector="changeBorderEmail:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="y0n-dQ-oNY"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qf1-dC-BeK" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qf1-dC-BeK" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="260" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -352,10 +358,10 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingChanged" id="i1E-lg-9Oe"/>
+                                                            <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="iWr-3W-kgH"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Elige tu pregunta de seguridad.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wq6-Pr-7ye" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Elige tu pregunta de seguridad.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wq6-Pr-7ye" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="325" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -375,11 +381,10 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingChanged" id="P9C-00-7OT"/>
-                                                            <action selector="changeQuestionBorder:" destination="ht2-NV-qfZ" eventType="editingChanged" id="nxh-3Q-tP9"/>
+                                                            <action selector="changeQuestionBorder:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="W3t-8J-zzT"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="respuesta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-R2-Iit" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="respuesta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-R2-Iit" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="390" width="313" height="50"/>
                                                         <color key="textColor" red="0.27450980390000002" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -398,9 +403,6 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingChanged" id="HI2-ee-hdK"/>
-                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -470,14 +472,14 @@
                     </view>
                     <size key="freeformSize" width="375" height="780"/>
                     <connections>
-                        <outlet property="answerTextField" destination="jCg-R2-Iit" id="tf4-XZ-oZV"/>
-                        <outlet property="dateTextField" destination="cMS-U5-LwS" id="P7m-YV-wr0"/>
-                        <outlet property="emailTextField" destination="2kn-YH-ozM" id="yG1-eu-Pkb"/>
-                        <outlet property="lastnameTextField" destination="XJs-Ms-3IM" id="Fer-hH-nkB"/>
-                        <outlet property="nameTextField" destination="KH9-Bu-w9o" id="Nk4-fc-JN5"/>
-                        <outlet property="passwordTextField" destination="Qf1-dC-BeK" id="ef9-cE-8Jb"/>
+                        <outlet property="answerTextField" destination="jCg-R2-Iit" id="YtS-xT-hS8"/>
+                        <outlet property="dateTextField" destination="cMS-U5-LwS" id="Zsk-XZ-rJ3"/>
+                        <outlet property="emailTextField" destination="2kn-YH-ozM" id="lbD-d2-2D7"/>
+                        <outlet property="lastnameTextField" destination="XJs-Ms-3IM" id="29G-0S-cm7"/>
+                        <outlet property="nameTextField" destination="KH9-Bu-w9o" id="Spv-QB-FiI"/>
+                        <outlet property="passwordTextField" destination="Qf1-dC-BeK" id="vPD-iS-wxg"/>
                         <outlet property="profileImageVIew" destination="9zS-7P-l53" id="zd6-iY-Unh"/>
-                        <outlet property="questionTextField" destination="wq6-Pr-7ye" id="Jkg-xA-hUZ"/>
+                        <outlet property="questionTextField" destination="wq6-Pr-7ye" id="MsZ-1F-Ecg"/>
                         <outlet property="scrollView" destination="BSL-Wa-E8T" id="27f-7y-rym"/>
                         <outlet property="selectImageButton" destination="GHu-Y1-XIt" id="0xE-43-B18"/>
                         <outlet property="signUpButton" destination="WER-0m-RCB" id="DwX-Ki-qEr"/>
