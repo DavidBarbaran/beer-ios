@@ -89,7 +89,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iU4-N0-S2i" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iU4-N0-S2i" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="0.0" width="273" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="8Ap-ld-Y0w"/>
@@ -108,9 +108,6 @@
                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="changeBorderUser:" destination="zIq-Pt-JR0" eventType="editingDidEnd" id="aZJ-kO-RO3"/>
-                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -129,7 +126,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yv8-sO-9S9" customClass="HoshiTextField" customModule="Beer" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yv8-sO-9S9" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="0.0" width="273" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="QWH-qU-ae0"/>
@@ -148,9 +145,6 @@
                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="changeBorderPassword:" destination="zIq-Pt-JR0" eventType="editingChanged" id="jjb-SH-aaa"/>
-                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <viewLayoutGuide key="safeArea" id="2PA-ab-8DZ"/>
@@ -219,10 +213,10 @@
                     <navigationItem key="navigationItem" id="Ldk-Nb-dV0"/>
                     <connections>
                         <outlet property="forgotPasswordButton" destination="SHi-IS-F7w" id="Kdi-bV-Lon"/>
-                        <outlet property="password" destination="yv8-sO-9S9" id="bY3-c5-IQm"/>
+                        <outlet property="password" destination="yv8-sO-9S9" id="E7b-W1-5pp"/>
                         <outlet property="scrollView" destination="4Ia-ID-Smf" id="iEE-nw-geF"/>
                         <outlet property="signInButton" destination="pqy-pV-B1d" id="R96-wR-CZf"/>
-                        <outlet property="usernameTextField" destination="iU4-N0-S2i" id="a0B-ar-zEf"/>
+                        <outlet property="usernameTextField" destination="iU4-N0-S2i" id="gZu-Dr-Zu1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJt-ZX-fD0" userLabel="First Responder" sceneMemberID="firstResponder"/>

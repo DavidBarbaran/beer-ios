@@ -11,15 +11,15 @@ import Cloudinary
 
 class RegisterUserViewController: UIViewController {
     
-    @IBOutlet weak var dateTextField: HoshiTextField!
-    @IBOutlet weak var nameTextField: HoshiTextField!
-    @IBOutlet weak var lastnameTextField: HoshiTextField!
-    @IBOutlet weak var emailTextField: HoshiTextField!
-    @IBOutlet weak var passwordTextField: HoshiTextField!
+    @IBOutlet weak var dateTextField: HoshTextField!
+    @IBOutlet weak var nameTextField: HoshTextField!
+    @IBOutlet weak var lastnameTextField: HoshTextField!
+    @IBOutlet weak var emailTextField: HoshTextField!
+    @IBOutlet weak var passwordTextField: HoshTextField!
     @IBOutlet weak var signUpButton: TransitionButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var questionTextField: HoshiTextField!
-    @IBOutlet weak var answerTextField: HoshiTextField!
+    @IBOutlet weak var questionTextField: HoshTextField!
+    @IBOutlet weak var answerTextField: HoshTextField!
     @IBOutlet weak var profileImageVIew: UIImageView!
     @IBOutlet weak var selectImageButton: UIButton!
     
@@ -135,31 +135,31 @@ class RegisterUserViewController: UIViewController {
         
     }
     
-    @IBAction func changeBorderColor(_ sender: HoshiTextField) {
+    @IBAction func changeBorderColor(_ sender: HoshTextField) {
         sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
     }
     
-    @IBAction func changeBorderLastname(_ sender: HoshiTextField) {
+    @IBAction func changeBorderLastname(_ sender: HoshTextField) {
         sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
     }
     
-    @IBAction func changeBorderEmail(_ sender: HoshiTextField) {
+    @IBAction func changeBorderEmail(_ sender: HoshTextField) {
         sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
     }
     
-    @IBAction func changeBorderPassword(_ sender: HoshiTextField) {
+    @IBAction func changeBorderPassword(_ sender: HoshTextField) {
         sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
     }
     
-    @IBAction func changeQuestionBorder(_ sender: HoshiTextField) {
+    @IBAction func changeQuestionBorder(_ sender: HoshTextField) {
         sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)

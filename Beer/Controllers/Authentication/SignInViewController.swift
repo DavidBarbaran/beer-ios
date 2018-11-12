@@ -13,10 +13,10 @@ import SwiftyJSON
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var password: HoshiTextField!
+    @IBOutlet weak var password: HoshTextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var forgotPasswordButton: UIButton!
-    @IBOutlet weak var usernameTextField: HoshiTextField!
+    @IBOutlet weak var usernameTextField: HoshTextField!
     
     var isLogged = false
     var button = UIButton()
@@ -56,6 +56,7 @@ class SignInViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         UIApplication.shared.statusBarStyle = .lightContent
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -114,13 +115,13 @@ class SignInViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func changeBorderPassword(_ sender: HoshiTextField) {
+    @IBAction func changeBorderPassword(_ sender: HoshTextField) {
         sender.placeholderColor = .white
         sender.borderInactiveColor = .white
         sender.borderActiveColor = .white
     }
     
-    @IBAction func changeBorderUser(_ sender: HoshiTextField) {
+    @IBAction func changeBorderUser(_ sender: HoshTextField) {
         sender.placeholderColor = .white
         sender.borderInactiveColor = .white
         sender.borderActiveColor = .white
