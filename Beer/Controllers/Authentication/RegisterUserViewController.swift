@@ -134,35 +134,24 @@ class RegisterUserViewController: UIViewController {
         //        }
         
     }
-    
-    @IBAction func changeBorderColor(_ sender: HoshTextField) {
-        sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+    @IBAction func changeBorderName(_ sender: HoshTextField) {
+        Utils.changeBorderOnEdit(sender: sender)
     }
     
-    @IBAction func changeBorderLastname(_ sender: HoshTextField) {
-        sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+    @IBAction func changeBorderLastName(_ sender: HoshTextField) {
+        Utils.changeBorderOnEdit(sender: sender)
     }
     
     @IBAction func changeBorderEmail(_ sender: HoshTextField) {
-        sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        Utils.changeBorderOnEdit(sender: sender)
     }
     
     @IBAction func changeBorderPassword(_ sender: HoshTextField) {
-        sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        Utils.changeBorderOnEdit(sender: sender)
     }
     
-    @IBAction func changeQuestionBorder(_ sender: HoshTextField) {
-        sender.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+    @IBAction func changeBorderQuestion(_ sender: HoshTextField) {
+        Utils.changeBorderOnEdit(sender: sender)
     }
     
     private func validateTextFields() -> Bool {

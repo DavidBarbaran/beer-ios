@@ -24,7 +24,7 @@ class BeerEndPoint {
                     completionHandler(User.from(json: data[key]), nil)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                completionHandler(nil, error.localizedDescription)
             }
         }
     }

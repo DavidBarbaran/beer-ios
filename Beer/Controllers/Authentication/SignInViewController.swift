@@ -61,6 +61,7 @@ class SignInViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
         UIApplication.shared.statusBarStyle = .default
     }
     
@@ -114,7 +115,6 @@ class SignInViewController: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
     @IBAction func changeBorderPassword(_ sender: HoshTextField) {
         sender.placeholderColor = .white
         sender.borderInactiveColor = .white
@@ -159,7 +159,7 @@ class SignInViewController: UIViewController {
     
     func signIn(userEmail: String, pass: String, sender: TransitionButton) {
         let email = "%22\(userEmail)%22"
-        BeerEndPoint.loginUser(email: email) { (user, error) in
+        BeerEndPoint.loginUser(email: email.trimmingCharacters(in: .whitespaces)) { (user, error) in
             if let error = error {
                 print(error)
                 sender.cornerRadius = sender.frame.height/2

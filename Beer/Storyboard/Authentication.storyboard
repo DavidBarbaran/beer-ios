@@ -18,7 +18,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="fTi-cN-3aF">
             <objects>
-                <viewController id="zIq-Pt-JR0" customClass="SignInViewController" customModule="Beer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signInVC" id="zIq-Pt-JR0" customClass="SignInViewController" customModule="Beer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g6o-hx-9Kq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -109,7 +109,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderUser:" destination="zIq-Pt-JR0" eventType="editingDidEnd" id="Gyj-7K-QSm"/>
+                                                            <action selector="changeBorderUser:" destination="zIq-Pt-JR0" eventType="editingChanged" id="Qgb-jv-awS"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -149,7 +149,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderPassword:" destination="zIq-Pt-JR0" eventType="editingDidEnd" id="05X-ch-pcg"/>
+                                                            <action selector="changeBorderPassword:" destination="zIq-Pt-JR0" eventType="editingChanged" id="UNR-CL-dEx"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -269,7 +269,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderColor:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="Tct-HA-O4Q"/>
+                                                            <action selector="changeBorderName:" destination="ht2-NV-qfZ" eventType="editingChanged" id="Wme-RQ-BHg"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Ms-3IM" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
@@ -292,7 +292,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderLastname:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="qYb-Hd-nbb"/>
+                                                            <action selector="changeBorderLastName:" destination="ht2-NV-qfZ" eventType="editingChanged" id="ae1-cf-hSI"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Fecha Nacimiento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-U5-LwS" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
@@ -335,7 +335,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderEmail:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="y0n-dQ-oNY"/>
+                                                            <action selector="changeBorderEmail:" destination="ht2-NV-qfZ" eventType="editingChanged" id="8hE-UG-sem"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qf1-dC-BeK" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
@@ -358,7 +358,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="iWr-3W-kgH"/>
+                                                            <action selector="changeBorderPassword:" destination="ht2-NV-qfZ" eventType="editingChanged" id="y6m-Q7-Vvz"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Elige tu pregunta de seguridad.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wq6-Pr-7ye" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
@@ -381,7 +381,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="changeQuestionBorder:" destination="ht2-NV-qfZ" eventType="editingDidEnd" id="W3t-8J-zzT"/>
+                                                            <action selector="changeBorderQuestion:" destination="ht2-NV-qfZ" eventType="editingChanged" id="38e-Eg-CnN"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="respuesta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-R2-Iit" customClass="HoshTextField" customModule="Beer" customModuleProvider="target">
@@ -495,7 +495,7 @@
                 <viewControllerPlaceholder storyboardName="Home" id="0Hr-MF-Xn7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqE-uh-nhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-320" y="509"/>
+            <point key="canvasLocation" x="602" y="533"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="GtF-ca-NCu">

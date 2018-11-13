@@ -27,8 +27,9 @@ class SplashViewController: UIViewController{
                 let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
                 if let log = UserDefaults.standard.object(forKey: "login") as? Bool {
                     if log == false {
-                        let signvc = storyboard.instantiateInitialViewController()
-                        self.present(signvc!, animated: true)
+                        let signvc = storyboard.instantiateViewController(withIdentifier: "signInVC") as! SignInViewController
+                        self.navigationController?.pushViewController(signvc, animated: false)
+//                        self.present(signvc,animated: true)
                     }else {
                         let homevc = UIStoryboard(name: "Home", bundle: nil ).instantiateInitialViewController()
                         self.present(homevc!, animated: true)
@@ -41,11 +42,13 @@ class SplashViewController: UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden  = false
         UIApplication.shared.statusBarStyle = .default
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden  = true
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
