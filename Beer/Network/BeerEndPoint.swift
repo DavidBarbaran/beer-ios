@@ -68,7 +68,7 @@ class BeerEndPoint {
         }
     }
     
-    static func getDrinks(completionHandler: @escaping(_ products: [Product]?, _ error: String?) -> Void) {
+    static func getDrinks(completionHandler: @escaping(Utils.productsAlias)) {
         Alamofire.request("\(BeerAPI.baseURL)\(BeerAPI.drinksURL)").responseJSON { (response) in
             switch response.result {
             case .success:
@@ -86,7 +86,7 @@ class BeerEndPoint {
         }
     }
     
-    static func getDrinks(withFilter filter: String, completionHandler: @escaping(_ products: [Product]?, _ error: String?)-> Void) {
+    static func getDrinks(withFilter filter: String, completionHandler: @escaping(Utils.productsAlias)) {
         Alamofire.request("\(BeerAPI.baseURL)\(BeerAPI.filterDrinksURL)\(filter)").responseJSON { (response) in
             switch response.result {
             case .success:

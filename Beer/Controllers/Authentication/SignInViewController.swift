@@ -55,6 +55,7 @@ class SignInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        print(self.navigationController?.navigationBar.isHidden)
         UIApplication.shared.statusBarStyle = .lightContent
         
     }
@@ -202,7 +203,6 @@ class SignInViewController: UIViewController {
             self.usernameTextField.borderInactiveColor = .red
             self.usernameTextField.borderActiveColor = .red
             self.usernameTextField.placeholderColor = .red
-            
             self.password.text = ""
             self.password.borderInactiveColor = .red
             self.password.borderActiveColor = .red
@@ -214,9 +214,7 @@ class SignInViewController: UIViewController {
             self.password.text = ""
         default:
             self.password.text = ""
-            self.password.borderInactiveColor = .red
-            self.password.borderActiveColor = .red
-            self.password.placeholderColor = .red
+            Utils.changeBorderOnError(textField: password)
         }
         sender.titleLabel!.text = "INGRESAR"
         sender.setTitle("INGRESAR", for: .selected)

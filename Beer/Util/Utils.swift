@@ -18,4 +18,13 @@ class Utils {
         sender.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         sender.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
     }
+    
+    static func changeBorderOnError(textField: HoshTextField) {
+        textField.borderActiveColor = .red
+        textField.borderInactiveColor = .red
+        textField.placeholderColor = .red
+    }
+    
+    
+    typealias productsAlias = (_ products: [Product]?, _ error: String?) -> Void
 }
