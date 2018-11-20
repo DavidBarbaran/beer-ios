@@ -159,8 +159,7 @@ class SignInViewController: UIViewController {
     }
     
     func signIn(userEmail: String, pass: String, sender: TransitionButton) {
-        let email = "%22\(userEmail)%22"
-        BeerEndPoint.loginUser(email: email.trimmingCharacters(in: .whitespaces)) { (user, error) in
+        BeerEndPoint.loginUser(withEmail: userEmail.trimmingCharacters(in: .whitespaces), password: pass.trimmingCharacters(in: .whitespaces)) { (user, error) in
             if let error = error {
                 print(error)
                 sender.cornerRadius = sender.frame.height/2
@@ -172,25 +171,16 @@ class SignInViewController: UIViewController {
             }
             
             if let user = user {
-                if self.password.text! == user.password {
-                    DispatchQueue.main.async {
-                        sender.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.0) {
-                            let secondVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeTabBar")
-                            self.present(secondVC, animated: false, completion: nil)
-                            self.isLogged = true
-                            UserDefaults.standard.set(self.isLogged, forKey: "login")
-                            let newUser = ["usernameTextField" : user.name, "lastname" : user.lastname, "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
-                            UserDefaults.standard.setValue(newUser, forKey: "user")
-                        }
+                DispatchQueue.main.async {
+                    sender.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.0) {
+                        let secondVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeTabBar")
+                        self.present(secondVC, animated: false, completion: nil)
+                        self.isLogged = true
+                        UserDefaults.standard.set(self.isLogged, forKey: "login")
+                        let newUser = ["usernameTextField" : user.name, "lastname" : user.lastname, "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
+                        UserDefaults.standard.setValue(newUser, forKey: "user")
                     }
-                }else {
-                    print("Contraseña incorrecta")
-                    sender.cornerRadius = sender.frame.height/2
-                    sender.clipsToBounds = true
-                    sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: {
-                        self.configOnErrorStyle(sender: sender, value: 2)
-                    })
-                }
+                }          
             }
         }
         

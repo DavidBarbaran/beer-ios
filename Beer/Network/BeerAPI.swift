@@ -9,13 +9,12 @@ import Foundation
 
 class BeerAPI {
     
-    static let baseURL = "https://beer-a2751.firebaseio.com/"
-//    https://beer-a2751.firebaseio.com/user.json?print=pretty&orderBy="email"&equalTo="david@gmail.com"
-    static let userURL = "user.json"
-    static let loginURL = "user.json?print=pretty&orderBy=%22email%22&equalTo="
-    static let questionsURL = "security_questions.json"
-    static let drinksURL = "drink.json"
-    static let filterDrinksURL = "drink.json?orderBy=%22category%22&equalTo="
+    static let baseURL = "http://192.168.1.27:3000/api/"
+    static let userURL = "user"
+    static let loginURL = "login?"
+    static let questionsURL = "https://beer-a2751.firebaseio.com/security_questions.json"
+    static let drinksURL = "drink"
+    static let filterDrinksURL = "?category="
 
 //    https://beer-a2751.firebaseio.com/security_questions.json
 }

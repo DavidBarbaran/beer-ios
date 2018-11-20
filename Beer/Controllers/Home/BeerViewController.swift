@@ -18,19 +18,18 @@ class BeerViewController: UIViewController {
     @IBOutlet weak var selectCategoryButton: UIButton!
     
     private var heights: [CGFloat] = []
-    private var products: [Product]  = []
+    private var products: [Product]  = []{
+        didSet{
+            self.collectionView.reloadData()
+            self.products.forEach{_ in self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))}
+        }
+    }
     private let newProductButton = SSBadgeButton()
     var productsOnCar = 5
     private var categoryFilter = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        for url in urls {
-        //            let url = URL(string: url)
-        //            let data = try? Data(contentsOf: url!)
-        //            images.append(UIImage(data: data!)!)
-        //        }
-        
         productsOnCartButton.layer.cornerRadius = productsOnCartButton.bounds.width/2.0
         productsOnCartButton.layer.shadowColor = UIColor.lightGray.cgColor
         productsOnCartButton.layer.shadowOffset = CGSize(width: 3, height: 3)
@@ -69,8 +68,6 @@ class BeerViewController: UIViewController {
             
             if let newProducts = receivedProducts {
                 self.products = newProducts
-                self.collectionView.reloadData()
-                self.products.forEach{_ in self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))}
             }
         }
     }
@@ -101,9 +98,9 @@ class BeerViewController: UIViewController {
                 case 1 :
                     self.getData()
                 case 2 :
-                    self.getDrinksByFilter(filter: "%22beer%22")
+                    self.getDrinksByFilter(filter: "beer")
                 default:
-                    self.getDrinksByFilter(filter: "%22liqueur%22")
+                    self.getDrinksByFilter(filter: "liqueur")
                 }
 
             }
@@ -123,7 +120,7 @@ class BeerViewController: UIViewController {
                     self.products = newProducts
                     self.products.forEach{_ in self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))}
                     self.collectionView.reloadData()
-                    self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionViewScrollPosition.top, animated: false)
+//                    self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionViewScrollPosition.top, animated: false)
                 }
             }
         })
@@ -184,3 +181,9 @@ extension BeerViewController: PinterestLayoutDelegate {
 //        return true
 //    }
 //}
+
+//        for url in urls {
+//            let url = URL(string: url)
+//            let data = try? Data(contentsOf: url!)
+//            images.append(UIImage(data: data!)!)
+//        }
