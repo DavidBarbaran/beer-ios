@@ -7,8 +7,6 @@
 
 import UIKit
 import TransitionButton
-import Alamofire
-import SwiftyJSON
 
 class SignInViewController: UIViewController {
     
@@ -55,9 +53,7 @@ class SignInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        print(self.navigationController?.navigationBar.isHidden)
         UIApplication.shared.statusBarStyle = .lightContent
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -177,7 +173,8 @@ class SignInViewController: UIViewController {
                         self.present(secondVC, animated: false, completion: nil)
                         self.isLogged = true
                         UserDefaults.standard.set(self.isLogged, forKey: "login")
-                        let newUser = ["usernameTextField" : user.name, "lastname" : user.lastname, "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
+                        let newUser = ["userID": user.userID,"usernameTextField" : user.name, "lastname" : user.lastname,
+                                       "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
                         UserDefaults.standard.setValue(newUser, forKey: "user")
                     }
                 }          

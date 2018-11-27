@@ -22,7 +22,6 @@ class ProductDetailViewController: UIViewController {
     
     let contentView = UIImageView()
     private var productCount = Int()
-//    let newProductButton = SSBadgeButton()
     var prodcut: Product?
     
     override func viewDidLoad() {
@@ -34,15 +33,8 @@ class ProductDetailViewController: UIViewController {
         productView.addSubview(contentView)
         productView.layer.cornerRadius = 10
         
-//        addProductButton.layer.cornerRadius = addProductButton.bounds.width/2.0
-//        addProductButton.layer.shadowColor = UIColor.lightGray.cgColor
-//        addProductButton.layer.shadowOffset = CGSize(width: 3, height: 3)
-//        addProductButton.layer.shadowOpacity = 1
-//        addProductButton.layer.shadowRadius = 1.0
-//        addProductButton.clipsToBounds = false
-//        addProductButton.layer.masksToBounds = false
-                
         if let product = prodcut {
+            print(product.id)
             productDescriptionTextView.text = product.description
             amountLabel.text = "S/.\(product.price)"
             categoryLabel.text = product.category
@@ -65,14 +57,6 @@ class ProductDetailViewController: UIViewController {
     @IBAction func addNewProductAction(_ sender: UIButton) {
         productCount+=1
         cantProductLabel.text = "\(productCount)"
-        
-//        if productCount == 0 {
-//            newProductButton.badgeLabel.isHidden = true
-//        }else {
-//            newProductButton.badge = "\(productCount)"
-//        }
-//
-//        addProductButton.addSubview(newProductButton)
     }
     
     @IBAction func decreaseProductAction(_ sender: UIButton) {

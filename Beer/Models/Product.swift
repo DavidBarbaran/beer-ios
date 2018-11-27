@@ -31,7 +31,7 @@ class Product {
     }
     
     static func from(json: JSON) -> Product {
-        return Product.init(id: json["id"].stringValue, name: json["name"].stringValue, category: json["category"].stringValue, description: json["description"].stringValue, image: json["image"].stringValue, isOffer: json["isOffer"].boolValue, price: json["price"].doubleValue, offer: json["offer"].intValue)
+        return Product.init(id: json["_id"].stringValue, name: json["name"].stringValue, category: json["category"].stringValue, description: json["description"].stringValue, image: json["image"].stringValue, isOffer: json["isOffer"].boolValue, price: json["price"].doubleValue, offer: json["offer"].intValue)
     }
     
     static func from(jsonArray: [JSON]) -> [Product] {

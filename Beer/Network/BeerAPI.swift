@@ -15,7 +15,6 @@ class BeerAPI {
     static let questionsURL = "https://beer-a2751.firebaseio.com/security_questions.json"
     static let drinksURL = "drink"
     static let filterDrinksURL = "?category="
-
-//    https://beer-a2751.firebaseio.com/security_questions.json
+    static let pucharseURL = "purchase"
 }
 

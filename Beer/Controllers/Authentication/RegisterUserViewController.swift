@@ -222,7 +222,7 @@ class RegisterUserViewController: UIViewController {
         
         if validateTextFields() {
             if isValidEmail(testStr: emailTextField.text!){
-                let user = User.init(name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
+                let user = User.init(userID: "",name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
                 signUp(user: user, button: sender)
             }    else {
                 let alert = showAlertControler(title: "Error", message: "Ingrese un email Correcto", isShowingOnError: true, sender: sender)

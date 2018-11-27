@@ -86,17 +86,26 @@ class BeerEndPoint {
             case .success:
                 let data = JSON(response.data!).arrayValue
                 completionHandler(Product.from(jsonArray: data),nil)
-//                let keys = data.dictionaryValue.keys
-//                var products: [Product] = []
-//                keys.forEach{
-//                    let prod = Product.from(json: data[$0])
-//                    products.append(prod)
-//                }
-//                completionHandler(products, nil)
             case .failure(let error):
                 completionHandler(nil,"No se puede obtener las bebidas\(error.localizedDescription)")
             }
 
+        }
+    }
+    
+    static func addToCart(userID: String, items: [ [String: Any] ],completionHandler: @escaping(_ message: String?,_ error: String?)->Void) {
+        let parameters: [String: Any] = [
+            "userId" : "DAVIDCABRO",
+            "detailPurchase": items
+        ]
+        Alamofire.request("\(BeerAPI.baseURL)\(BeerAPI.pucharseURL)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                let data = JSON(response.data!)
+                print(data)
+            case .failure(let error):
+                completionHandler(nil, error.localizedDescription)
+            }
         }
     }
 }

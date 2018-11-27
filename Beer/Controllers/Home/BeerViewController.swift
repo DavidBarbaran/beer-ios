@@ -56,6 +56,21 @@ class BeerViewController: UIViewController {
         }
         
         productsOnCartButton.addSubview(newProductButton)
+        
+//        var parameters: [[String: Any]] = [
+//            [
+//                "cantidad" : 5,
+//                "item": "5bec5e5bcea07e318ccd0584",
+//                ]
+//        ]
+//
+//        BeerEndPoint.addToCart(userID: "sswewqewqe", items: parameters) { (message, error) in
+//                print(message)
+//        }
+        
+        
+        
+       
         //        collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
     }
     
