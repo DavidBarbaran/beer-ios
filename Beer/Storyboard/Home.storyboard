@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8cB-13-jp0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8cB-13-jp0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -375,6 +375,9 @@
                                         <state key="normal" title="COMPRAR">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buyProducts:" destination="LoY-AA-vKG" eventType="touchUpInside" id="Zt7-G8-kJf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -493,6 +496,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <state key="normal" title="Add to cart"/>
+                                <connections>
+                                    <action selector="addToCart:" destination="Mk5-6h-hbp" eventType="touchUpInside" id="34Y-iM-8kU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -644,10 +650,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_alien" width="32" height="32"/>
-        <image name="ic_beer" width="32" height="32"/>
-        <image name="ic_heart" width="32" height="32"/>
-        <image name="ic_shop" width="32" height="32"/>
-        <image name="img_defaultUser" width="265" height="265"/>
+        <image name="ic_alien" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="ic_beer" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="ic_heart" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="ic_shop" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="img_defaultUser" width="530" height="530"/>
     </resources>
 </document>

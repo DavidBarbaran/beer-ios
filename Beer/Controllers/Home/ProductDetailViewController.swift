@@ -23,6 +23,7 @@ class ProductDetailViewController: UIViewController {
     let contentView = UIImageView()
     private var productCount = Int()
     var prodcut: Product?
+    var productId = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class ProductDetailViewController: UIViewController {
         productView.layer.cornerRadius = 10
         
         if let product = prodcut {
-            print(product.id)
+            productId = product.id
             productDescriptionTextView.text = product.description
             amountLabel.text = "S/.\(product.price)"
             categoryLabel.text = product.category
@@ -67,6 +68,14 @@ class ProductDetailViewController: UIViewController {
         cantProductLabel.text = "\(productCount)"
     }
     
+    @IBAction func addToCart(_ sender: Any) {
+        if productCount > 0 {
+            Utils.productsCart.append(Utils.productsOnCart(id: self.productId, quantity: self.productCount))
+        }else {
+            let alert = Utils.showAlert(withTitle: Constants.ERROR, message: Constants.CARTERROR)
+            self.present(alert, animated: true)
+        }
+    }
     
     @IBAction func backAction(_ sender: Any) {
        self.navigationController?.popViewController(animated: true)

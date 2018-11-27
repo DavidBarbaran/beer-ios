@@ -18,12 +18,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let user = UserDefaults.standard.object(forKey: "user") as? [String: String] {
+        if let user = UserDefaults.standard.object(forKey: Constants.USER) as? [String: String] {
             usernameLabel.text = user["username"]
             lastnameLabel.text = user["lastname"]
             birthdayLabel.text = user["birthdate"]
             emailLabel.text = user["email"]
-
+            
             let url = URL(string: user["urlImage"]!)
             let data = try? Data(contentsOf: url!)
             userImageView.image = UIImage(data: data!)
@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func closeSessionAction(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "login")
+        UserDefaults.standard.set(false, forKey: Constants.USERLOGGED)
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
         let signInvc = storyboard.instantiateInitialViewController()
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {

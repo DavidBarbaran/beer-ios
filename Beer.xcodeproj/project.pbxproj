@@ -30,6 +30,7 @@
 		9149E1CA216D5C8C009186DC /* beer.json in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C9216D5C8C009186DC /* beer.json */; };
 		9149E1CB216D5C95009186DC /* bira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9149E1C7216D5C04009186DC /* bira.ttf */; };
 		9162C1BE2183C037007C8290 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162C1BD2183C037007C8290 /* ProfileViewController.swift */; };
+		9181084221ADB7AA00EF11FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181084121ADB7AA00EF11FC /* Constants.swift */; };
 		918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918797B22176500200A96CE3 /* ProductDetailViewController.swift */; };
 		91D48EB02188B3E9007D91F5 /* SSBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48EAF2188B3E8007D91F5 /* SSBadgeButton.swift */; };
 		91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBD1CB2176868000DC1CAB /* BeerAPI.swift */; };
@@ -74,6 +75,7 @@
 		9149E1C7216D5C04009186DC /* bira.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bira.ttf; sourceTree = "<group>"; };
 		9149E1C9216D5C8C009186DC /* beer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beer.json; sourceTree = "<group>"; };
 		9162C1BD2183C037007C8290 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9181084121ADB7AA00EF11FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		918797B22176500200A96CE3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		91D48EAF2188B3E8007D91F5 /* SSBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSBadgeButton.swift; sourceTree = "<group>"; };
 		91DBD1CB2176868000DC1CAB /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
@@ -106,14 +108,6 @@
 				32BCB63ACB4CF5004209F7E0 /* Pods-Beer.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		9112BF0A21937626000D8A91 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				9112BF0B21937635000D8A91 /* Utils.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		9135870F218372E1002BB974 /* Views */ = {
@@ -158,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				9149E1AA216D5792009186DC /* AppDelegate.swift */,
-				9112BF0A21937626000D8A91 /* Util */,
+				9181084021ADB70900EF11FC /* Helper */,
 				91DBD1CA2176866C00DC1CAB /* Network */,
 				91E652582177DA4800BE7DBE /* Models */,
 				91DB1759217508AB00E8FCD6 /* Views */,
@@ -211,6 +205,15 @@
 				9149E1C9216D5C8C009186DC /* beer.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9181084021ADB70900EF11FC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9112BF0B21937635000D8A91 /* Utils.swift */,
+				9181084121ADB7AA00EF11FC /* Constants.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		91D48EAE2188B3DD007D91F5 /* Buttons */ = {
@@ -415,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91F12EA22199CE2600FA867E /* HoshTextField.swift in Sources */,
+				9181084221ADB7AA00EF11FC /* Constants.swift in Sources */,
 				91F12EA32199CE2600FA867E /* TextFieldEffects.swift in Sources */,
 				9135871721837A85002BB974 /* BeerViewController.swift in Sources */,
 				912523BF218A0AF00043EB38 /* CartProductsViewController.swift in Sources */,

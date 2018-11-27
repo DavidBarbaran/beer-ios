@@ -95,14 +95,14 @@ class BeerEndPoint {
     
     static func addToCart(userID: String, items: [ [String: Any] ],completionHandler: @escaping(_ message: String?,_ error: String?)->Void) {
         let parameters: [String: Any] = [
-            "userId" : "DAVIDCABRO",
+            "userId" : userID,
             "detailPurchase": items
         ]
         Alamofire.request("\(BeerAPI.baseURL)\(BeerAPI.pucharseURL)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
             switch response.result {
             case .success:
                 let data = JSON(response.data!)
-                print(data)
+                completionHandler(data.stringValue, nil)
             case .failure(let error):
                 completionHandler(nil, error.localizedDescription)
             }

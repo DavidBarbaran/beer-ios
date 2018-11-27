@@ -26,6 +26,30 @@ class CartProductsViewController: UIViewController {
         }
     }
     
+    @IBAction func buyProducts(_ sender: Any) {
+        if let user = UserDefaults.standard.object(forKey: Constants.USER) as? [String: String], Utils.productsCart.count > 0 {
+            var parameters: [[String: Any]] = []
+            for item in Utils.productsCart {
+                parameters.append(["cantidad" : item.quantity,"item": item.id])
+            }
+            BeerEndPoint.addToCart(userID: user["userID"]!, items: parameters) { (message, error) in
+                if let error = error {
+                    let alert = Utils.showAlert(withTitle: Constants.ERROR, message: error)
+                    self.present(alert, animated: true)
+                    return
+                }
+                
+                if let _ = message {
+                    let alert = Utils.showAlert(withTitle: Constants.NOTICE, message: "Compra realizada")
+                    self.present(alert, animated: true)
+                    Utils.productsCart.removeAll()
+                }
+            }
+        }else {
+            let alert = Utils.showAlert(withTitle: Constants.ERROR, message: "No ha agregado ni un producto aún")
+            self.present(alert, animated: true)
+        }
+    }
 }
 
 extension CartProductsViewController: UICollectionViewDataSource {

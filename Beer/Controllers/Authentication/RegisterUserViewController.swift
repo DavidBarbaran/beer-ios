@@ -124,15 +124,11 @@ class RegisterUserViewController: UIViewController {
     
     @objc func changeDatePicker(datepicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = Constants.DATEFORMAT
         dateTextField.text = dateFormatter.string(from: datepicker.date)
         dateTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         dateTextField.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
         dateTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        //        UIView.animate(withDuration: 0.8) {
-        //            self.view.endEditing(true)
-        //        }
-        
     }
     @IBAction func changeBorderName(_ sender: HoshTextField) {
         Utils.changeBorderOnEdit(sender: sender)
@@ -204,7 +200,6 @@ class RegisterUserViewController: UIViewController {
     
     private func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
@@ -225,7 +220,7 @@ class RegisterUserViewController: UIViewController {
                 let user = User.init(userID: "",name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
                 signUp(user: user, button: sender)
             }    else {
-                let alert = showAlertControler(title: "Error", message: "Ingrese un email Correcto", isShowingOnError: true, sender: sender)
+                let alert = showAlertControler(title: Constants.ERROR, message: Constants.WRONGEMAIL, isShowingOnError: true, sender: sender)
                 self.present(alert,animated: true)
             }
             
@@ -263,7 +258,7 @@ class RegisterUserViewController: UIViewController {
                     self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
                     self.signUpButton.clipsToBounds = true
                     self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
-                    let alert = self.showAlertControler(title: "Aviso", message: "Registro exitoso", isShowingOnError: false, sender: nil)
+                    let alert = self.showAlertControler(title: Constants.NOTICE, message: Constants.USERREGISTER, isShowingOnError: false, sender: nil)
                     self.present(alert,animated: true)
                 })
             }
@@ -275,7 +270,7 @@ class RegisterUserViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         var accept = UIAlertAction()
         if isShowingOnError {
-            accept = UIAlertAction(title: "Aceptar", style: .default) { (action) in
+            accept = UIAlertAction(title: Constants.DONE, style: .default) { (action) in
                 self.stopAnimationButton(sender: sender!)
                 self.emailTextField.borderInactiveColor = .red
                 self.emailTextField.borderActiveColor = .red
@@ -283,7 +278,7 @@ class RegisterUserViewController: UIViewController {
             }
             
         }else {
-            accept = UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+            accept = UIAlertAction(title: Constants.DONE, style: .default, handler: { (action) in
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -303,12 +298,12 @@ class RegisterUserViewController: UIViewController {
     }
     
     private func uploadImage(profileImage: UIImage) {
-        let config = CLDConfiguration(cloudName: "dh47myzjn", apiKey: "122312343553885", apiSecret: "2lLvTKbJOU4cm7eOgd-LvOP5Cbk")
+        let config = CLDConfiguration(cloudName: Constants.CLOUDNAME, apiKey: Constants.CLOUDAPIKEY, apiSecret: Constants.CLOUDKEYSECRET)
         let cloudinary = CLDCloudinary(configuration: config)
         
         let data = UIImagePNGRepresentation(profileImage)
         
-        cloudinary.createUploader().upload(data: data!, uploadPreset: "nqo50tbr").response { (result, error) in
+        cloudinary.createUploader().upload(data: data!, uploadPreset: Constants.UPLOADPRESET).response { (result, error) in
             if let result = result {
                 self.urlProfileImage = result.url!
             }

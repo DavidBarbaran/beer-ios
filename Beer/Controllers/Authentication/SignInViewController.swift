@@ -26,7 +26,7 @@ class SignInViewController: UIViewController {
         signInButton.layer.borderWidth = 2.0
         signInButton.layer.borderColor = UIColor.white.cgColor
         
-        let attributedString = NSMutableAttributedString(string:"¿Olvidaste tu contraseña?")
+        let attributedString = NSMutableAttributedString(string: Constants.FORGOTPASSWORD)
         attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: 1.2, range: NSMakeRange(0, attributedString.length))
         forgotPasswordButton.setAttributedTitle(attributedString, for: .normal)
         
@@ -172,10 +172,10 @@ class SignInViewController: UIViewController {
                         let secondVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeTabBar")
                         self.present(secondVC, animated: false, completion: nil)
                         self.isLogged = true
-                        UserDefaults.standard.set(self.isLogged, forKey: "login")
-                        let newUser = ["userID": user.userID,"usernameTextField" : user.name, "lastname" : user.lastname,
+                        UserDefaults.standard.set(self.isLogged, forKey: Constants.USERLOGGED)
+                        let newUser = ["userID": user.userID, "usernameTextField" : user.name, "lastname" : user.lastname,
                                        "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
-                        UserDefaults.standard.setValue(newUser, forKey: "user")
+                        UserDefaults.standard.setValue(newUser, forKey: Constants.USER)
                     }
                 }          
             }

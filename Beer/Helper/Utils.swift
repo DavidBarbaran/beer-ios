@@ -25,6 +25,19 @@ class Utils {
         textField.placeholderColor = .red
     }
     
+    static func showAlert(withTitle title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let accept = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
+        alert.addAction(accept)
+        return alert
+    }
+    
+    struct productsOnCart {
+        var id: String
+        var quantity: Int
+    }
+    
+    static var productsCart: [productsOnCart] = []
     
     typealias productsAlias = (_ products: [Product]?, _ error: String?) -> Void
 }

@@ -25,7 +25,7 @@ class BeerViewController: UIViewController {
         }
     }
     private let newProductButton = SSBadgeButton()
-    var productsOnCar = 5
+    var productsOnCar = Int()
     private var categoryFilter = String()
     
     override func viewDidLoad() {
@@ -36,42 +36,30 @@ class BeerViewController: UIViewController {
         productsOnCartButton.layer.shadowOpacity = 1
         productsOnCartButton.layer.shadowRadius = 1.0
         self.view.bringSubview(toFront: categoriesView)
-//        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         configBadgeButton()
         
         if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
         getData()
-        //        collectionView.scrollToItem(at: IndexPath(row: 8, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if productsOnCar == 0 {
+        if Utils.productsCart.count == 0 {
             newProductButton.badgeLabel.isHidden = true
         }else {
-            newProductButton.badge = "\(productsOnCar)"
+            newProductButton.badge = "\(Utils.productsCart.count)"
         }
         
         productsOnCartButton.addSubview(newProductButton)
+        if Utils.productsCart.count > 0 {
+            for u in Utils.productsCart {
+                print(u.id)
+                print(u.quantity)
+            }
+        }
         
-//        var parameters: [[String: Any]] = [
-//            [
-//                "cantidad" : 5,
-//                "item": "5bec5e5bcea07e318ccd0584",
-//                ]
-//        ]
-//
-//        BeerEndPoint.addToCart(userID: "sswewqewqe", items: parameters) { (message, error) in
-//                print(message)
-//        }
-        
-        
-        
-       
-        //        collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.top, animated: false)
     }
     
     private func getData() {
@@ -108,16 +96,16 @@ class BeerViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: { finish in
             if finish {
-             self.selectCategoryButton.setTitle(sender.titleLabel?.text, for: .normal)
+                self.selectCategoryButton.setTitle(sender.titleLabel?.text, for: .normal)
                 switch sender.tag {
                 case 1 :
                     self.getData()
                 case 2 :
-                    self.getDrinksByFilter(filter: "beer")
+                    self.getDrinksByFilter(filter: Constants.BEER)
                 default:
-                    self.getDrinksByFilter(filter: "liqueur")
+                    self.getDrinksByFilter(filter: Constants.LIQUEUR)
                 }
-
+                
             }
         })
     }
@@ -135,13 +123,12 @@ class BeerViewController: UIViewController {
                     self.products = newProducts
                     self.products.forEach{_ in self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))}
                     self.collectionView.reloadData()
-//                    self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionViewScrollPosition.top, animated: false)
                 }
             }
         })
         
     }
-
+    
     
     @IBAction func showProductsOnCartAction(_ sender: Any) {
         
@@ -190,15 +177,3 @@ extension BeerViewController: PinterestLayoutDelegate {
         return heights[indexPath.row]
     }
 }
-
-//extension BeerViewController: UIGestureRecognizerDelegate {
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        return true
-//    }
-//}
-
-//        for url in urls {
-//            let url = URL(string: url)
-//            let data = try? Data(contentsOf: url!)
-//            images.append(UIImage(data: data!)!)
-//        }
