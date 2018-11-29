@@ -35,6 +35,8 @@ class Utils {
     struct productsOnCart {
         var id: String
         var quantity: Int
+        var image: UIImage
+        var price: Double
     }
     
     static var productsCart: [productsOnCart] = []

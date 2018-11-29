@@ -54,11 +54,15 @@ class CartProductsViewController: UIViewController {
 
 extension CartProductsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return Utils.productsCart.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CartProductsCollectionViewCell
+        cell.productImageView.image = Utils.productsCart[indexPath.row].image
+        cell.cantLabel.text = String(Utils.productsCart[indexPath.row].quantity)
+        cell.priceLabel.text = String(Utils.productsCart[indexPath.row].price)
+        cell.productNameLabel.text = Utils.productsCart[indexPath.row].id
         return cell
     }
 }
