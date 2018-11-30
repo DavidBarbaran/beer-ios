@@ -14,6 +14,7 @@ class CartProductsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cantLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var discountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

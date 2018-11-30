@@ -214,7 +214,6 @@ class RegisterUserViewController: UIViewController {
             return
         }
         
-        
         if validateTextFields() {
             if isValidEmail(testStr: emailTextField.text!){
                 let user = User.init(userID: "",name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
@@ -300,9 +299,7 @@ class RegisterUserViewController: UIViewController {
     private func uploadImage(profileImage: UIImage) {
         let config = CLDConfiguration(cloudName: Constants.CLOUDNAME, apiKey: Constants.CLOUDAPIKEY, apiSecret: Constants.CLOUDKEYSECRET)
         let cloudinary = CLDCloudinary(configuration: config)
-        
         let data = UIImagePNGRepresentation(profileImage)
-        
         cloudinary.createUploader().upload(data: data!, uploadPreset: Constants.UPLOADPRESET).response { (result, error) in
             if let result = result {
                 self.urlProfileImage = result.url!

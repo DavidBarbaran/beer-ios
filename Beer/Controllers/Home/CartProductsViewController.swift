@@ -9,6 +9,7 @@ import UIKit
 
 class CartProductsViewController: UIViewController {
 
+    @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var cartProductsCollectionView: UICollectionView!
     private let cellIdentifier = "cartProductCell"
     
@@ -18,6 +19,11 @@ class CartProductsViewController: UIViewController {
         cartProductsCollectionView.register(UINib(nibName: "CartProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         let rightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.backOnSwipe(_:)))
         self.view.addGestureRecognizer(rightGesture)
+        var totalPrice = Double()
+        for item in Utils.productsCart {
+            totalPrice+=item.total
+        }
+        totalPriceLabel.text = "Total = S/.\(totalPrice)"
     }
     
     @objc func backOnSwipe(_ sender: UISwipeGestureRecognizer) {
@@ -60,9 +66,11 @@ extension CartProductsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CartProductsCollectionViewCell
         cell.productImageView.image = Utils.productsCart[indexPath.row].image
+        cell.productNameLabel.text = Utils.productsCart[indexPath.row].productName
         cell.cantLabel.text = String(Utils.productsCart[indexPath.row].quantity)
-        cell.priceLabel.text = String(Utils.productsCart[indexPath.row].price)
-        cell.productNameLabel.text = Utils.productsCart[indexPath.row].id
+        cell.priceLabel.text = "Precio \(Utils.productsCart[indexPath.row].price)"
+        cell.discountLabel.text = "Descuento \(Utils.productsCart[indexPath.row].discount)"
+        cell.totalLabel.text = "Total \(Utils.productsCart[indexPath.row].total)"
         return cell
     }
 }

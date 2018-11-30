@@ -358,8 +358,8 @@
                             <view opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUE-oo-aYl">
                                 <rect key="frame" x="0.0" y="528" width="375" height="90"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total = S/. 5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3C-pg-X2k">
-                                        <rect key="frame" x="122" y="16" width="131.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total = S/. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3C-pg-X2k">
+                                        <rect key="frame" x="137.5" y="16" width="100.5" height="21"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -404,6 +404,7 @@
                     </view>
                     <connections>
                         <outlet property="cartProductsCollectionView" destination="IE7-Ay-WIp" id="LuS-of-Uiw"/>
+                        <outlet property="totalPriceLabel" destination="u3C-pg-X2k" id="1Cg-Tp-Vct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBz-b6-LHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -25,6 +25,8 @@ class ProductDetailViewController: UIViewController {
     var prodcut: Product?
     private var productId = String()
     private var productPrice = Double()
+    private var productName = String()
+    private var productDiscount = Double()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,7 @@ class ProductDetailViewController: UIViewController {
         if let product = prodcut {
             productId = product.id
             productPrice = product.price
+            productName = product.name
             productDescriptionTextView.text = product.description
             amountLabel.text = "S/.\(product.price)"
             categoryLabel.text = product.category
@@ -45,6 +48,7 @@ class ProductDetailViewController: UIViewController {
             if product.isOffer {
                 discountLabel.isHidden = false
                 let totalPrice = product.price - (product.price*Double(product.offer)/100)
+                productDiscount = (product.price*Double(product.offer)/100)
                 discountLabel.text = "S/.\(totalPrice)"
             }
 
@@ -72,7 +76,11 @@ class ProductDetailViewController: UIViewController {
     
     @IBAction func addToCart(_ sender: Any) {
         if productCount > 0 {
-            Utils.productsCart.append(Utils.productsOnCart(id: self.productId, quantity: self.productCount, image: self.contentView.image!, price: productPrice))
+            let newProductPrice = self.productPrice - self.productDiscount
+            let totalProductPrice = (newProductPrice*Double(self.productCount))
+            Utils.productsCart.append(Utils.productsOnCart(id: self.productId, productName: self.productName ,
+                                                           quantity: self.productCount, image: self.contentView.image!,
+                                                           price: productPrice, discount: self.productDiscount, total: totalProductPrice))
         }else {
             let alert = Utils.showAlert(withTitle: Constants.ERROR, message: Constants.CARTERROR)
             self.present(alert, animated: true)
