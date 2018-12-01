@@ -46,20 +46,13 @@ class BeerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if Utils.productsCart.count == 0 {
+        if Utils.productsOnCar.count == 0 {
             newProductButton.badgeLabel.isHidden = true
         }else {
-            newProductButton.badge = "\(Utils.productsCart.count)"
+            newProductButton.badge = "\(Utils.productsOnCar.count)"
         }
         
         productsOnCartButton.addSubview(newProductButton)
-        if Utils.productsCart.count > 0 {
-            for u in Utils.productsCart {
-                print(u.id)
-                print(u.quantity)
-            }
-        }
-        
     }
     
     private func getData() {

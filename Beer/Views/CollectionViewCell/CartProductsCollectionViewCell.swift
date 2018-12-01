@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CartProductsCollectionDelegate {
+    
+}
+
 class CartProductsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productImageView: UIImageView!

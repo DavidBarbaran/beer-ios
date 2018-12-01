@@ -76,15 +76,24 @@ class ProductDetailViewController: UIViewController {
     
     @IBAction func addToCart(_ sender: Any) {
         if productCount > 0 {
-            let newProductPrice = self.productPrice - self.productDiscount
-            let totalProductPrice = (newProductPrice*Double(self.productCount))
-            Utils.productsCart.append(Utils.productsOnCart(id: self.productId, productName: self.productName ,
-                                                           quantity: self.productCount, image: self.contentView.image!,
-                                                           price: productPrice, discount: self.productDiscount, total: totalProductPrice))
+            if let product = Utils.productsOnCar[self.productId] {
+                let newQuantity = product.quantity + self.productCount
+                let newProductPrice = self.productPrice - self.productDiscount
+                let totalProductPrice = (newProductPrice*Double(newQuantity))
+                let newProduct = Utils.productsOnCart(id: self.productId, productName: product.productName, quantity: newQuantity ,image: product.image, price: product.price,
+                                                      discount: product.discount, total: totalProductPrice)
+                Utils.productsOnCar[self.productId] = newProduct
+            }else {
+                let newProductPrice = self.productPrice - self.productDiscount
+                let totalProductPrice = (newProductPrice*Double(self.productCount))
+                let newProduct = Utils.productsOnCart(id: self.productId, productName: self.productName, quantity: self.productCount, image: self.contentView.image!, price: self.productPrice, discount: self.productDiscount, total: totalProductPrice)
+                Utils.productsOnCar[self.productId] = newProduct
+            }
         }else {
             let alert = Utils.showAlert(withTitle: Constants.ERROR, message: Constants.CARTERROR)
             self.present(alert, animated: true)
         }
+        
     }
     
     @IBAction func backAction(_ sender: Any) {

@@ -12,18 +12,14 @@ class CartProductsViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var cartProductsCollectionView: UICollectionView!
     private let cellIdentifier = "cartProductCell"
+    var productsCar: [Utils.productsOnCart] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         cartProductsCollectionView.register(UINib(nibName: "CartProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         let rightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.backOnSwipe(_:)))
-        self.view.addGestureRecognizer(rightGesture)
-        var totalPrice = Double()
-        for item in Utils.productsCart {
-            totalPrice+=item.total
-        }
-        totalPriceLabel.text = "Total = S/.\(totalPrice)"
+        self.view.addGestureRecognizer(rightGesture)   
     }
     
     @objc func backOnSwipe(_ sender: UISwipeGestureRecognizer) {
@@ -32,10 +28,21 @@ class CartProductsViewController: UIViewController {
         }
     }
     
-    @IBAction func buyProducts(_ sender: Any) {
-        if let user = UserDefaults.standard.object(forKey: Constants.USER) as? [String: String], Utils.productsCart.count > 0 {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Utils.productsOnCar.values.forEach({self.productsCar.append($0)})
+        var totalPrice = Double()
+        for item in self.productsCar {
+            totalPrice+=item.total
+        }
+        totalPriceLabel.text = "Total = S/.\(totalPrice)"
+        self.cartProductsCollectionView.reloadData()
+    }
+    
+    private func buyProductsOncar() {
+        if let user = UserDefaults.standard.object(forKey: Constants.USER) as? [String: String], self.productsCar.count > 0 {
             var parameters: [[String: Any]] = []
-            for item in Utils.productsCart {
+            for item in self.productsCar {
                 parameters.append(["cantidad" : item.quantity,"item": item.id])
             }
             BeerEndPoint.addToCart(userID: user["userID"]!, items: parameters) { (message, error) in
@@ -46,9 +53,14 @@ class CartProductsViewController: UIViewController {
                 }
                 
                 if let _ = message {
-                    let alert = Utils.showAlert(withTitle: Constants.NOTICE, message: "Compra realizada")
+                    let alert = UIAlertController(title: Constants.NOTICE, message: "Compra realizada", preferredStyle: .alert)
+                    let accept = UIAlertAction(title: Constants.DONE, style: .default) { (_) in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alert.addAction(accept)
                     self.present(alert, animated: true)
-                    Utils.productsCart.removeAll()
+                    Utils.productsOnCar.removeAll()
+                    self.productsCar.removeAll()
                 }
             }
         }else {
@@ -56,21 +68,32 @@ class CartProductsViewController: UIViewController {
             self.present(alert, animated: true)
         }
     }
+    
+    @IBAction func buyProducts(_ sender: Any) {
+        let alert = UIAlertController(title: Constants.NOTICE, message: "Esta seguro que desea comprar?", preferredStyle: .alert)
+        let accept = UIAlertAction(title: Constants.DONE, style: .default) { (_) in
+            self.buyProductsOncar()
+        }
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alert.addAction(accept)
+        alert.addAction(cancel)
+        self.present(alert, animated: true)
+    }
 }
 
 extension CartProductsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Utils.productsCart.count
+        return Utils.productsOnCar.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CartProductsCollectionViewCell
-        cell.productImageView.image = Utils.productsCart[indexPath.row].image
-        cell.productNameLabel.text = Utils.productsCart[indexPath.row].productName
-        cell.cantLabel.text = String(Utils.productsCart[indexPath.row].quantity)
-        cell.priceLabel.text = "Precio \(Utils.productsCart[indexPath.row].price)"
-        cell.discountLabel.text = "Descuento \(Utils.productsCart[indexPath.row].discount)"
-        cell.totalLabel.text = "Total \(Utils.productsCart[indexPath.row].total)"
+        cell.productImageView.image = self.productsCar[indexPath.row].image
+        cell.productNameLabel.text = self.productsCar[indexPath.row].productName
+        cell.cantLabel.text = String(self.productsCar[indexPath.row].quantity)
+        cell.priceLabel.text = "Precio \(self.productsCar[indexPath.row].price)"
+        cell.discountLabel.text = "Descuento \(self.productsCar[indexPath.row].discount)"
+        cell.totalLabel.text = "Total \(self.productsCar[indexPath.row].total)"
         return cell
     }
 }
