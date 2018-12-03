@@ -1,11 +1,3 @@
-//
-//  SSButton.swift
-//  Sample
-//
-//  Created by Sai Sandeep on 06/11/17.
-//  Copyright © 2017 iosRevisited. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

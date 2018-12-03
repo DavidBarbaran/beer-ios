@@ -1,10 +1,3 @@
-//
-//  RegisterUserViewController.swift
-//  Beer
-//
-//  Created by Melanie on 10/17/18.
-//
-
 import UIKit
 import TransitionButton
 import Cloudinary
@@ -122,34 +115,7 @@ class RegisterUserViewController: UIViewController {
         }
     }
     
-    @objc func changeDatePicker(datepicker: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.DATEFORMAT
-        dateTextField.text = dateFormatter.string(from: datepicker.date)
-        dateTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        dateTextField.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-        dateTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
-    }
-    @IBAction func changeBorderName(_ sender: HoshTextField) {
-        Utils.changeBorderOnEdit(sender: sender)
-    }
-    
-    @IBAction func changeBorderLastName(_ sender: HoshTextField) {
-        Utils.changeBorderOnEdit(sender: sender)
-    }
-    
-    @IBAction func changeBorderEmail(_ sender: HoshTextField) {
-        Utils.changeBorderOnEdit(sender: sender)
-    }
-    
-    @IBAction func changeBorderPassword(_ sender: HoshTextField) {
-        Utils.changeBorderOnEdit(sender: sender)
-    }
-    
-    @IBAction func changeBorderQuestion(_ sender: HoshTextField) {
-        Utils.changeBorderOnEdit(sender: sender)
-    }
-    
+    //validaciones
     private func validateTextFields() -> Bool {
         var isValid = true
         
@@ -204,42 +170,25 @@ class RegisterUserViewController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
-    @IBAction func signUpAction(_ sender: TransitionButton) {
-        sender.startAnimation()
-        guard let userUrlImage = urlProfileImage else {
-            self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
-            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
-                self.selectImageButton.setTitleColor(.red, for: .normal)
-            }
-            return
-        }
-        
-        if validateTextFields() {
-            if isValidEmail(testStr: emailTextField.text!){
-                let user = User.init(userID: "",name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
-                signUp(user: user, button: sender)
-            }    else {
-                let alert = showAlertControler(title: Constants.ERROR, message: Constants.WRONGEMAIL, isShowingOnError: true, sender: sender)
-                self.present(alert,animated: true)
-            }
-            
-        }else {
-            stopAnimationButton(sender: sender)
-            
-        }
+    //
+    @objc func changeDatePicker(datepicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.DATEFORMAT
+        dateTextField.text = dateFormatter.string(from: datepicker.date)
+        dateTextField.borderInactiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        dateTextField.borderActiveColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
+        dateTextField.placeholderColor = UIColor(red: 70/255, green: 49/255, blue: 104/255, alpha: 1)
     }
     
-    @IBAction func selectImage(_ sender: Any) {
-        let imageVC = UIImagePickerController()
-        imageVC.delegate = self
-        imageVC.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        self.present(imageVC, animated: true)
-    }
-    
+    //registrar usuario
     private func signUp(user: User, button: TransitionButton) {
         BeerEndPoint.createUser(user: user) { (newKey, error) in
             if let error = error {
-                print(error)
+                self.present(Utils.showAlert(withTitle: "Error", message: error),animated: true)
+                self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
+                button.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
+                    self.selectImageButton.setTitleColor(.red, for: .normal)
+                }
                 return
             }
             if let _ = newKey {
@@ -296,6 +245,7 @@ class RegisterUserViewController: UIViewController {
         sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: nil)
     }
     
+    //subir imagen a cloudinary
     private func uploadImage(profileImage: UIImage) {
         let config = CLDConfiguration(cloudName: Constants.CLOUDNAME, apiKey: Constants.CLOUDAPIKEY, apiSecret: Constants.CLOUDKEYSECRET)
         let cloudinary = CLDCloudinary(configuration: config)
@@ -307,6 +257,57 @@ class RegisterUserViewController: UIViewController {
         }
     }
     
+    @IBAction func changeBorderName(_ sender: HoshTextField) {
+        Utils.changeBorderOnEdit(sender: sender)
+    }
+    
+    @IBAction func changeBorderLastName(_ sender: HoshTextField) {
+        Utils.changeBorderOnEdit(sender: sender)
+    }
+    
+    @IBAction func changeBorderEmail(_ sender: HoshTextField) {
+        Utils.changeBorderOnEdit(sender: sender)
+    }
+    
+    @IBAction func changeBorderPassword(_ sender: HoshTextField) {
+        Utils.changeBorderOnEdit(sender: sender)
+    }
+    
+    @IBAction func changeBorderQuestion(_ sender: HoshTextField) {
+        Utils.changeBorderOnEdit(sender: sender)
+    }
+    
+    @IBAction func signUpAction(_ sender: TransitionButton) {
+        sender.startAnimation()
+        guard let userUrlImage = urlProfileImage else {
+            self.signUpButton.cornerRadius = self.signUpButton.frame.height/2
+            sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0) {
+                self.selectImageButton.setTitleColor(.red, for: .normal)
+            }
+            return
+        }
+        
+        if validateTextFields() {
+            if isValidEmail(testStr: emailTextField.text!){
+                let user = User.init(userID: "",name: nameTextField.text!, lastname: lastnameTextField.text!, birthdate: dateTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, question: questionTextField.text!, answer: answerTextField.text!, urlImage: userUrlImage)
+                signUp(user: user, button: sender)
+            }    else {
+                let alert = showAlertControler(title: Constants.ERROR, message: Constants.WRONGEMAIL, isShowingOnError: true, sender: sender)
+                self.present(alert,animated: true)
+            }
+            
+        }else {
+            stopAnimationButton(sender: sender)
+            
+        }
+    }
+    
+    @IBAction func selectImage(_ sender: Any) {
+        let imageVC = UIImagePickerController()
+        imageVC.delegate = self
+        imageVC.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(imageVC, animated: true)
+    }
 }
 
 extension RegisterUserViewController: UITextFieldDelegate {

@@ -1,10 +1,3 @@
-//
-//  SignInViewController.swift
-//  Beer
-//
-//  Created by Melanie on 10/9/18.
-//
-
 import UIKit
 import TransitionButton
 
@@ -65,11 +58,6 @@ class SignInViewController: UIViewController {
     @objc func showPassword() {
         if !(password.text?.isEmpty)! {
             password.isSecureTextEntry = !password.isSecureTextEntry
-//            if password.isSecureTextEntry {
-//            button.setImage(UIImage(named: "ic_hide"), for: .normal)
-//            }else {
-//                button.setImage(UIImage(named: "ic_view"), for: .normal)
-//            }
         }
         if password.isSecureTextEntry, let text = password.text {
             password.text?.removeAll()
@@ -112,6 +100,61 @@ class SignInViewController: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    private func configOnErrorStyle(sender: TransitionButton, value: Int) {
+        switch value {
+        case 0:
+            self.usernameTextField.text = ""
+            self.usernameTextField.borderInactiveColor = .red
+            self.usernameTextField.borderActiveColor = .red
+            self.usernameTextField.placeholderColor = .red
+            self.password.text = ""
+            self.password.borderInactiveColor = .red
+            self.password.borderActiveColor = .red
+            self.password.placeholderColor = .red
+        case 1:
+            self.usernameTextField.borderInactiveColor = .red
+            self.usernameTextField.borderActiveColor = .red
+            self.usernameTextField.placeholderColor = .red
+            self.password.text = ""
+        default:
+            self.password.text = ""
+            Utils.changeBorderOnError(textField: password)
+        }
+        sender.titleLabel!.text = "INGRESAR"
+        sender.setTitle("INGRESAR", for: .selected)
+        sender.setTitle("INGRESAR", for: .normal)
+    }
+    
+    func signIn(userEmail: String, pass: String, sender: TransitionButton) {
+        BeerEndPoint.loginUser(withEmail: userEmail.trimmingCharacters(in: .whitespaces), password: pass.trimmingCharacters(in: .whitespaces)) { (user, error) in
+            if let error = error {
+                print(error)
+                sender.cornerRadius = sender.frame.height/2
+                sender.clipsToBounds = true
+                sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: {
+                    self.configOnErrorStyle(sender: sender, value: 0)
+                })
+                return
+            }
+            
+            if let user = user {
+                DispatchQueue.main.async {
+                    sender.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.0) {
+                        let secondVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeTabBar")
+                        self.present(secondVC, animated: false, completion: nil)
+                        self.isLogged = true
+                        UserDefaults.standard.set(self.isLogged, forKey: Constants.USERLOGGED)
+                        let newUser = ["userID": user.userID, "usernameTextField" : user.name, "lastname" : user.lastname,
+                                       "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
+                        UserDefaults.standard.setValue(newUser, forKey: Constants.USER)
+                    }
+                }
+            }
+        }
+        
+    }
+    
     @IBAction func changeBorderPassword(_ sender: HoshTextField) {
         sender.placeholderColor = .white
         sender.borderInactiveColor = .white
@@ -153,60 +196,7 @@ class SignInViewController: UIViewController {
         }
         
     }
-    
-    func signIn(userEmail: String, pass: String, sender: TransitionButton) {
-        BeerEndPoint.loginUser(withEmail: userEmail.trimmingCharacters(in: .whitespaces), password: pass.trimmingCharacters(in: .whitespaces)) { (user, error) in
-            if let error = error {
-                print(error)
-                sender.cornerRadius = sender.frame.height/2
-                sender.clipsToBounds = true
-                sender.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: {
-                    self.configOnErrorStyle(sender: sender, value: 0)
-                })
-                return
-            }
-            
-            if let user = user {
-                DispatchQueue.main.async {
-                    sender.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.0) {
-                        let secondVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeTabBar")
-                        self.present(secondVC, animated: false, completion: nil)
-                        self.isLogged = true
-                        UserDefaults.standard.set(self.isLogged, forKey: Constants.USERLOGGED)
-                        let newUser = ["userID": user.userID, "usernameTextField" : user.name, "lastname" : user.lastname,
-                                       "birthdate" : user.birthdate, "urlImage": user.urlImage, "email" : user.email]
-                        UserDefaults.standard.setValue(newUser, forKey: Constants.USER)
-                    }
-                }          
-            }
-        }
-        
-    }
-    
-    private func configOnErrorStyle(sender: TransitionButton, value: Int) {
-        switch value {
-        case 0:
-            self.usernameTextField.text = ""
-            self.usernameTextField.borderInactiveColor = .red
-            self.usernameTextField.borderActiveColor = .red
-            self.usernameTextField.placeholderColor = .red
-            self.password.text = ""
-            self.password.borderInactiveColor = .red
-            self.password.borderActiveColor = .red
-            self.password.placeholderColor = .red
-        case 1:
-            self.usernameTextField.borderInactiveColor = .red
-            self.usernameTextField.borderActiveColor = .red
-            self.usernameTextField.placeholderColor = .red
-            self.password.text = ""
-        default:
-            self.password.text = ""
-            Utils.changeBorderOnError(textField: password)
-        }
-        sender.titleLabel!.text = "INGRESAR"
-        sender.setTitle("INGRESAR", for: .selected)
-        sender.setTitle("INGRESAR", for: .normal)
-    }
+
 }
 
 extension SignInViewController: UIGestureRecognizerDelegate {

@@ -1,10 +1,3 @@
-//
-//  Utils.swift
-//  Beer
-//
-//  Created by Melanie on 11/7/18.
-//
-
 import Foundation
 import UIKit
 

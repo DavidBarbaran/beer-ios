@@ -1,10 +1,3 @@
-//
-//  BeerEndPoint.swift
-//  Beer
-//
-//  Created by Melanie on 10/17/18.
-//
-
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -107,5 +100,20 @@ class BeerEndPoint {
                 completionHandler(nil, error.localizedDescription)
             }
         }
+    }
+    
+    static func getPurcharsesFromUser(withIdUser idUser: String, completionHandler: @escaping(_ items: [Purchase]?, _ error: String?)->Void) {
+        let url = String(format: "\(BeerAPI.baseURL)\(BeerAPI.allPucharseURL)\(idUser)")
+        Alamofire.request("http://192.168.1.27:3000/api/purchase/\(idUser)").responseJSON { (response) in
+            switch response.result {
+            case .success:
+                let data = JSON(response.data!).arrayValue
+                let items = Purchase.from(jsonArray: data)
+                completionHandler(items, nil)
+            case .failure(let error):
+                completionHandler(nil, error.localizedDescription)
+            }
+        }
+        
     }
 }

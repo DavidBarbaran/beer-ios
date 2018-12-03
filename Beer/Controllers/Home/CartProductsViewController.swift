@@ -1,10 +1,3 @@
-//
-//  CartProductsViewController.swift
-//  Beer
-//
-//  Created by Melanie on 10/31/18.
-//
-
 import UIKit
 
 class CartProductsViewController: UIViewController {
@@ -22,12 +15,6 @@ class CartProductsViewController: UIViewController {
         self.view.addGestureRecognizer(rightGesture)   
     }
     
-    @objc func backOnSwipe(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == .right {
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Utils.productsOnCar.values.forEach({self.productsCar.append($0)})
@@ -37,6 +24,12 @@ class CartProductsViewController: UIViewController {
         }
         totalPriceLabel.text = "Total = S/.\(totalPrice)"
         self.cartProductsCollectionView.reloadData()
+    }
+    
+    @objc func backOnSwipe(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .right {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     private func buyProductsOncar() {

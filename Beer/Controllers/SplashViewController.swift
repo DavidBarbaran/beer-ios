@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  testLottieAnimation
-//
-//  Created by Melanie on 10/9/18.
-//  Copyright © 2018 exercise. All rights reserved.
-//
-
 import UIKit
 import Lottie
 
@@ -25,18 +17,20 @@ class SplashViewController: UIViewController{
             print(finish)
             if finish {
                 let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
-                if let log = UserDefaults.standard.object(forKey: "login") as? Bool {
-                    if log == false {
-                        let signvc = storyboard.instantiateInitialViewController()
-                        self.present(signvc!,animated: true)
-                    }else {
+                if let log = UserDefaults.standard.object(forKey: Constants.USERLOGGED) as? Bool {
+                    if log {
                         let homevc = UIStoryboard(name: "Home", bundle: nil ).instantiateInitialViewController()
                         self.present(homevc!, animated: true)
+                    }else {
+                        let signvc = storyboard.instantiateViewController(withIdentifier: "navSignVC")
+                        self.present(signvc,animated: true)
                     }
+                }else {
+                    let signvc = storyboard.instantiateInitialViewController()
+                    self.present(signvc!,animated: true)
                 }
             }
         })
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

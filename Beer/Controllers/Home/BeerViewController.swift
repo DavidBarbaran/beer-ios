@@ -1,10 +1,3 @@
-//
-//  BeerViewController.swift
-//  Beer
-//
-//  Created by Melanie on 10/26/18.
-//
-
 import UIKit
 import SDWebImage
 import Hero
@@ -74,6 +67,24 @@ class BeerViewController: UIViewController {
         newProductButton.badgeEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -60, right: -45)
     }
     
+    private func getDrinksByFilter(filter: String) {
+        BeerEndPoint.getDrinks(withFilter: filter, completionHandler: { (productsByFilter, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            if let newProducts = productsByFilter {
+                DispatchQueue.main.async {
+                    self.products.removeAll()
+                    self.heights.removeAll()
+                    self.products = newProducts
+                    self.products.forEach{_ in self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))}
+                    self.collectionView.reloadData()
+                }
+            }
+        })
+    }
+    
     @IBAction func showCategoriesViewAction(_ sender: UIButton) {
         self.blurView.isHidden = false
         UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseIn, animations: {
@@ -102,26 +113,6 @@ class BeerViewController: UIViewController {
             }
         })
     }
-    
-    private func getDrinksByFilter(filter: String) {
-        BeerEndPoint.getDrinks(withFilter: filter, completionHandler: { (productsByFilter, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            if let newProducts = productsByFilter {
-                DispatchQueue.main.async {
-                    self.products.removeAll()
-                    self.heights.removeAll()
-                    self.products = newProducts
-                    self.products.forEach{_ in self.heights.append(CGFloat(Utils.randomNumber(MIN: 102, MAX: 300)))}
-                    self.collectionView.reloadData()
-                }
-            }
-        })
-        
-    }
-    
     
     @IBAction func showProductsOnCartAction(_ sender: Any) {
         

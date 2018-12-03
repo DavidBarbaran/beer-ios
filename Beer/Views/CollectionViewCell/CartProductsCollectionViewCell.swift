@@ -1,10 +1,3 @@
-//
-//  CartProductsCollectionViewCell.swift
-//  Beer
-//
-//  Created by Melanie on 10/31/18.
-//
-
 import UIKit
 
 protocol CartProductsCollectionDelegate {

@@ -1,10 +1,3 @@
-//
-//  Constants.swift
-//  Beer
-//
-//  Created by Melanie on 11/27/18.
-//
-
 import Foundation
 
 class Constants {

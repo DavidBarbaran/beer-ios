@@ -1,10 +1,3 @@
-//
-//  Product.swift
-//  Beer
-//
-//  Created by Melanie on 10/26/18.
-//
-
 import Foundation
 import  SwiftyJSON
 

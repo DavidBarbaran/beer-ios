@@ -36,7 +36,7 @@
                                                     <constraint firstAttribute="height" constant="125" id="nGk-q6-0el"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHi-IS-F7w">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHi-IS-F7w">
                                                 <rect key="frame" x="183" y="392" width="161" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="161" id="eFT-Be-mEo"/>

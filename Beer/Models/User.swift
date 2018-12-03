@@ -1,10 +1,3 @@
-//
-//  User.swift
-//  Beer
-//
-//  Created by Melanie on 10/17/18.
-//
-
 import Foundation
 import SwiftyJSON
 

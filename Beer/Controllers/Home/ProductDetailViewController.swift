@@ -1,10 +1,3 @@
-//
-//  ProductDetailViewController.swift
-//  Beer
-//
-//  Created by Melanie on 10/16/18.
-//
-
 import UIKit
 import Hero
 
@@ -83,11 +76,17 @@ class ProductDetailViewController: UIViewController {
                 let newProduct = Utils.productsOnCart(id: self.productId, productName: product.productName, quantity: newQuantity ,image: product.image, price: product.price,
                                                       discount: product.discount, total: totalProductPrice)
                 Utils.productsOnCar[self.productId] = newProduct
+                self.present(Utils.showAlert(withTitle: "Aviso", message: "\(self.productName) Añadido al carrito"), animated: true)
+                self.productCount = 0
+                self.cantProductLabel.text = String(self.productCount)
             }else {
                 let newProductPrice = self.productPrice - self.productDiscount
                 let totalProductPrice = (newProductPrice*Double(self.productCount))
                 let newProduct = Utils.productsOnCart(id: self.productId, productName: self.productName, quantity: self.productCount, image: self.contentView.image!, price: self.productPrice, discount: self.productDiscount, total: totalProductPrice)
                 Utils.productsOnCar[self.productId] = newProduct
+                self.present(Utils.showAlert(withTitle: "Aviso", message: "\(self.productName) Añadido al carrito"), animated: true)
+                self.productCount = 0
+                self.cantProductLabel.text = String(self.productCount)
             }
         }else {
             let alert = Utils.showAlert(withTitle: Constants.ERROR, message: Constants.CARTERROR)

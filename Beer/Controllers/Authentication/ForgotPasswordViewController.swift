@@ -1,10 +1,3 @@
-//
-//  ForgotPasswordViewController.swift
-//  Beer
-//
-//  Created by Melanie on 10/16/18.
-//
-
 import UIKit
 
 class ForgotPasswordViewController: UIViewController{

@@ -1,10 +1,3 @@
-//
-//  PinterestLayout.swift
-//  PinterestLayoutTest
-//
-//  Created by Melanie on 10/24/18.
-//
-
 import UIKit
 
 protocol PinterestLayoutDelegate: class {
