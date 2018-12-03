@@ -22,8 +22,8 @@ class SplashViewController: UIViewController{
                         let homevc = UIStoryboard(name: "Home", bundle: nil ).instantiateInitialViewController()
                         self.present(homevc!, animated: true)
                     }else {
-                        let signvc = storyboard.instantiateViewController(withIdentifier: "navSignVC")
-                        self.present(signvc,animated: true)
+                        let signvc = storyboard.instantiateInitialViewController()
+                        self.present(signvc!,animated: true)
                     }
                 }else {
                     let signvc = storyboard.instantiateInitialViewController()

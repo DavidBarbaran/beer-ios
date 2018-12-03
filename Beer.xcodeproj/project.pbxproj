@@ -33,6 +33,8 @@
 		9181084221ADB7AA00EF11FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181084121ADB7AA00EF11FC /* Constants.swift */; };
 		918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918797B22176500200A96CE3 /* ProductDetailViewController.swift */; };
 		91C34EED21B5BAF3004DEBB1 /* PurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C34EEC21B5BAF3004DEBB1 /* PurchaseCollectionViewCell.swift */; };
+		91C34EEF21B5C965004DEBB1 /* PurchaseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C34EEE21B5C965004DEBB1 /* PurchaseDetail.swift */; };
+		91C34EF121B5CD70004DEBB1 /* PurchaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C34EF021B5CD70004DEBB1 /* PurchaseDetailViewController.swift */; };
 		91CCE1AB21B59CEC007C7B10 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CCE1AA21B59CEC007C7B10 /* Purchase.swift */; };
 		91D48EB02188B3E9007D91F5 /* SSBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48EAF2188B3E8007D91F5 /* SSBadgeButton.swift */; };
 		91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBD1CB2176868000DC1CAB /* BeerAPI.swift */; };
@@ -78,6 +80,8 @@
 		9181084121ADB7AA00EF11FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		918797B22176500200A96CE3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		91C34EEC21B5BAF3004DEBB1 /* PurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		91C34EEE21B5C965004DEBB1 /* PurchaseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDetail.swift; sourceTree = "<group>"; };
+		91C34EF021B5CD70004DEBB1 /* PurchaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDetailViewController.swift; sourceTree = "<group>"; };
 		91CCE1AA21B59CEC007C7B10 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		91D48EAF2188B3E8007D91F5 /* SSBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSBadgeButton.swift; sourceTree = "<group>"; };
 		91DBD1CB2176868000DC1CAB /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				91E652592177DA5B00BE7DBE /* User.swift */,
 				9135871821838138002BB974 /* Product.swift */,
 				91CCE1AA21B59CEC007C7B10 /* Purchase.swift */,
+				91C34EEE21B5C965004DEBB1 /* PurchaseDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				9162C1BD2183C037007C8290 /* ProfileViewController.swift */,
 				912523BE218A0AF00043EB38 /* CartProductsViewController.swift */,
 				91FD9696218C9CB300ED7694 /* PurchasesViewController.swift */,
+				91C34EF021B5CD70004DEBB1 /* PurchaseDetailViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -425,12 +431,14 @@
 				9135871721837A85002BB974 /* BeerViewController.swift in Sources */,
 				912523BF218A0AF00043EB38 /* CartProductsViewController.swift in Sources */,
 				91CCE1AB21B59CEC007C7B10 /* Purchase.swift in Sources */,
+				91C34EF121B5CD70004DEBB1 /* PurchaseDetailViewController.swift in Sources */,
 				91358712218377A4002BB974 /* PinterestLayout.swift in Sources */,
 				91D48EB02188B3E9007D91F5 /* SSBadgeButton.swift in Sources */,
 				91DBD1CC2176868000DC1CAB /* BeerAPI.swift in Sources */,
 				912523BC218A096B0043EB38 /* CartProductsCollectionViewCell.swift in Sources */,
 				91C34EED21B5BAF3004DEBB1 /* PurchaseCollectionViewCell.swift in Sources */,
 				91E652572177CAD900BE7DBE /* RegisterUserViewController.swift in Sources */,
+				91C34EEF21B5C965004DEBB1 /* PurchaseDetail.swift in Sources */,
 				9149E1AB216D5792009186DC /* AppDelegate.swift in Sources */,
 				918797B32176500200A96CE3 /* ProductDetailViewController.swift in Sources */,
 				91FD9697218C9CB300ED7694 /* PurchasesViewController.swift in Sources */,

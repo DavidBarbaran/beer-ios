@@ -3,13 +3,16 @@ import SwiftyJSON
 
 class Purchase {
     var idPurchase: String
+    var details: [PurchaseDetail]
     
-    init(idPurchase: String) {
+    
+    init(idPurchase: String, products: [PurchaseDetail]) {
         self.idPurchase = idPurchase
+        self.details = products
     }
     
     static func from(json: JSON) -> Purchase {
-        return Purchase.init(idPurchase: json["_id"].stringValue)
+        return Purchase.init(idPurchase: json["_id"].stringValue, products: PurchaseDetail.from(jsonArray: json["detailPurchase"].arrayValue))
     }
     
     static func from(jsonArray: [JSON]) -> [Purchase] {

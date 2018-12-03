@@ -22,7 +22,7 @@ class PurchasesViewController: UIViewController {
     }
     
     private func getPurchases(idUser: String) {
-        BeerEndPoint.getPurcharsesFromUser(withIdUser: "5c0551dcbb4f5135fcd60cb9") { (items, error) in
+        BeerEndPoint.getPurcharsesFromUser(withIdUser: "5c059fafb2b0ac21e4948722") { (items, error)  in
             if let error = error {
                 self.present(Utils.showAlert(withTitle: "Error", message: error),animated: true)
                 return
@@ -35,9 +35,9 @@ class PurchasesViewController: UIViewController {
                 self.messageLabel.isHidden = true
                 
             }
-            
         }
     }
+    
 }
 
 extension PurchasesViewController: UICollectionViewDataSource {
@@ -50,6 +50,13 @@ extension PurchasesViewController: UICollectionViewDataSource {
         cell.purchaseDateLabel.text = purchases[indexPath.row].idPurchase
         return cell
     }
-    
-    
+}
+
+extension PurchasesViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        purchases[indexPath.row].products.forEach({print($0.product.name)})
+        let detailVC = storyboard?.instantiateViewController(withIdentifier: "pucharseDetailVC") as! PurchaseDetailViewController
+        detailVC.details = purchases[indexPath.row].details
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

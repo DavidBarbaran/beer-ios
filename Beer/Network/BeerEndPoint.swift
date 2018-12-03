@@ -108,8 +108,16 @@ class BeerEndPoint {
             switch response.result {
             case .success:
                 let data = JSON(response.data!).arrayValue
-                let items = Purchase.from(jsonArray: data)
-                completionHandler(items, nil)
+                var items: [Purchase] = []
+                data.forEach({items+=Purchase.from(jsonArray: $0.arrayValue)})
+                data.forEach({items.append(Purchase.from(json: $0))})
+                completionHandler(items,nil)
+                
+                
+//                var i :[PurchaseDetail] = []
+//                data.forEach({i+=PurchaseDetail.from(jsonArray: $0["detailPurchase"].arrayValue)})
+//                i.forEach({print($0.product)})
+
             case .failure(let error):
                 completionHandler(nil, error.localizedDescription)
             }
