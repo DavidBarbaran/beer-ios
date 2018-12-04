@@ -11,7 +11,11 @@ class PurchasesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getPurchases(idUser: "")
+        if let user = UserDefaults.standard.object(forKey: Constants.USER) as? [String: String] {
+            getPurchases(idUser: user["userID"]!)
+        }
+            
+        
         if purchases.count > 0 {
             purchasesCollectionView.isHidden = false
             messageLabel.isHidden = true
@@ -22,7 +26,7 @@ class PurchasesViewController: UIViewController {
     }
     
     private func getPurchases(idUser: String) {
-        BeerEndPoint.getPurcharsesFromUser(withIdUser: "5c059fafb2b0ac21e4948722") { (items, error)  in
+        BeerEndPoint.getPurcharsesFromUser(withIdUser: idUser) { (items, error)  in
             if let error = error {
                 self.present(Utils.showAlert(withTitle: "Error", message: error),animated: true)
                 return

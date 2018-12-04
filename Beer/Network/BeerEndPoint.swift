@@ -104,7 +104,7 @@ class BeerEndPoint {
     
     static func getPurcharsesFromUser(withIdUser idUser: String, completionHandler: @escaping(_ items: [Purchase]?, _ error: String?)->Void) {
         let url = String(format: "\(BeerAPI.baseURL)\(BeerAPI.allPucharseURL)\(idUser)")
-        Alamofire.request("http://192.168.1.27:3000/api/purchase/\(idUser)").responseJSON { (response) in
+        Alamofire.request("http://localhost:3000/api/purchase/\(idUser)").responseJSON { (response) in
             switch response.result {
             case .success:
                 let data = JSON(response.data!).arrayValue
